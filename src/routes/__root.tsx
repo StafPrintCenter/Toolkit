@@ -51,6 +51,28 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       { rel: "icon", href: "/favicon.ico", type: "image/x-icon" },
       { rel: "sitemap", type: "application/xml", href: "/sitemap.xml" },
     ],
+    scripts: [
+      /* Schéma WebApplication pour l'outil de brief */
+      {
+        type: "application/ld+json",
+        children: JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "WebApplication",
+          "@id": `${SITE_LINK.briefUrl}/#webapp`,
+          url: SITE_LINK.briefUrl,
+          name: `SPC Interactive Brief`,
+          applicationCategory: "BusinessApplication",
+          operatingSystem: "All",
+          description: PAGE_DESC,
+          inLanguage: "fr-BJ",
+          publisher: {
+            "@type": "Organization",
+            name: SITE.name,
+            logo: { "@type": "ImageObject", url: `${logo.meta}` }
+          }
+        }),
+      }
+    ],
   }),
   shellComponent: RootShell,
   component: RootComponent,
