@@ -1,7 +1,8 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { motion } from "framer-motion";
 import { useState } from "react";
-import { Field, Panel, ToolShell } from "@/components/spc/Layout";
+import { Field, Panel } from "@/components/spc/Layout";
+import { ToolkitShell } from "@/components/site";
 import { getTool } from "@/data/toolsRegistry";
 import { Input } from "@/components/ui/input";
 import { Slider } from "@/components/ui/slider";
@@ -51,7 +52,7 @@ function Page() {
   const scale = Math.min(620 / total, 260 / height);
 
   return (
-    <ToolShell tool={tool}>
+    <ToolkitShell tool={tool}>
       <div className="grid gap-6 lg:grid-cols-[340px_1fr]">
         <Panel title="Type de pliage">
           <div className="space-y-2">
@@ -141,6 +142,6 @@ function Page() {
           </Panel>
         </div>
       </div>
-    </ToolShell>
+    </ToolkitShell>
   );
 }
