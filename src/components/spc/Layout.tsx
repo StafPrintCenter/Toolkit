@@ -1,9 +1,54 @@
 import { Link } from "@tanstack/react-router";
 import { motion } from "framer-motion";
-import { ArrowLeft, ArrowUpRight } from "lucide-react";
+import { ArrowLeft, ArrowUpRight, Printer } from "lucide-react";
 import type { ReactNode } from "react";
 import { CATEGORIES, type ToolItem } from "@/data/toolsRegistry";
 import { Button } from "@/components/ui/button";
+
+export function SiteHeader() {
+  return (
+    <header className="sticky top-0 z-40 border-b border-border/70 bg-background/80 backdrop-blur-xl">
+      <div className="mx-auto flex h-16 max-w-6xl items-center justify-between px-4">
+        <Link to="/" className="flex items-center gap-2.5">
+          <span className="flex size-9 items-center justify-center rounded-xl bg-primary text-primary-foreground shadow-glow">
+            <Printer className="size-5" />
+          </span>
+          <span className="leading-tight">
+            <span className="block font-display text-sm font-bold">SPC Creative Toolkit</span>
+            <span className="block text-num text-[10px] uppercase tracking-widest text-muted-foreground">
+              tools.stafprint.com
+            </span>
+          </span>
+        </Link>
+        <div className="flex items-center gap-1">
+          <Button asChild size="sm" className="hidden sm:inline-flex">
+            <a href="https://brief.stafprint.com" target="_blank" rel="noreferrer">
+              Lancer un brief
+            </a>
+          </Button>
+        </div>
+      </div>
+    </header>
+  );
+}
+
+export function SiteFooter() {
+  return (
+    <footer className="border-t border-border/70 bg-card/40">
+      <div className="mx-auto flex max-w-6xl flex-col gap-2 px-4 py-8 text-sm text-muted-foreground sm:flex-row sm:items-center sm:justify-between">
+        <p>STAF PRINT CENTER — Porto-Novo, Bénin. Tous les calculs restent dans votre navigateur.</p>
+        <div className="flex gap-4">
+          <a className="hover:text-primary" href="https://brief.stafprint.com" target="_blank" rel="noreferrer">
+            brief
+          </a>
+          <a className="hover:text-primary" href="https://docs.stafprint.com" target="_blank" rel="noreferrer">
+            docs
+          </a>
+        </div>
+      </div>
+    </footer>
+  );
+}
 
 export function CtaBanner({ tool }: { tool: ToolItem }) {
   return (
@@ -39,6 +84,7 @@ export function ToolShell({ tool, children }: { tool: ToolItem; children: ReactN
   const cat = CATEGORIES[tool.category];
   return (
     <div className="flex min-h-screen flex-col">
+      <SiteHeader />
       <main className="mx-auto w-full max-w-6xl flex-1 px-4 py-10">
         <Link
           to="/"
@@ -58,6 +104,7 @@ export function ToolShell({ tool, children }: { tool: ToolItem; children: ReactN
         <div className="mt-8">{children}</div>
         <CtaBanner tool={tool} />
       </main>
+      <SiteFooter />
     </div>
   );
 }
