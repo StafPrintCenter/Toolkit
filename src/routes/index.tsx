@@ -52,7 +52,7 @@ function Dashboard() {
 
   return (
     <div className="flex min-h-screen flex-col">
-      <SiteHeader />
+      <ToolkitHeader />
       <main className="flex-1">
         <section className="hero-glow border-b border-border/70">
           <div className="surface-grid">
