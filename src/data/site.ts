@@ -32,4 +32,5 @@ export const SITE_LINK = {
   arcadeUrl: import.meta.env.VITE_ARCADE_URL,
   docsUrl: import.meta.env.VITE_DOCS_URL,
   briefUrl: import.meta.env.VITE_BRIEF_URL,
+  toolkitUrl: import.meta.env.VITE_TOOLKIT_URL,
 };
