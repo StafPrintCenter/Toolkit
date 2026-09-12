@@ -1,6 +1,7 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { useState } from "react";
-import { Panel, ToolShell } from "@/components/spc/Layout";
+import { Panel } from "@/components/spc/Layout";
+import { ToolkitShell } from "@/components/site";
 import { getTool } from "@/data/toolsRegistry";
 import { SITE } from "@/data/site";
 
@@ -111,7 +112,7 @@ function Page() {
   const row = SIZES.find((s) => s.size === size)!;
 
   return (
-    <ToolShell tool={tool}>
+    <ToolkitShell tool={tool}>
       <div className="grid gap-6 lg:grid-cols-[380px_1fr]">
         <Panel title="Emplacement du marquage">
           <div className="space-y-2">
@@ -186,6 +187,6 @@ function Page() {
           </Panel>
         </div>
       </div>
-    </ToolShell>
+    </ToolkitShell>
   );
 }
