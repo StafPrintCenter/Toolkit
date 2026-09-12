@@ -1,7 +1,8 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { useMemo, useRef, useState } from "react";
 import { AlertTriangle, CheckCircle2, Upload } from "lucide-react";
-import { Field, Panel, ToolShell } from "@/components/spc/Layout";
+import { Field, Panel } from "@/components/spc/Layout";
+import { ToolkitShell } from "@/components/site";
 import { getTool } from "@/data/toolsRegistry";
 import { Input } from "@/components/ui/input";
 import { Slider } from "@/components/ui/slider";
@@ -70,7 +71,7 @@ function Page() {
   };
 
   return (
-    <ToolShell tool={tool}>
+    <ToolkitShell tool={tool}>
       <div className="grid gap-6 lg:grid-cols-[380px_1fr]">
         <Panel title="Couleur source" description="Saisissez un code hex, réglez le RVB ou importez une image.">
           <div className="space-y-5">
@@ -194,6 +195,6 @@ function Page() {
           </Panel>
         </div>
       </div>
-    </ToolShell>
+    </ToolkitShell>
   );
 }
