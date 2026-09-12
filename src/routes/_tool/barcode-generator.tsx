@@ -5,6 +5,10 @@ import { Field, Panel, ToolShell } from "@/components/spc/Layout";
 import { getTool } from "@/data/toolsRegistry";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
+import { SITE } from "@/data/site";
+
+const PAGE_TITLE = `SPC Creative Toolkit - Outils prépresse & impression | ${SITE.name}`;
+const PAGE_DESC = `Le hub d'utilitaires prépresse et impression de${SITE.name}.`;
 
 const tool = getTool("/barcode-generator")!;
 
@@ -205,9 +209,8 @@ function BarcodePanel() {
                   setFormat(f);
                   setValue(f === "EAN13" ? "5901234123457" : "STAFPRINT-2026");
                 }}
-                className={`rounded-full border px-4 py-1.5 text-sm ${
-                  format === f ? "border-primary bg-primary text-primary-foreground" : "border-border"
-                }`}
+                className={`rounded-full border px-4 py-1.5 text-sm ${format === f ? "border-primary bg-primary text-primary-foreground" : "border-border"
+                  }`}
               >
                 {f === "EAN13" ? "EAN-13" : "Code 128"}
               </button>
