@@ -5,6 +5,10 @@ import { Field, Panel, ToolShell } from "@/components/spc/Layout";
 import { getTool } from "@/data/toolsRegistry";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
+import { SITE } from "@/data/site";
+
+const PAGE_TITLE = `SPC Creative Toolkit - Outils prépresse & impression | ${SITE.name}`;
+const PAGE_DESC = `Le hub d'utilitaires prépresse et impression de${SITE.name}.`;
 
 const tool = getTool("/pdf-tools")!;
 
@@ -126,9 +130,8 @@ function Page() {
               <button
                 key={m}
                 onClick={() => setMode(m)}
-                className={`w-full rounded-xl border p-3 text-left text-sm ${
-                  mode === m ? "border-primary bg-accent/60" : "border-border hover:border-primary/50"
-                }`}
+                className={`w-full rounded-xl border p-3 text-left text-sm ${mode === m ? "border-primary bg-accent/60" : "border-border hover:border-primary/50"
+                  }`}
               >
                 <span className="font-medium">{labels[m].title}</span>
                 <span className="mt-0.5 block text-xs text-muted-foreground">{labels[m].desc}</span>
