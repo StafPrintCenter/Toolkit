@@ -7,25 +7,18 @@ import { Input } from "@/components/ui/input";
 import { Slider } from "@/components/ui/slider";
 import { SITE } from "@/data/site";
 
-const PAGE_TITLE = `SPC Creative Toolkit - Outils prépresse & impression | ${SITE.name}`;
-const PAGE_DESC = `Le hub d'utilitaires prépresse et impression de${SITE.name}.`;
+const PAGE_TITLE = `Simulateur de pliage : dépliants 2, 3 volets & accordéon | SPC Toolkit | ${SITE.name}`;
+const PAGE_DESC = `Visualisez le pliage de vos dépliants, obtenez la largeur exacte de chaque volet et l'ordre des pages recto-verso.`;
 
 const tool = getTool("/fold-simulator")!;
 
 export const Route = createFileRoute("/_tool/fold-simulator")({
   head: () => ({
     meta: [
-      { title: "Simulateur de pliage : dépliants 2, 3 volets & accordéon | SPC Toolkit" },
-      {
-        name: "description",
-        content:
-          "Visualisez le pliage de vos dépliants, obtenez la largeur exacte de chaque volet et l'ordre des pages recto-verso.",
-      },
-      { property: "og:title", content: "Simulateur de Pliage & Volets — SPC Creative Toolkit" },
-      {
-        property: "og:description",
-        content: "Roulé, accordéon ou simple : calez vos volets avant la mise en page.",
-      },
+      { title: PAGE_TITLE },
+      { name: "description", content: PAGE_DESC },
+      { property: "og:title", content: PAGE_TITLE },
+      { property: "og:description", content: PAGE_DESC },
     ],
   }),
   component: Page,
