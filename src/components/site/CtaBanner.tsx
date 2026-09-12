@@ -2,6 +2,7 @@ import { motion } from "framer-motion";
 import { ArrowUpRight } from "lucide-react";
 import type { ToolItem } from "@/data/toolsRegistry";
 import { Button } from "@/components/ui/button";
+import { SITE_LINK } from "@/data/site";
 
 export function CtaBanner({ tool }: { tool: ToolItem }) {
   return (
@@ -19,12 +20,20 @@ export function CtaBanner({ tool }: { tool: ToolItem }) {
       </div>
       <div className="mt-4 flex flex-wrap gap-2 sm:mt-0 sm:shrink-0">
         <Button asChild>
-          <a href={tool.ctaTargetUrl} target="_blank" rel="noreferrer">
+          <a
+            href={SITE_LINK.briefUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+          >
             Continuer <ArrowUpRight className="size-4" />
           </a>
         </Button>
         <Button asChild variant="outline">
-          <a href="https://docs.stafprint.com" target="_blank" rel="noreferrer">
+          <a
+            href={SITE_LINK.docsUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+          >
             Documentation
           </a>
         </Button>
