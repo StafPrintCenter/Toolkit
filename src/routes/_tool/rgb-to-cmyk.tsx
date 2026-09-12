@@ -9,25 +9,18 @@ import { Button } from "@/components/ui/button";
 import { gamutDelta, hexToRgb, rgbToCmyk, rgbToHex, simulatePaper } from "@/lib/color";
 import { SITE } from "@/data/site";
 
-const PAGE_TITLE = `SPC Creative Toolkit - Outils prépresse & impression | ${SITE.name}`;
-const PAGE_DESC = `Le hub d'utilitaires prépresse et impression de${SITE.name}.`;
+const PAGE_TITLE = `Convertisseur RVB vers CMJN & simulateur papier | SPC Toolkit | ${SITE.name}`;
+const PAGE_DESC = `Convertissez une couleur hex/RVB en CMJN, simulez le rendu sur papier mat ou brillant et détectez les couleurs hors gamme d'impression.`;
 
 const tool = getTool("/rgb-to-cmyk")!;
 
 export const Route = createFileRoute("/_tool/rgb-to-cmyk")({
   head: () => ({
     meta: [
-      { title: "Convertisseur RVB vers CMJN & simulateur papier | SPC Toolkit" },
-      {
-        name: "description",
-        content:
-          "Convertissez une couleur hex/RVB en CMJN, simulez le rendu sur papier mat ou brillant et détectez les couleurs hors gamme d'impression.",
-      },
-      { property: "og:title", content: "Convertisseur RVB ➔ CMJN — SPC Creative Toolkit" },
-      {
-        property: "og:description",
-        content: "Simulation du rendu imprimé et alerte hors gamme, directement dans le navigateur.",
-      },
+      { title: PAGE_TITLE },
+      { name: "description", content: PAGE_DESC },
+      { property: "og:title", content: PAGE_TITLE },
+      { property: "og:description", content: PAGE_DESC },
     ],
   }),
   component: Page,
