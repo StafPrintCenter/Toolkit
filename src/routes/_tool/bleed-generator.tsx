@@ -7,25 +7,18 @@ import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import { SITE } from "@/data/site";
 
-const PAGE_TITLE = `SPC Creative Toolkit - Outils prépresse & impression | ${SITE.name}`;
-const PAGE_DESC = `Le hub d'utilitaires prépresse et impression de${SITE.name}.`;
+const PAGE_TITLE = `Générateur de gabarits & fonds perdus 3 mm | SPC Toolkit | ${SITE.name}`;
+const PAGE_DESC = `Créez un gabarit d'impression avec trait de coupe, fond perdu de 3 mm et marge de sécurité, puis exportez-le en PNG ou PDF.`;
 
 const tool = getTool("/bleed-generator")!;
 
 export const Route = createFileRoute("/_tool/bleed-generator")({
   head: () => ({
     meta: [
-      { title: "Générateur de gabarits & fonds perdus 3 mm | SPC Toolkit" },
-      {
-        name: "description",
-        content:
-          "Créez un gabarit d'impression avec trait de coupe, fond perdu de 3 mm et marge de sécurité, puis exportez-le en PNG ou PDF.",
-      },
-      { property: "og:title", content: "Gabarits & Fonds Perdus — SPC Creative Toolkit" },
-      {
-        property: "og:description",
-        content: "A4, A5, carte de visite, roll-up ou format libre : votre gabarit prêt en un clic.",
-      },
+      { title: PAGE_TITLE },
+      { name: "description", content: PAGE_DESC },
+      { property: "og:title", content: PAGE_TITLE },
+      { property: "og:description", content: PAGE_DESC },
     ],
   }),
   component: Page,
