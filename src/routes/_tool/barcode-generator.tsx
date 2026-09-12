@@ -1,7 +1,8 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { useEffect, useRef, useState } from "react";
 import { Download } from "lucide-react";
-import { Field, Panel, ToolShell } from "@/components/spc/Layout";
+import { Field, Panel } from "@/components/spc/Layout";
+import { ToolkitShell } from "@/components/site";
 import { getTool } from "@/data/toolsRegistry";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
@@ -239,7 +240,7 @@ function BarcodePanel() {
 function Page() {
   const [tab, setTab] = useState<"qr" | "barcode">("qr");
   return (
-    <ToolShell tool={tool}>
+    <ToolkitShell tool={tool}>
       <div className="mb-6 inline-flex rounded-full border border-border p-1">
         {(
           [
@@ -257,6 +258,6 @@ function Page() {
         ))}
       </div>
       {tab === "qr" ? <QrPanel /> : <BarcodePanel />}
-    </ToolShell>
+    </ToolkitShell>
   );
 }
