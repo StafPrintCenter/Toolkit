@@ -4,25 +4,18 @@ import { Panel, ToolShell } from "@/components/spc/Layout";
 import { getTool } from "@/data/toolsRegistry";
 import { SITE } from "@/data/site";
 
-const PAGE_TITLE = `SPC Creative Toolkit - Outils prépresse & impression | ${SITE.name}`;
-const PAGE_DESC = `Le hub d'utilitaires prépresse et impression de${SITE.name}.`;
+const PAGE_TITLE = `Guide des tailles textiles & zones de flocage | SPC Toolkit | ${SITE.name}`;
+const PAGE_DESC = `Tableau des tailles de t-shirts du S au XXL et prévisualisation des emplacements d'impression : cœur, A4 poitrine, A3 dos, manche.`;
 
 const tool = getTool("/textile-guide")!;
 
 export const Route = createFileRoute("/_tool/textile-guide")({
   head: () => ({
     meta: [
-      { title: "Guide des tailles textiles & zones de flocage | SPC Toolkit" },
-      {
-        name: "description",
-        content:
-          "Tableau des tailles de t-shirts du S au XXL et prévisualisation des emplacements d'impression : cœur, A4 poitrine, A3 dos, manche.",
-      },
-      { property: "og:title", content: "Guide Textile & Flocage — SPC Creative Toolkit" },
-      {
-        property: "og:description",
-        content: "Choisissez la bonne taille de marquage avant de lancer votre série de textiles.",
-      },
+      { title: PAGE_TITLE },
+      { name: "description", content: PAGE_DESC },
+      { property: "og:title", content: PAGE_TITLE },
+      { property: "og:description", content: PAGE_DESC },
     ],
   }),
   component: Page,
