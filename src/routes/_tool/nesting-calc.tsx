@@ -1,7 +1,8 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { useMemo, useState } from "react";
 import { Plus, Trash2 } from "lucide-react";
-import { Field, Panel, Stat, ToolShell } from "@/components/spc/Layout";
+import { Field, Panel, Stat } from "@/components/spc/Layout";
+import { ToolkitShell } from "@/components/site";
 import { getTool } from "@/data/toolsRegistry";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
@@ -89,7 +90,7 @@ function Page() {
     setPieces((p) => p.map((x) => (x.id === id ? { ...x, ...patch } : x)));
 
   return (
-    <ToolShell tool={tool}>
+    <ToolkitShell tool={tool}>
       <div className="grid gap-6 lg:grid-cols-[380px_1fr]">
         <Panel title="Support et visuels">
           <Field label="Laize du rouleau (mm)">
@@ -191,6 +192,6 @@ function Page() {
           </Panel>
         </div>
       </div>
-    </ToolShell>
+    </ToolkitShell>
   );
 }
