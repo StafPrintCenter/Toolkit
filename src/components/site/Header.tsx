@@ -15,18 +15,10 @@ export function ToolkitHeader() {
         <div className="flex items-center gap-1">
           <ThemeToggle />
           <Button asChild size="sm" className="hidden sm:inline-flex">
-            <a href="https://brief.stafprint.com" target="_blank" rel="noreferrer">
-              Lancer un brief
-            </a>
-
-
-
-
             <a
               href={SITE_LINK.briefUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="mt-1 block font-medium underline underline-offset-4 transition-colors hover:text-primary sm:mt-0 sm:inline"
             >
               Lancer un brief
             </a>
