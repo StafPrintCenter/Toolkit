@@ -8,7 +8,7 @@ import { Input } from "@/components/ui/input";
 import { SITE } from "@/data/site";
 
 const PAGE_TITLE = `SPC Creative Toolkit - Outils prépresse & impression | ${SITE.name}`;
-const PAGE_DESC = `Le hub d'utilitaires prépresse et impression de${SITE.name}.`;
+const PAGE_DESC = `Le hub d'utilitaires prépresse et impression de ${SITE.name}.`;
 
 export const Route = createFileRoute("/")({
   head: () => ({
