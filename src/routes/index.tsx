@@ -3,7 +3,7 @@ import { motion } from "framer-motion";
 import * as Icons from "lucide-react";
 import { useMemo, useState } from "react";
 import { CATEGORIES, TOOLS, type ToolCategory } from "@/data/toolsRegistry";
-import { SiteFooter, SiteHeader } from "@/components/spc/Layout";
+import { ToolkitHeader, ToolkitFooter } from "@/components/site";
 import { Input } from "@/components/ui/input";
 
 export const Route = createFileRoute("/")({
