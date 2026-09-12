@@ -3,6 +3,10 @@ import { useState } from "react";
 import { Field, Panel, Stat, ToolShell } from "@/components/spc/Layout";
 import { getTool } from "@/data/toolsRegistry";
 import { Input } from "@/components/ui/input";
+import { SITE } from "@/data/site";
+
+const PAGE_TITLE = `SPC Creative Toolkit - Outils prépresse & impression | ${SITE.name}`;
+const PAGE_DESC = `Le hub d'utilitaires prépresse et impression de${SITE.name}.`;
 
 const tool = getTool("/spine-calculator")!;
 
@@ -70,9 +74,8 @@ function Page() {
                   <button
                     key={p.label}
                     onClick={() => setPaper(p)}
-                    className={`rounded-full border px-3 py-1.5 text-xs ${
-                      paper.label === p.label ? "border-primary bg-primary text-primary-foreground" : "border-border"
-                    }`}
+                    className={`rounded-full border px-3 py-1.5 text-xs ${paper.label === p.label ? "border-primary bg-primary text-primary-foreground" : "border-border"
+                      }`}
                   >
                     {p.label}
                   </button>
@@ -85,9 +88,8 @@ function Page() {
                   <button
                     key={b.label}
                     onClick={() => setBinding(b)}
-                    className={`rounded-full border px-3 py-1.5 text-xs ${
-                      binding.label === b.label ? "border-primary bg-primary text-primary-foreground" : "border-border"
-                    }`}
+                    className={`rounded-full border px-3 py-1.5 text-xs ${binding.label === b.label ? "border-primary bg-primary text-primary-foreground" : "border-border"
+                      }`}
                   >
                     {b.label}
                   </button>
