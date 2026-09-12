@@ -5,6 +5,10 @@ import { Field, Panel, Stat, ToolShell } from "@/components/spc/Layout";
 import { getTool } from "@/data/toolsRegistry";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
+import { SITE } from "@/data/site";
+
+const PAGE_TITLE = `SPC Creative Toolkit - Outils prépresse & impression | ${SITE.name}`;
+const PAGE_DESC = `Le hub d'utilitaires prépresse et impression de${SITE.name}.`;
 
 const tool = getTool("/dpi-calculator")!;
 
