@@ -1,6 +1,7 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { useState } from "react";
-import { Field, Panel, Stat, ToolShell } from "@/components/spc/Layout";
+import { Field, Panel, Stat } from "@/components/spc/Layout";
+import { ToolkitShell } from "@/components/site";
 import { getTool } from "@/data/toolsRegistry";
 import { Input } from "@/components/ui/input";
 import { SITE } from "@/data/site";
@@ -57,7 +58,7 @@ function Page() {
   const coverWidth = format.w * 2 + spine;
 
   return (
-    <ToolShell tool={tool}>
+    <ToolkitShell tool={tool}>
       <div className="grid gap-6 lg:grid-cols-[400px_1fr]">
         <Panel title="Caractéristiques de l'ouvrage">
           <div className="space-y-5">
@@ -141,6 +142,6 @@ function Page() {
           </Panel>
         </div>
       </div>
-    </ToolShell>
+    </ToolkitShell>
   );
 }
