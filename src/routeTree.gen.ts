@@ -10,36 +10,21 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
-import { Route as BarcodeGeneratorRouteImport } from './routes/barcode-generator'
-import { Route as BleedGeneratorRouteImport } from './routes/bleed-generator'
-import { Route as DpiCalculatorRouteImport } from './routes/dpi-calculator'
 import { Route as FoldSimulatorRouteImport } from './routes/fold-simulator'
 import { Route as NestingCalcRouteImport } from './routes/nesting-calc'
 import { Route as PdfToolsRouteImport } from './routes/pdf-tools'
-import { Route as RgbToCmykRouteImport } from './routes/rgb-to-cmyk'
 import { Route as SitemapDotxmlRouteImport } from './routes/sitemap[.]xml'
 import { Route as SpineCalculatorRouteImport } from './routes/spine-calculator'
 import { Route as TacCheckerRouteImport } from './routes/tac-checker'
 import { Route as TextileGuideRouteImport } from './routes/textile-guide'
+import { Route as ToolBarcodeGeneratorRouteImport } from './routes/_tool/barcode-generator'
+import { Route as ToolBleedGeneratorRouteImport } from './routes/_tool/bleed-generator'
+import { Route as ToolDpiCalculatorRouteImport } from './routes/_tool/dpi-calculator'
+import { Route as ToolRgbToCmykRouteImport } from './routes/_tool/rgb-to-cmyk'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const BarcodeGeneratorRoute = BarcodeGeneratorRouteImport.update({
-  id: '/barcode-generator',
-  path: '/barcode-generator',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const BleedGeneratorRoute = BleedGeneratorRouteImport.update({
-  id: '/bleed-generator',
-  path: '/bleed-generator',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const DpiCalculatorRoute = DpiCalculatorRouteImport.update({
-  id: '/dpi-calculator',
-  path: '/dpi-calculator',
   getParentRoute: () => rootRouteImport,
 } as any)
 const FoldSimulatorRoute = FoldSimulatorRouteImport.update({
@@ -55,11 +40,6 @@ const NestingCalcRoute = NestingCalcRouteImport.update({
 const PdfToolsRoute = PdfToolsRouteImport.update({
   id: '/pdf-tools',
   path: '/pdf-tools',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const RgbToCmykRoute = RgbToCmykRouteImport.update({
-  id: '/rgb-to-cmyk',
-  path: '/rgb-to-cmyk',
   getParentRoute: () => rootRouteImport,
 } as any)
 const SitemapDotxmlRoute = SitemapDotxmlRouteImport.update({
@@ -82,108 +62,128 @@ const TextileGuideRoute = TextileGuideRouteImport.update({
   path: '/textile-guide',
   getParentRoute: () => rootRouteImport,
 } as any)
+const ToolBarcodeGeneratorRoute = ToolBarcodeGeneratorRouteImport.update({
+  id: '/_tool/barcode-generator',
+  path: '/barcode-generator',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ToolBleedGeneratorRoute = ToolBleedGeneratorRouteImport.update({
+  id: '/_tool/bleed-generator',
+  path: '/bleed-generator',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ToolDpiCalculatorRoute = ToolDpiCalculatorRouteImport.update({
+  id: '/_tool/dpi-calculator',
+  path: '/dpi-calculator',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ToolRgbToCmykRoute = ToolRgbToCmykRouteImport.update({
+  id: '/_tool/rgb-to-cmyk',
+  path: '/rgb-to-cmyk',
+  getParentRoute: () => rootRouteImport,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
-  '/barcode-generator': typeof BarcodeGeneratorRoute
-  '/bleed-generator': typeof BleedGeneratorRoute
-  '/dpi-calculator': typeof DpiCalculatorRoute
   '/fold-simulator': typeof FoldSimulatorRoute
   '/nesting-calc': typeof NestingCalcRoute
   '/pdf-tools': typeof PdfToolsRoute
-  '/rgb-to-cmyk': typeof RgbToCmykRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
   '/spine-calculator': typeof SpineCalculatorRoute
   '/tac-checker': typeof TacCheckerRoute
   '/textile-guide': typeof TextileGuideRoute
+  '/barcode-generator': typeof ToolBarcodeGeneratorRoute
+  '/bleed-generator': typeof ToolBleedGeneratorRoute
+  '/dpi-calculator': typeof ToolDpiCalculatorRoute
+  '/rgb-to-cmyk': typeof ToolRgbToCmykRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
-  '/barcode-generator': typeof BarcodeGeneratorRoute
-  '/bleed-generator': typeof BleedGeneratorRoute
-  '/dpi-calculator': typeof DpiCalculatorRoute
   '/fold-simulator': typeof FoldSimulatorRoute
   '/nesting-calc': typeof NestingCalcRoute
   '/pdf-tools': typeof PdfToolsRoute
-  '/rgb-to-cmyk': typeof RgbToCmykRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
   '/spine-calculator': typeof SpineCalculatorRoute
   '/tac-checker': typeof TacCheckerRoute
   '/textile-guide': typeof TextileGuideRoute
+  '/barcode-generator': typeof ToolBarcodeGeneratorRoute
+  '/bleed-generator': typeof ToolBleedGeneratorRoute
+  '/dpi-calculator': typeof ToolDpiCalculatorRoute
+  '/rgb-to-cmyk': typeof ToolRgbToCmykRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
-  '/barcode-generator': typeof BarcodeGeneratorRoute
-  '/bleed-generator': typeof BleedGeneratorRoute
-  '/dpi-calculator': typeof DpiCalculatorRoute
   '/fold-simulator': typeof FoldSimulatorRoute
   '/nesting-calc': typeof NestingCalcRoute
   '/pdf-tools': typeof PdfToolsRoute
-  '/rgb-to-cmyk': typeof RgbToCmykRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
   '/spine-calculator': typeof SpineCalculatorRoute
   '/tac-checker': typeof TacCheckerRoute
   '/textile-guide': typeof TextileGuideRoute
+  '/_tool/barcode-generator': typeof ToolBarcodeGeneratorRoute
+  '/_tool/bleed-generator': typeof ToolBleedGeneratorRoute
+  '/_tool/dpi-calculator': typeof ToolDpiCalculatorRoute
+  '/_tool/rgb-to-cmyk': typeof ToolRgbToCmykRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
   fullPaths:
     | '/'
-    | '/barcode-generator'
-    | '/bleed-generator'
-    | '/dpi-calculator'
     | '/fold-simulator'
     | '/nesting-calc'
     | '/pdf-tools'
-    | '/rgb-to-cmyk'
     | '/sitemap.xml'
     | '/spine-calculator'
     | '/tac-checker'
     | '/textile-guide'
+    | '/barcode-generator'
+    | '/bleed-generator'
+    | '/dpi-calculator'
+    | '/rgb-to-cmyk'
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
-    | '/barcode-generator'
-    | '/bleed-generator'
-    | '/dpi-calculator'
     | '/fold-simulator'
     | '/nesting-calc'
     | '/pdf-tools'
-    | '/rgb-to-cmyk'
     | '/sitemap.xml'
     | '/spine-calculator'
     | '/tac-checker'
     | '/textile-guide'
+    | '/barcode-generator'
+    | '/bleed-generator'
+    | '/dpi-calculator'
+    | '/rgb-to-cmyk'
   id:
     | '__root__'
     | '/'
-    | '/barcode-generator'
-    | '/bleed-generator'
-    | '/dpi-calculator'
     | '/fold-simulator'
     | '/nesting-calc'
     | '/pdf-tools'
-    | '/rgb-to-cmyk'
     | '/sitemap.xml'
     | '/spine-calculator'
     | '/tac-checker'
     | '/textile-guide'
+    | '/_tool/barcode-generator'
+    | '/_tool/bleed-generator'
+    | '/_tool/dpi-calculator'
+    | '/_tool/rgb-to-cmyk'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
-  BarcodeGeneratorRoute: typeof BarcodeGeneratorRoute
-  BleedGeneratorRoute: typeof BleedGeneratorRoute
-  DpiCalculatorRoute: typeof DpiCalculatorRoute
   FoldSimulatorRoute: typeof FoldSimulatorRoute
   NestingCalcRoute: typeof NestingCalcRoute
   PdfToolsRoute: typeof PdfToolsRoute
-  RgbToCmykRoute: typeof RgbToCmykRoute
   SitemapDotxmlRoute: typeof SitemapDotxmlRoute
   SpineCalculatorRoute: typeof SpineCalculatorRoute
   TacCheckerRoute: typeof TacCheckerRoute
   TextileGuideRoute: typeof TextileGuideRoute
+  ToolBarcodeGeneratorRoute: typeof ToolBarcodeGeneratorRoute
+  ToolBleedGeneratorRoute: typeof ToolBleedGeneratorRoute
+  ToolDpiCalculatorRoute: typeof ToolDpiCalculatorRoute
+  ToolRgbToCmykRoute: typeof ToolRgbToCmykRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -193,27 +193,6 @@ declare module '@tanstack/react-router' {
       path: '/'
       fullPath: '/'
       preLoaderRoute: typeof IndexRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/barcode-generator': {
-      id: '/barcode-generator'
-      path: '/barcode-generator'
-      fullPath: '/barcode-generator'
-      preLoaderRoute: typeof BarcodeGeneratorRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/bleed-generator': {
-      id: '/bleed-generator'
-      path: '/bleed-generator'
-      fullPath: '/bleed-generator'
-      preLoaderRoute: typeof BleedGeneratorRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/dpi-calculator': {
-      id: '/dpi-calculator'
-      path: '/dpi-calculator'
-      fullPath: '/dpi-calculator'
-      preLoaderRoute: typeof DpiCalculatorRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/fold-simulator': {
@@ -235,13 +214,6 @@ declare module '@tanstack/react-router' {
       path: '/pdf-tools'
       fullPath: '/pdf-tools'
       preLoaderRoute: typeof PdfToolsRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/rgb-to-cmyk': {
-      id: '/rgb-to-cmyk'
-      path: '/rgb-to-cmyk'
-      fullPath: '/rgb-to-cmyk'
-      preLoaderRoute: typeof RgbToCmykRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/sitemap.xml': {
@@ -272,22 +244,50 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof TextileGuideRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/_tool/barcode-generator': {
+      id: '/_tool/barcode-generator'
+      path: '/barcode-generator'
+      fullPath: '/barcode-generator'
+      preLoaderRoute: typeof ToolBarcodeGeneratorRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/_tool/bleed-generator': {
+      id: '/_tool/bleed-generator'
+      path: '/bleed-generator'
+      fullPath: '/bleed-generator'
+      preLoaderRoute: typeof ToolBleedGeneratorRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/_tool/dpi-calculator': {
+      id: '/_tool/dpi-calculator'
+      path: '/dpi-calculator'
+      fullPath: '/dpi-calculator'
+      preLoaderRoute: typeof ToolDpiCalculatorRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/_tool/rgb-to-cmyk': {
+      id: '/_tool/rgb-to-cmyk'
+      path: '/rgb-to-cmyk'
+      fullPath: '/rgb-to-cmyk'
+      preLoaderRoute: typeof ToolRgbToCmykRouteImport
+      parentRoute: typeof rootRouteImport
+    }
   }
 }
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
-  BarcodeGeneratorRoute: BarcodeGeneratorRoute,
-  BleedGeneratorRoute: BleedGeneratorRoute,
-  DpiCalculatorRoute: DpiCalculatorRoute,
   FoldSimulatorRoute: FoldSimulatorRoute,
   NestingCalcRoute: NestingCalcRoute,
   PdfToolsRoute: PdfToolsRoute,
-  RgbToCmykRoute: RgbToCmykRoute,
   SitemapDotxmlRoute: SitemapDotxmlRoute,
   SpineCalculatorRoute: SpineCalculatorRoute,
   TacCheckerRoute: TacCheckerRoute,
   TextileGuideRoute: TextileGuideRoute,
+  ToolBarcodeGeneratorRoute: ToolBarcodeGeneratorRoute,
+  ToolBleedGeneratorRoute: ToolBleedGeneratorRoute,
+  ToolDpiCalculatorRoute: ToolDpiCalculatorRoute,
+  ToolRgbToCmykRoute: ToolRgbToCmykRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
