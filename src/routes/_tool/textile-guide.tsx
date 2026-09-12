@@ -1,7 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { useState } from "react";
-import { Panel } from "@/components/spc/Layout";
-import { ToolkitShell } from "@/components/site";
+import { ToolkitShell, Panel } from "@/components/site";
 import { getTool } from "@/data/toolsRegistry";
 import { SITE } from "@/data/site";
 
