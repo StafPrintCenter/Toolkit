@@ -11,8 +11,6 @@
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as SitemapDotxmlRouteImport } from './routes/sitemap[.]xml'
-import { Route as TacCheckerRouteImport } from './routes/tac-checker'
-import { Route as TextileGuideRouteImport } from './routes/textile-guide'
 import { Route as ToolBarcodeGeneratorRouteImport } from './routes/_tool/barcode-generator'
 import { Route as ToolBleedGeneratorRouteImport } from './routes/_tool/bleed-generator'
 import { Route as ToolDpiCalculatorRouteImport } from './routes/_tool/dpi-calculator'
@@ -21,6 +19,8 @@ import { Route as ToolNestingCalcRouteImport } from './routes/_tool/nesting-calc
 import { Route as ToolPdfToolsRouteImport } from './routes/_tool/pdf-tools'
 import { Route as ToolRgbToCmykRouteImport } from './routes/_tool/rgb-to-cmyk'
 import { Route as ToolSpineCalculatorRouteImport } from './routes/_tool/spine-calculator'
+import { Route as ToolTacCheckerRouteImport } from './routes/_tool/tac-checker'
+import { Route as ToolTextileGuideRouteImport } from './routes/_tool/textile-guide'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
@@ -30,16 +30,6 @@ const IndexRoute = IndexRouteImport.update({
 const SitemapDotxmlRoute = SitemapDotxmlRouteImport.update({
   id: '/sitemap.xml',
   path: '/sitemap.xml',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const TacCheckerRoute = TacCheckerRouteImport.update({
-  id: '/tac-checker',
-  path: '/tac-checker',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const TextileGuideRoute = TextileGuideRouteImport.update({
-  id: '/textile-guide',
-  path: '/textile-guide',
   getParentRoute: () => rootRouteImport,
 } as any)
 const ToolBarcodeGeneratorRoute = ToolBarcodeGeneratorRouteImport.update({
@@ -82,12 +72,20 @@ const ToolSpineCalculatorRoute = ToolSpineCalculatorRouteImport.update({
   path: '/spine-calculator',
   getParentRoute: () => rootRouteImport,
 } as any)
+const ToolTacCheckerRoute = ToolTacCheckerRouteImport.update({
+  id: '/_tool/tac-checker',
+  path: '/tac-checker',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ToolTextileGuideRoute = ToolTextileGuideRouteImport.update({
+  id: '/_tool/textile-guide',
+  path: '/textile-guide',
+  getParentRoute: () => rootRouteImport,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
-  '/tac-checker': typeof TacCheckerRoute
-  '/textile-guide': typeof TextileGuideRoute
   '/barcode-generator': typeof ToolBarcodeGeneratorRoute
   '/bleed-generator': typeof ToolBleedGeneratorRoute
   '/dpi-calculator': typeof ToolDpiCalculatorRoute
@@ -96,12 +94,12 @@ export interface FileRoutesByFullPath {
   '/pdf-tools': typeof ToolPdfToolsRoute
   '/rgb-to-cmyk': typeof ToolRgbToCmykRoute
   '/spine-calculator': typeof ToolSpineCalculatorRoute
+  '/tac-checker': typeof ToolTacCheckerRoute
+  '/textile-guide': typeof ToolTextileGuideRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
-  '/tac-checker': typeof TacCheckerRoute
-  '/textile-guide': typeof TextileGuideRoute
   '/barcode-generator': typeof ToolBarcodeGeneratorRoute
   '/bleed-generator': typeof ToolBleedGeneratorRoute
   '/dpi-calculator': typeof ToolDpiCalculatorRoute
@@ -110,13 +108,13 @@ export interface FileRoutesByTo {
   '/pdf-tools': typeof ToolPdfToolsRoute
   '/rgb-to-cmyk': typeof ToolRgbToCmykRoute
   '/spine-calculator': typeof ToolSpineCalculatorRoute
+  '/tac-checker': typeof ToolTacCheckerRoute
+  '/textile-guide': typeof ToolTextileGuideRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
-  '/tac-checker': typeof TacCheckerRoute
-  '/textile-guide': typeof TextileGuideRoute
   '/_tool/barcode-generator': typeof ToolBarcodeGeneratorRoute
   '/_tool/bleed-generator': typeof ToolBleedGeneratorRoute
   '/_tool/dpi-calculator': typeof ToolDpiCalculatorRoute
@@ -125,14 +123,14 @@ export interface FileRoutesById {
   '/_tool/pdf-tools': typeof ToolPdfToolsRoute
   '/_tool/rgb-to-cmyk': typeof ToolRgbToCmykRoute
   '/_tool/spine-calculator': typeof ToolSpineCalculatorRoute
+  '/_tool/tac-checker': typeof ToolTacCheckerRoute
+  '/_tool/textile-guide': typeof ToolTextileGuideRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
   fullPaths:
     | '/'
     | '/sitemap.xml'
-    | '/tac-checker'
-    | '/textile-guide'
     | '/barcode-generator'
     | '/bleed-generator'
     | '/dpi-calculator'
@@ -141,12 +139,12 @@ export interface FileRouteTypes {
     | '/pdf-tools'
     | '/rgb-to-cmyk'
     | '/spine-calculator'
+    | '/tac-checker'
+    | '/textile-guide'
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
     | '/sitemap.xml'
-    | '/tac-checker'
-    | '/textile-guide'
     | '/barcode-generator'
     | '/bleed-generator'
     | '/dpi-calculator'
@@ -155,12 +153,12 @@ export interface FileRouteTypes {
     | '/pdf-tools'
     | '/rgb-to-cmyk'
     | '/spine-calculator'
+    | '/tac-checker'
+    | '/textile-guide'
   id:
     | '__root__'
     | '/'
     | '/sitemap.xml'
-    | '/tac-checker'
-    | '/textile-guide'
     | '/_tool/barcode-generator'
     | '/_tool/bleed-generator'
     | '/_tool/dpi-calculator'
@@ -169,13 +167,13 @@ export interface FileRouteTypes {
     | '/_tool/pdf-tools'
     | '/_tool/rgb-to-cmyk'
     | '/_tool/spine-calculator'
+    | '/_tool/tac-checker'
+    | '/_tool/textile-guide'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   SitemapDotxmlRoute: typeof SitemapDotxmlRoute
-  TacCheckerRoute: typeof TacCheckerRoute
-  TextileGuideRoute: typeof TextileGuideRoute
   ToolBarcodeGeneratorRoute: typeof ToolBarcodeGeneratorRoute
   ToolBleedGeneratorRoute: typeof ToolBleedGeneratorRoute
   ToolDpiCalculatorRoute: typeof ToolDpiCalculatorRoute
@@ -184,6 +182,8 @@ export interface RootRouteChildren {
   ToolPdfToolsRoute: typeof ToolPdfToolsRoute
   ToolRgbToCmykRoute: typeof ToolRgbToCmykRoute
   ToolSpineCalculatorRoute: typeof ToolSpineCalculatorRoute
+  ToolTacCheckerRoute: typeof ToolTacCheckerRoute
+  ToolTextileGuideRoute: typeof ToolTextileGuideRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -200,20 +200,6 @@ declare module '@tanstack/react-router' {
       path: '/sitemap.xml'
       fullPath: '/sitemap.xml'
       preLoaderRoute: typeof SitemapDotxmlRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/tac-checker': {
-      id: '/tac-checker'
-      path: '/tac-checker'
-      fullPath: '/tac-checker'
-      preLoaderRoute: typeof TacCheckerRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/textile-guide': {
-      id: '/textile-guide'
-      path: '/textile-guide'
-      fullPath: '/textile-guide'
-      preLoaderRoute: typeof TextileGuideRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/_tool/barcode-generator': {
@@ -272,14 +258,26 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof ToolSpineCalculatorRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/_tool/tac-checker': {
+      id: '/_tool/tac-checker'
+      path: '/tac-checker'
+      fullPath: '/tac-checker'
+      preLoaderRoute: typeof ToolTacCheckerRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/_tool/textile-guide': {
+      id: '/_tool/textile-guide'
+      path: '/textile-guide'
+      fullPath: '/textile-guide'
+      preLoaderRoute: typeof ToolTextileGuideRouteImport
+      parentRoute: typeof rootRouteImport
+    }
   }
 }
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   SitemapDotxmlRoute: SitemapDotxmlRoute,
-  TacCheckerRoute: TacCheckerRoute,
-  TextileGuideRoute: TextileGuideRoute,
   ToolBarcodeGeneratorRoute: ToolBarcodeGeneratorRoute,
   ToolBleedGeneratorRoute: ToolBleedGeneratorRoute,
   ToolDpiCalculatorRoute: ToolDpiCalculatorRoute,
@@ -288,6 +286,8 @@ const rootRouteChildren: RootRouteChildren = {
   ToolPdfToolsRoute: ToolPdfToolsRoute,
   ToolRgbToCmykRoute: ToolRgbToCmykRoute,
   ToolSpineCalculatorRoute: ToolSpineCalculatorRoute,
+  ToolTacCheckerRoute: ToolTacCheckerRoute,
+  ToolTextileGuideRoute: ToolTextileGuideRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
