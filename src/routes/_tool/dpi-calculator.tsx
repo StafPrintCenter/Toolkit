@@ -7,25 +7,18 @@ import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import { SITE } from "@/data/site";
 
-const PAGE_TITLE = `SPC Creative Toolkit - Outils prépresse & impression | ${SITE.name}`;
-const PAGE_DESC = `Le hub d'utilitaires prépresse et impression de${SITE.name}.`;
+const PAGE_TITLE = `Calculateur de DPI & diagnostic résolution | SPC Toolkit | ${SITE.name}`;
+const PAGE_DESC = `Calculez la résolution réelle d'une image à la taille d'impression voulue et vérifiez si elle est suffisante pour le flyer ou le grand format.`;
 
 const tool = getTool("/dpi-calculator")!;
 
 export const Route = createFileRoute("/_tool/dpi-calculator")({
   head: () => ({
     meta: [
-      { title: "Calculateur de DPI & diagnostic résolution | SPC Toolkit" },
-      {
-        name: "description",
-        content:
-          "Calculez la résolution réelle d'une image à la taille d'impression voulue et vérifiez si elle est suffisante pour le flyer ou le grand format.",
-      },
-      { property: "og:title", content: "Diagnostic Résolution DPI — SPC Creative Toolkit" },
-      {
-        property: "og:description",
-        content: "Pixels, centimètres et verdict couleur immédiat sur la qualité d'impression.",
-      },
+      { title: PAGE_TITLE },
+      { name: "description", content: PAGE_DESC },
+      { property: "og:title", content: PAGE_TITLE },
+      { property: "og:description", content: PAGE_DESC },
     ],
   }),
   component: Page,
