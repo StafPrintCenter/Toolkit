@@ -5,6 +5,10 @@ import { Field, Panel, ToolShell } from "@/components/spc/Layout";
 import { getTool } from "@/data/toolsRegistry";
 import { Input } from "@/components/ui/input";
 import { Slider } from "@/components/ui/slider";
+import { SITE } from "@/data/site";
+
+const PAGE_TITLE = `SPC Creative Toolkit - Outils prépresse & impression | ${SITE.name}`;
+const PAGE_DESC = `Le hub d'utilitaires prépresse et impression de${SITE.name}.`;
 
 const tool = getTool("/fold-simulator")!;
 
@@ -62,9 +66,8 @@ function Page() {
               <button
                 key={k}
                 onClick={() => setType(k)}
-                className={`w-full rounded-xl border p-3 text-left text-sm transition-colors ${
-                  type === k ? "border-primary bg-accent/60" : "border-border hover:border-primary/50"
-                }`}
+                className={`w-full rounded-xl border p-3 text-left text-sm transition-colors ${type === k ? "border-primary bg-accent/60" : "border-border hover:border-primary/50"
+                  }`}
               >
                 <span className="font-medium">{FOLDS[k].label}</span>
                 <span className="mt-0.5 block text-xs text-muted-foreground">{FOLDS[k].desc}</span>
