@@ -29,7 +29,7 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       { property: "og:image:width", content: "1200" },
       { property: "og:image:height", content: "630" },
       { property: "og:image:alt", content: `SPC Creative Toolkit - ${SITE.name}` },
-      { property: "og:url", content: `${SITE_LINK.briefUrl}` },
+      { property: "og:url", content: `${SITE_LINK.toolkitUrl}` },
       { property: "og:locale", content: "fr_BJ" },
 
       /* Twitter / X */
