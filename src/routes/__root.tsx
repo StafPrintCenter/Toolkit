@@ -8,7 +8,7 @@ import logo from "@/assets/logos.json";
 import { NotFoundComponent, ErrorComponent } from "@/components/errors";
 
 const PAGE_TITLE = `SPC Creative Toolkit - Outils prépresse & impression | ${SITE.name}`;
-const PAGE_DESC = `Assistant interactif de qualification de projet de ${SITE.name}. Décrivez votre projet d'impression, branding, packaging ou web en 6 étapes simples et recevez un devis gratuit.`;
+const PAGE_DESC = `Le hub d'utilitaires prépresse et impression de${SITE.name}.`;
 
 export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()({
   head: () => ({
