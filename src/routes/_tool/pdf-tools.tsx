@@ -7,25 +7,18 @@ import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import { SITE } from "@/data/site";
 
-const PAGE_TITLE = `SPC Creative Toolkit - Outils prépresse & impression | ${SITE.name}`;
-const PAGE_DESC = `Le hub d'utilitaires prépresse et impression de${SITE.name}.`;
+const PAGE_TITLE = `Boîte à outils PDF : fusion, extraction, niveaux de gris | SPC Toolkit | ${SITE.name}`;
+const PAGE_DESC = `Fusionnez des PDF, extrayez des pages et convertissez en niveaux de gris sans rien envoyer sur un serveur : tout se passe dans votre navigateur.`;
 
 const tool = getTool("/pdf-tools")!;
 
 export const Route = createFileRoute("/_tool/pdf-tools")({
   head: () => ({
     meta: [
-      { title: "Boîte à outils PDF : fusion, extraction, niveaux de gris | SPC Toolkit" },
-      {
-        name: "description",
-        content:
-          "Fusionnez des PDF, extrayez des pages et convertissez en niveaux de gris sans rien envoyer sur un serveur : tout se passe dans votre navigateur.",
-      },
-      { property: "og:title", content: "Boîte à Outils PDF Express — SPC Creative Toolkit" },
-      {
-        property: "og:description",
-        content: "Traitement PDF confidentiel, entièrement local, prêt pour l'impression.",
-      },
+      { title: PAGE_TITLE },
+      { name: "description", content: PAGE_DESC },
+      { property: "og:title", content: PAGE_TITLE },
+      { property: "og:description", content: PAGE_DESC },
     ],
   }),
   component: Page,
