@@ -17,12 +17,8 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       { name: "viewport", content: "width=device-width, initial-scale=1, maximum-scale=5" },
       { name: "robots", content: "index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" },
       { title: PAGE_TITLE },
-      {
-        name: "description",
-        content:
-          "Le hub d'utilitaires prépresse et impression de STAF PRINT CENTER, Porto-Novo. 100 % côté navigateur.",
-      },
-      { name: "author", content: "STAF PRINT CENTER" },
+      { name: "description", content: PAGE_DESC },
+      { name: "author", content: `${SITE.manager}` },
       { property: "og:title", content: "SPC Creative Toolkit" },
       {
         property: "og:description",
