@@ -5,6 +5,10 @@ import { Field, Panel, Stat, ToolShell } from "@/components/spc/Layout";
 import { getTool } from "@/data/toolsRegistry";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
+import { SITE } from "@/data/site";
+
+const PAGE_TITLE = `SPC Creative Toolkit - Outils prépresse & impression | ${SITE.name}`;
+const PAGE_DESC = `Le hub d'utilitaires prépresse et impression de${SITE.name}.`;
 
 const tool = getTool("/nesting-calc")!;
 
@@ -101,9 +105,8 @@ function Page() {
                 <button
                   key={l}
                   onClick={() => setLaize(l)}
-                  className={`text-num rounded-full border px-3 py-1.5 text-xs ${
-                    laize === l ? "border-primary bg-primary text-primary-foreground" : "border-border"
-                  }`}
+                  className={`text-num rounded-full border px-3 py-1.5 text-xs ${laize === l ? "border-primary bg-primary text-primary-foreground" : "border-border"
+                    }`}
                 >
                   {(l / 1000).toFixed(2)} m
                 </button>
@@ -176,9 +179,8 @@ function Page() {
                 {result.placed.map((p, i) => (
                   <div
                     key={i}
-                    className={`absolute flex items-center justify-center border border-background/60 ${
-                      colors[pieces.findIndex((x) => x.id === p.id) % colors.length]
-                    }`}
+                    className={`absolute flex items-center justify-center border border-background/60 ${colors[pieces.findIndex((x) => x.id === p.id) % colors.length]
+                      }`}
                     style={{ left: p.x * scale, top: p.y * scale, width: p.w * scale, height: p.h * scale }}
                   >
                     <span className="text-num text-[10px]">
