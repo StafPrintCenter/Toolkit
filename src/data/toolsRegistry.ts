@@ -9,7 +9,6 @@ export interface ToolItem {
   icon: string;
   badge?: string;
   ctaText: string;
-  ctaTargetUrl: string;
 }
 
 export const CATEGORIES: Record<
@@ -53,7 +52,6 @@ export const TOOLS: ToolItem[] = [
     icon: "Palette",
     badge: "Simulateur",
     ctaText: "Fichier prêt ? Lancez votre brief",
-    ctaTargetUrl: "https://brief.stafprint.com",
   },
   {
     id: "t2",
@@ -64,7 +62,6 @@ export const TOOLS: ToolItem[] = [
     category: "prepression",
     icon: "ScanEye",
     ctaText: "Doute sur votre fichier ? Consultez la doc technique",
-    ctaTargetUrl: "https://docs.stafprint.com",
   },
   {
     id: "t3",
@@ -76,7 +73,6 @@ export const TOOLS: ToolItem[] = [
     icon: "Crop",
     badge: "Export PDF",
     ctaText: "Gabarit téléchargé ? Envoyez votre brief",
-    ctaTargetUrl: "https://brief.stafprint.com",
   },
   {
     id: "t4",
@@ -87,7 +83,6 @@ export const TOOLS: ToolItem[] = [
     category: "prepression",
     icon: "Droplets",
     ctaText: "Besoin d'un profil ICC adapté ? Parlons-en",
-    ctaTargetUrl: "https://docs.stafprint.com",
   },
   {
     id: "t5",
@@ -98,7 +93,6 @@ export const TOOLS: ToolItem[] = [
     category: "print",
     icon: "BookOpen",
     ctaText: "Prêt à imprimer votre ouvrage ? Demandez un devis",
-    ctaTargetUrl: "https://brief.stafprint.com",
   },
   {
     id: "t6",
@@ -110,7 +104,6 @@ export const TOOLS: ToolItem[] = [
     icon: "Layers",
     badge: "Interactif",
     ctaText: "Votre dépliant est calé ? Lancez la production",
-    ctaTargetUrl: "https://brief.stafprint.com",
   },
   {
     id: "t7",
@@ -122,7 +115,6 @@ export const TOOLS: ToolItem[] = [
     icon: "QrCode",
     badge: "SVG / PDF",
     ctaText: "Intégrez ce code à votre packaging avec nous",
-    ctaTargetUrl: "https://brief.stafprint.com",
   },
   {
     id: "t8",
@@ -133,7 +125,6 @@ export const TOOLS: ToolItem[] = [
     category: "format",
     icon: "Grid2x2",
     ctaText: "Réservez votre impression grand format",
-    ctaTargetUrl: "https://brief.stafprint.com",
   },
   {
     id: "t9",
@@ -144,7 +135,6 @@ export const TOOLS: ToolItem[] = [
     category: "format",
     icon: "Shirt",
     ctaText: "Commandez vos textiles personnalisés",
-    ctaTargetUrl: "https://brief.stafprint.com",
   },
   {
     id: "t10",
@@ -156,7 +146,6 @@ export const TOOLS: ToolItem[] = [
     icon: "FileText",
     badge: "Zero-Server",
     ctaText: "PDF conforme ? Déposez-le sur votre brief",
-    ctaTargetUrl: "https://brief.stafprint.com",
   },
 ];
 
