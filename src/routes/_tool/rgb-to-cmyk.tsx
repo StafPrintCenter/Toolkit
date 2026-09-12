@@ -7,6 +7,10 @@ import { Input } from "@/components/ui/input";
 import { Slider } from "@/components/ui/slider";
 import { Button } from "@/components/ui/button";
 import { gamutDelta, hexToRgb, rgbToCmyk, rgbToHex, simulatePaper } from "@/lib/color";
+import { SITE } from "@/data/site";
+
+const PAGE_TITLE = `SPC Creative Toolkit - Outils prépresse & impression | ${SITE.name}`;
+const PAGE_DESC = `Le hub d'utilitaires prépresse et impression de${SITE.name}.`;
 
 const tool = getTool("/rgb-to-cmyk")!;
 
@@ -162,9 +166,8 @@ function Page() {
                 <button
                   key={p}
                   onClick={() => setPaper(p)}
-                  className={`rounded-full border px-4 py-1.5 text-sm capitalize ${
-                    paper === p ? "border-primary bg-primary text-primary-foreground" : "border-border"
-                  }`}
+                  className={`rounded-full border px-4 py-1.5 text-sm capitalize ${paper === p ? "border-primary bg-primary text-primary-foreground" : "border-border"
+                    }`}
                 >
                   Papier {p}
                 </button>
@@ -185,9 +188,8 @@ function Page() {
               TAC total : {cmyk.c + cmyk.m + cmyk.y + cmyk.k} %
             </p>
             <div
-              className={`mt-4 flex items-start gap-3 rounded-xl border p-4 text-sm ${
-                outOfGamut ? "border-danger/40 bg-danger/10" : "border-success/40 bg-success/10"
-              }`}
+              className={`mt-4 flex items-start gap-3 rounded-xl border p-4 text-sm ${outOfGamut ? "border-danger/40 bg-danger/10" : "border-success/40 bg-success/10"
+                }`}
             >
               {outOfGamut ? <AlertTriangle className="mt-0.5 size-4 shrink-0" /> : <CheckCircle2 className="mt-0.5 size-4 shrink-0" />}
               <p>
