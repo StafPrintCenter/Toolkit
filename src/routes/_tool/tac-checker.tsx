@@ -7,25 +7,18 @@ import { Input } from "@/components/ui/input";
 import { cmykToRgb, hexToRgb, rgbToCmyk, rgbToHex } from "@/lib/color";
 import { SITE } from "@/data/site";
 
-const PAGE_TITLE = `SPC Creative Toolkit - Outils prépresse & impression | ${SITE.name}`;
-const PAGE_DESC = `Le hub d'utilitaires prépresse et impression de${SITE.name}.`;
+const PAGE_TITLE = `Simulateur de taux d'encrage maximum (TAC) | SPC Toolkit | ${SITE.name}`;
+const PAGE_DESC = `Vérifiez la somme C+M+J+N de vos aplats et évitez le maculage : limites conseillées par support, du journal au couché brillant.`;
 
 const tool = getTool("/tac-checker")!;
 
 export const Route = createFileRoute("/_tool/tac-checker")({
   head: () => ({
     meta: [
-      { title: "Simulateur de taux d'encrage maximum (TAC) | SPC Toolkit" },
-      {
-        name: "description",
-        content:
-          "Vérifiez la somme C+M+J+N de vos aplats et évitez le maculage : limites conseillées par support, du journal au couché brillant.",
-      },
-      { property: "og:title", content: "Taux d'Encrage Max (TAC) — SPC Creative Toolkit" },
-      {
-        property: "og:description",
-        content: "Contrôlez vos noirs riches et vos aplats avant l'envoi en production.",
-      },
+      { title: PAGE_TITLE },
+      { name: "description", content: PAGE_DESC },
+      { property: "og:title", content: PAGE_TITLE },
+      { property: "og:description", content: PAGE_DESC },
     ],
   }),
   component: Page,
