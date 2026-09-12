@@ -17,6 +17,7 @@ import { Route as FoldSimulatorRouteImport } from './routes/fold-simulator'
 import { Route as NestingCalcRouteImport } from './routes/nesting-calc'
 import { Route as PdfToolsRouteImport } from './routes/pdf-tools'
 import { Route as RgbToCmykRouteImport } from './routes/rgb-to-cmyk'
+import { Route as SitemapDotxmlRouteImport } from './routes/sitemap[.]xml'
 import { Route as SpineCalculatorRouteImport } from './routes/spine-calculator'
 import { Route as TacCheckerRouteImport } from './routes/tac-checker'
 import { Route as TextileGuideRouteImport } from './routes/textile-guide'
@@ -61,6 +62,11 @@ const RgbToCmykRoute = RgbToCmykRouteImport.update({
   path: '/rgb-to-cmyk',
   getParentRoute: () => rootRouteImport,
 } as any)
+const SitemapDotxmlRoute = SitemapDotxmlRouteImport.update({
+  id: '/sitemap.xml',
+  path: '/sitemap.xml',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const SpineCalculatorRoute = SpineCalculatorRouteImport.update({
   id: '/spine-calculator',
   path: '/spine-calculator',
@@ -86,6 +92,7 @@ export interface FileRoutesByFullPath {
   '/nesting-calc': typeof NestingCalcRoute
   '/pdf-tools': typeof PdfToolsRoute
   '/rgb-to-cmyk': typeof RgbToCmykRoute
+  '/sitemap.xml': typeof SitemapDotxmlRoute
   '/spine-calculator': typeof SpineCalculatorRoute
   '/tac-checker': typeof TacCheckerRoute
   '/textile-guide': typeof TextileGuideRoute
@@ -99,6 +106,7 @@ export interface FileRoutesByTo {
   '/nesting-calc': typeof NestingCalcRoute
   '/pdf-tools': typeof PdfToolsRoute
   '/rgb-to-cmyk': typeof RgbToCmykRoute
+  '/sitemap.xml': typeof SitemapDotxmlRoute
   '/spine-calculator': typeof SpineCalculatorRoute
   '/tac-checker': typeof TacCheckerRoute
   '/textile-guide': typeof TextileGuideRoute
@@ -113,6 +121,7 @@ export interface FileRoutesById {
   '/nesting-calc': typeof NestingCalcRoute
   '/pdf-tools': typeof PdfToolsRoute
   '/rgb-to-cmyk': typeof RgbToCmykRoute
+  '/sitemap.xml': typeof SitemapDotxmlRoute
   '/spine-calculator': typeof SpineCalculatorRoute
   '/tac-checker': typeof TacCheckerRoute
   '/textile-guide': typeof TextileGuideRoute
@@ -128,6 +137,7 @@ export interface FileRouteTypes {
     | '/nesting-calc'
     | '/pdf-tools'
     | '/rgb-to-cmyk'
+    | '/sitemap.xml'
     | '/spine-calculator'
     | '/tac-checker'
     | '/textile-guide'
@@ -141,6 +151,7 @@ export interface FileRouteTypes {
     | '/nesting-calc'
     | '/pdf-tools'
     | '/rgb-to-cmyk'
+    | '/sitemap.xml'
     | '/spine-calculator'
     | '/tac-checker'
     | '/textile-guide'
@@ -154,6 +165,7 @@ export interface FileRouteTypes {
     | '/nesting-calc'
     | '/pdf-tools'
     | '/rgb-to-cmyk'
+    | '/sitemap.xml'
     | '/spine-calculator'
     | '/tac-checker'
     | '/textile-guide'
@@ -168,6 +180,7 @@ export interface RootRouteChildren {
   NestingCalcRoute: typeof NestingCalcRoute
   PdfToolsRoute: typeof PdfToolsRoute
   RgbToCmykRoute: typeof RgbToCmykRoute
+  SitemapDotxmlRoute: typeof SitemapDotxmlRoute
   SpineCalculatorRoute: typeof SpineCalculatorRoute
   TacCheckerRoute: typeof TacCheckerRoute
   TextileGuideRoute: typeof TextileGuideRoute
@@ -231,6 +244,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof RgbToCmykRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/sitemap.xml': {
+      id: '/sitemap.xml'
+      path: '/sitemap.xml'
+      fullPath: '/sitemap.xml'
+      preLoaderRoute: typeof SitemapDotxmlRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/spine-calculator': {
       id: '/spine-calculator'
       path: '/spine-calculator'
@@ -264,6 +284,7 @@ const rootRouteChildren: RootRouteChildren = {
   NestingCalcRoute: NestingCalcRoute,
   PdfToolsRoute: PdfToolsRoute,
   RgbToCmykRoute: RgbToCmykRoute,
+  SitemapDotxmlRoute: SitemapDotxmlRoute,
   SpineCalculatorRoute: SpineCalculatorRoute,
   TacCheckerRoute: TacCheckerRoute,
   TextileGuideRoute: TextileGuideRoute,
