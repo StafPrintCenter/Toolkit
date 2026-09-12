@@ -1,8 +1,7 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { useRef, useState } from "react";
 import { Upload } from "lucide-react";
-import { Field, Panel, Stat } from "@/components/spc/Layout";
-import { ToolkitShell } from "@/components/site";
+import { ToolkitShell, Field, Panel, Stat } from "@/components/site";
 import { getTool } from "@/data/toolsRegistry";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
