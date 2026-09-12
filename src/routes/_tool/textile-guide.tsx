@@ -79,7 +79,7 @@ function Shirt({ zone, side }: { zone: ZoneKey; side: "front" | "back" }) {
   const z = ZONES[zone];
   const show = z.side === side;
   return (
-    <div className="relative mx-auto aspect-[3/3.6] w-full max-w-[260px]">
+    <div className="relative mx-auto aspect-[3/3.6] w-full max-w-65">
       <svg viewBox="0 0 100 120" className="size-full">
         <path
           d="M30 8 L14 16 L6 34 L18 40 L18 112 L82 112 L82 40 L94 34 L86 16 L70 8 C64 16 36 16 30 8 Z"
@@ -122,9 +122,8 @@ function Page() {
               <button
                 key={k}
                 onClick={() => setZone(k)}
-                className={`w-full rounded-xl border p-3 text-left text-sm ${
-                  zone === k ? "border-primary bg-accent/60" : "border-border hover:border-primary/50"
-                }`}
+                className={`w-full rounded-xl border p-3 text-left text-sm ${zone === k ? "border-primary bg-accent/60" : "border-border hover:border-primary/50"
+                  }`}
               >
                 <span className="font-medium">{ZONES[k].label}</span>
                 <span className="text-num mt-0.5 block text-xs text-muted-foreground">
@@ -154,9 +153,8 @@ function Page() {
                 <button
                   key={s.size}
                   onClick={() => setSize(s.size)}
-                  className={`text-num rounded-full border px-4 py-1.5 text-sm ${
-                    size === s.size ? "border-primary bg-primary text-primary-foreground" : "border-border"
-                  }`}
+                  className={`text-num rounded-full border px-4 py-1.5 text-sm ${size === s.size ? "border-primary bg-primary text-primary-foreground" : "border-border"
+                    }`}
                 >
                   {s.size}
                 </button>
