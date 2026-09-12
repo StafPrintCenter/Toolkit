@@ -60,7 +60,7 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
           "@type": "WebApplication",
           "@id": `${SITE_LINK.briefUrl}/#webapp`,
           url: SITE_LINK.briefUrl,
-          name: `SPC Interactive Brief`,
+          name: `SPC Creative Toolkit`,
           applicationCategory: "BusinessApplication",
           operatingSystem: "All",
           description: PAGE_DESC,
