@@ -5,22 +5,18 @@ import { useMemo, useState } from "react";
 import { CATEGORIES, TOOLS, type ToolCategory } from "@/data/toolsRegistry";
 import { ToolkitHeader, ToolkitFooter } from "@/components/site";
 import { Input } from "@/components/ui/input";
+import { SITE } from "@/data/site";
+
+const PAGE_TITLE = `SPC Creative Toolkit - Outils prépresse & impression | ${SITE.name}`;
+const PAGE_DESC = `Le hub d'utilitaires prépresse et impression de${SITE.name}.`;
 
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "SPC Creative Toolkit — Outils prépresse STAF PRINT CENTER" },
-      {
-        name: "description",
-        content:
-          "10 outils gratuits pour graphistes : conversion CMJN, calcul DPI, fonds perdus, TAC, calepinage bâche, QR codes et PDF. 100 % dans le navigateur.",
-      },
-      { property: "og:title", content: "SPC Creative Toolkit — Outils prépresse & impression" },
-      {
-        property: "og:description",
-        content:
-          "Le hub d'utilitaires prépresse de STAF PRINT CENTER : couleurs, résolution, gabarits, façonnage, grand format et PDF.",
-      },
+      { title: PAGE_TITLE },
+      { name: "description", content: PAGE_DESC },
+      { property: "og:title", content: PAGE_TITLE },
+      { property: "og:description", content: PAGE_DESC },
     ],
   }),
   component: Dashboard,
