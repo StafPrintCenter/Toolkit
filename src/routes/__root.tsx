@@ -19,11 +19,10 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       { title: PAGE_TITLE },
       { name: "description", content: PAGE_DESC },
       { name: "author", content: `${SITE.manager}` },
-      { property: "og:title", content: "SPC Creative Toolkit" },
-      {
-        property: "og:description",
-        content: "Dix outils prépresse gratuits : couleurs, DPI, fonds perdus, façonnage, grand format et PDF.",
-      },
+
+      /* Open Graph / Facebook / WhatsApp */
+      { property: "og:title", content: PAGE_TITLE },
+      { property: "og:description", content: PAGE_DESC },
       { property: "og:type", content: "website" },
       { property: "og:site_name", content: `SPC Brief - ${SITE.name}` },
       { property: "og:image", content: `${logo.meta}` },
