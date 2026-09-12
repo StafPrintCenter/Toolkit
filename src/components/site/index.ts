@@ -1,6 +1,6 @@
 export { ToolkitHeader } from "./Header";
 export { ToolkitFooter } from "./Footer";
-export { ToolKitShell } from "./ToolKitShell";
+export { ToolkitShell } from "./ToolkitShell";
 export { ThemeToggle } from "./ThemeToggle";
 export { CtaBanner } from "./CtaBanner";
 export * from "./Layout";
