@@ -52,7 +52,7 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       { rel: "sitemap", type: "application/xml", href: "/sitemap.xml" },
     ],
     scripts: [
-      /* Schéma WebApplication pour l'outil de toolkitUrl */
+      /* Schéma WebApplication pour l'outil de toolkit */
       {
         type: "application/ld+json",
         children: JSON.stringify({
