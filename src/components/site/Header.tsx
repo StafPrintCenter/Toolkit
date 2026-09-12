@@ -1,9 +1,8 @@
 import { Link } from "@tanstack/react-router";
 import { Button } from "@/components/ui/button";
 import { ThemeToggle } from "./";
-import { SITE, SITE_LINK } from "@/data/site";
+import { SITE_LINK } from "@/data/site";
 import { SpcDeskLogo } from "@/components/site";
-import logo from "@/assets/logos.json";
 
 export function ToolkitHeader() {
   return (
