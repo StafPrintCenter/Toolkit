@@ -14,9 +14,9 @@ export function SiteHeader() {
             <Printer className="size-5" />
           </span>
           <span className="leading-tight">
-            <span className="block font-display text-sm font-bold">SPC Creative Toolkit</span>
+            <span className="block font-display text-sm font-bold">OLD</span>
             <span className="block text-num text-[10px] uppercase tracking-widest text-muted-foreground">
-              tools.stafprint.com
+              tot.com
             </span>
           </span>
         </Link>
