@@ -1,6 +1,7 @@
 import { Link } from "@tanstack/react-router";
 import { Printer } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { ThemeToggle } from "./";
 
 export function ToolkitHeader() {
   return (
