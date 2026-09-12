@@ -1,10 +1,3 @@
-import { Link } from "@tanstack/react-router";
-import { motion } from "framer-motion";
-import { ArrowLeft, ArrowUpRight, Moon, Printer, Sun } from "lucide-react";
-import { useEffect, useState, type ReactNode } from "react";
-import { CATEGORIES, type ToolItem } from "@/data/toolsRegistry";
-import { Button } from "@/components/ui/button";
-
 export function ToolkitFooter() {
   return (
     <footer className="border-t border-border/70 bg-card/40">
