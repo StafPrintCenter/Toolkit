@@ -1,7 +1,8 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { useState } from "react";
 import { FileText, Loader2, Trash2, Upload } from "lucide-react";
-import { Field, Panel, ToolShell } from "@/components/spc/Layout";
+import { Field, Panel } from "@/components/spc/Layout";
+import { ToolkitShell } from "@/components/site";
 import { getTool } from "@/data/toolsRegistry";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
@@ -115,7 +116,7 @@ function Page() {
   };
 
   return (
-    <ToolShell tool={tool}>
+    <ToolkitShell tool={tool}>
       <div className="grid gap-6 lg:grid-cols-[380px_1fr]">
         <Panel title="Opération">
           <div className="space-y-2">
@@ -188,6 +189,6 @@ function Page() {
           </Panel>
         </div>
       </div>
-    </ToolShell>
+    </ToolkitShell>
   );
 }
