@@ -5,6 +5,10 @@ import { Field, Panel, ToolShell } from "@/components/spc/Layout";
 import { getTool } from "@/data/toolsRegistry";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
+import { SITE } from "@/data/site";
+
+const PAGE_TITLE = `SPC Creative Toolkit - Outils prépresse & impression | ${SITE.name}`;
+const PAGE_DESC = `Le hub d'utilitaires prépresse et impression de${SITE.name}.`;
 
 const tool = getTool("/bleed-generator")!;
 
@@ -118,9 +122,8 @@ function Page() {
               <button
                 key={f.label}
                 onClick={() => setSize({ w: f.w, h: f.h })}
-                className={`rounded-full border px-3 py-1.5 text-xs ${
-                  size.w === f.w && size.h === f.h ? "border-primary bg-primary text-primary-foreground" : "border-border"
-                }`}
+                className={`rounded-full border px-3 py-1.5 text-xs ${size.w === f.w && size.h === f.h ? "border-primary bg-primary text-primary-foreground" : "border-border"
+                  }`}
               >
                 {f.label}
               </button>
