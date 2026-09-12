@@ -25,6 +25,15 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
         content: "Dix outils prépresse gratuits : couleurs, DPI, fonds perdus, façonnage, grand format et PDF.",
       },
       { property: "og:type", content: "website" },
+      { property: "og:site_name", content: `SPC Brief - ${SITE.name}` },
+      { property: "og:image", content: `${logo.meta}` },
+      { property: "og:image:width", content: "1200" },
+      { property: "og:image:height", content: "630" },
+      { property: "og:image:alt", content: `SPC Interactive Brief - ${SITE.name}` },
+      { property: "og:url", content: `${SITE_LINK.briefUrl}` },
+      { property: "og:locale", content: "fr_BJ" },
+
+      /* Twitter / X */
       { name: "twitter:card", content: "summary_large_image" },
       { name: "twitter:image", content: `${logo.meta}` },
       { name: "twitter:title", content: PAGE_TITLE },
