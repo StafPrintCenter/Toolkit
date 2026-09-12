@@ -15,17 +15,10 @@ const tool = getTool("/barcode-generator")!;
 export const Route = createFileRoute("/_tool/barcode-generator")({
   head: () => ({
     meta: [
-      { title: "Générateur de QR codes et codes-barres vectoriels | SPC Toolkit" },
-      {
-        name: "description",
-        content:
-          "Créez des QR codes avec logo central et des codes-barres EAN-13 ou Code 128, exportables en SVG et PDF pour l'impression.",
-      },
-      { property: "og:title", content: "QR Code & Code-barres — SPC Creative Toolkit" },
-      {
-        property: "og:description",
-        content: "Codes vectoriels nets à toutes les tailles, générés dans votre navigateur.",
-      },
+      { title: PAGE_TITLE },
+      { name: "description", content: PAGE_DESC },
+      { property: "og:title", content: PAGE_TITLE },
+      { property: "og:description", content: PAGE_DESC },
     ],
   }),
   component: Page,
