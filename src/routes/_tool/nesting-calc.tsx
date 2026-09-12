@@ -7,25 +7,18 @@ import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import { SITE } from "@/data/site";
 
-const PAGE_TITLE = `SPC Creative Toolkit - Outils prépresse & impression | ${SITE.name}`;
-const PAGE_DESC = `Le hub d'utilitaires prépresse et impression de${SITE.name}.`;
+const PAGE_TITLE = `Calculateur de calepinage bâche et vinyle | SPC Toolkit | ${SITE.name}`;
+const PAGE_DESC = `Optimisez la disposition de vos visuels sur une laize de 1,60 m ou 3,20 m, calculez le métrage consommé et le taux de chute.`;
 
 const tool = getTool("/nesting-calc")!;
 
 export const Route = createFileRoute("/_tool/nesting-calc")({
   head: () => ({
     meta: [
-      { title: "Calculateur de calepinage bâche et vinyle | SPC Toolkit" },
-      {
-        name: "description",
-        content:
-          "Optimisez la disposition de vos visuels sur une laize de 1,60 m ou 3,20 m, calculez le métrage consommé et le taux de chute.",
-      },
-      { property: "og:title", content: "Calepinage Bâche & Vinyle — SPC Creative Toolkit" },
-      {
-        property: "og:description",
-        content: "Moins de gâchis matière, un métrage linéaire juste avant de lancer la production.",
-      },
+      { title: PAGE_TITLE },
+      { name: "description", content: PAGE_DESC },
+      { property: "og:title", content: PAGE_TITLE },
+      { property: "og:description", content: PAGE_DESC },
     ],
   }),
   component: Page,
