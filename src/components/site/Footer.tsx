@@ -6,7 +6,7 @@ export function ToolkitFooter() {
       <div className="mx-auto flex min-h-16 w-full max-w-6xl flex-col gap-3 px-6 py-4 sm:flex-row sm:items-center sm:justify-between sm:py-3">
         {/* Copyright */}
         <p className="text-center text-xs text-muted-foreground sm:text-left">
-          © {new Date().getFullYear()} SPC Interactive Brief · Tous droits réservés.
+          © {new Date().getFullYear()} SPC Creative Toolkit · Tous droits réservés.
           <span className="mx-1.5 hidden text-muted-foreground/50 sm:inline">|</span>
 
           <a
