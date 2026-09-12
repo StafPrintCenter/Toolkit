@@ -7,8 +7,8 @@ import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import { SITE } from "@/data/site";
 
-const PAGE_TITLE = `SPC Creative Toolkit - Outils prépresse & impression | ${SITE.name}`;
-const PAGE_DESC = `Le hub d'utilitaires prépresse et impression de${SITE.name}.`;
+const PAGE_TITLE = `Générateur de QR codes et codes-barres vectoriels | SPC Toolkit | ${SITE.name}`;
+const PAGE_DESC = `Créez des QR codes avec logo central et des codes-barres EAN-13 ou Code 128, exportables en SVG et PDF pour l'impression.`;
 
 const tool = getTool("/barcode-generator")!;
 
