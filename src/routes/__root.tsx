@@ -58,8 +58,8 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
         children: JSON.stringify({
           "@context": "https://schema.org",
           "@type": "WebApplication",
-          "@id": `${SITE_LINK.briefUrl}/#webapp`,
-          url: SITE_LINK.briefUrl,
+          "@id": `${SITE_LINK.toolkitUrl}/#webapp`,
+          url: SITE_LINK.toolkitUrl,
           name: `SPC Creative Toolkit`,
           applicationCategory: "BusinessApplication",
           operatingSystem: "All",
