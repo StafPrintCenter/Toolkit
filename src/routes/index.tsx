@@ -164,7 +164,7 @@ function Dashboard() {
           )}
         </section>
       </main>
-      <SiteFooter />
+      <ToolkitFooter />
     </div>
   );
 }
