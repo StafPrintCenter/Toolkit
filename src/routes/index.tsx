@@ -93,11 +93,10 @@ function Dashboard() {
                   <button
                     key={f.key}
                     onClick={() => setFilter(f.key)}
-                    className={`rounded-full border px-4 py-1.5 text-sm transition-colors ${
-                      filter === f.key
-                        ? "border-primary bg-primary text-primary-foreground"
-                        : "border-border bg-card hover:border-primary/50"
-                    }`}
+                    className={`rounded-full border px-4 py-1.5 text-sm transition-colors ${filter === f.key
+                      ? "border-primary bg-primary text-primary-foreground"
+                      : "border-border bg-card hover:border-primary/50"
+                      }`}
                   >
                     {f.label}
                   </button>
