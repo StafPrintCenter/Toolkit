@@ -5,6 +5,10 @@ import { getTool } from "@/data/toolsRegistry";
 import { Slider } from "@/components/ui/slider";
 import { Input } from "@/components/ui/input";
 import { cmykToRgb, hexToRgb, rgbToCmyk, rgbToHex } from "@/lib/color";
+import { SITE } from "@/data/site";
+
+const PAGE_TITLE = `SPC Creative Toolkit - Outils prépresse & impression | ${SITE.name}`;
+const PAGE_DESC = `Le hub d'utilitaires prépresse et impression de${SITE.name}.`;
 
 const tool = getTool("/tac-checker")!;
 
@@ -93,9 +97,8 @@ function Page() {
                 <button
                   key={s.label}
                   onClick={() => setSupport(s)}
-                  className={`rounded-full border px-3 py-1.5 text-xs ${
-                    support.label === s.label ? "border-primary bg-primary text-primary-foreground" : "border-border"
-                  }`}
+                  className={`rounded-full border px-3 py-1.5 text-xs ${support.label === s.label ? "border-primary bg-primary text-primary-foreground" : "border-border"
+                    }`}
                 >
                   {s.label} · {s.limit}%
                 </button>
