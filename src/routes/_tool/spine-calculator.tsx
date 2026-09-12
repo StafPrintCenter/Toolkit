@@ -5,25 +5,18 @@ import { getTool } from "@/data/toolsRegistry";
 import { Input } from "@/components/ui/input";
 import { SITE } from "@/data/site";
 
-const PAGE_TITLE = `SPC Creative Toolkit - Outils prépresse & impression | ${SITE.name}`;
-const PAGE_DESC = `Le hub d'utilitaires prépresse et impression de${SITE.name}.`;
+const PAGE_TITLE = `Calculateur d'épaisseur de tranche et de poids | SPC Toolkit | ${SITE.name}`;
+const PAGE_DESC = `Calculez le dos d'un livre, catalogue ou magazine selon le grammage, le nombre de pages et la reliure, ainsi que le poids du tirage.`;
 
 const tool = getTool("/spine-calculator")!;
 
 export const Route = createFileRoute("/_tool/spine-calculator")({
   head: () => ({
     meta: [
-      { title: "Calculateur d'épaisseur de tranche et de poids | SPC Toolkit" },
-      {
-        name: "description",
-        content:
-          "Calculez le dos d'un livre, catalogue ou magazine selon le grammage, le nombre de pages et la reliure, ainsi que le poids du tirage.",
-      },
-      { property: "og:title", content: "Épaisseur de Tranche & Poids — SPC Creative Toolkit" },
-      {
-        property: "og:description",
-        content: "Dimensionnez votre couverture au millimètre et anticipez les frais de transport.",
-      },
+      { title: PAGE_TITLE },
+      { name: "description", content: PAGE_DESC },
+      { property: "og:title", content: PAGE_TITLE },
+      { property: "og:description", content: PAGE_DESC },
     ],
   }),
   component: Page,
