@@ -1,7 +1,8 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { useRef, useState } from "react";
 import { Upload } from "lucide-react";
-import { Field, Panel, Stat, ToolShell } from "@/components/spc/Layout";
+import { Field, Panel, Stat } from "@/components/spc/Layout";
+import { ToolkitShell } from "@/components/site";
 import { getTool } from "@/data/toolsRegistry";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
@@ -63,7 +64,7 @@ function Page() {
   };
 
   return (
-    <ToolShell tool={tool}>
+    <ToolkitShell tool={tool}>
       <div className="grid gap-6 lg:grid-cols-2">
         <Panel title="Votre image" description="Importez le fichier ou saisissez ses dimensions en pixels.">
           <div className="space-y-4">
@@ -138,6 +139,6 @@ function Page() {
           <span>300 DPI</span>
         </div>
       </Panel>
-    </ToolShell>
+    </ToolkitShell>
   );
 }
