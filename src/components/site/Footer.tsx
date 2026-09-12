@@ -2,30 +2,8 @@ import { Link } from "@tanstack/react-router";
 import { SITE, SITE_LINK } from "@/data/site";
 
 export function ToolkitFooter() {
-  const landingBase = SITE_LINK.landingUrl.replace(/\/$/, "");
-
   return (
     <footer className="border-t border-border/70 bg-card/40">
-      <div className="mx-auto flex max-w-6xl flex-col gap-2 px-4 py-8 text-sm text-muted-foreground sm:flex-row sm:items-center sm:justify-between">
-        <p>STAF PRINT CENTER — Porto-Novo, Bénin. Tous les calculs restent dans votre navigateur.</p>
-        <div className="flex gap-4">
-          <a className="hover:text-primary" href="https://brief.stafprint.com" target="_blank" rel="noreferrer">
-            brief
-          </a>
-          <a className="hover:text-primary" href="https://docs.stafprint.com" target="_blank" rel="noreferrer">
-            docs
-          </a>
-        </div>
-      </div>
-
-
-
-
-
-
-
-
-
       <div className="mx-auto flex min-h-16 w-full max-w-6xl flex-col gap-3 px-6 py-4 sm:flex-row sm:items-center sm:justify-between sm:py-3">
         {/* Copyright */}
         <p className="text-center text-xs text-muted-foreground sm:text-left">
@@ -48,33 +26,24 @@ export function ToolkitFooter() {
           className="flex flex-wrap items-center justify-center gap-x-3 gap-y-1 text-xs text-muted-foreground sm:justify-end"
         >
           <a
-            href={`${landingBase}/legal/mentions`}
+            href={`${SITE_LINK.briefUrl}`}
             target="_blank"
             rel="noopener noreferrer"
             className="underline underline-offset-4 transition-colors hover:text-primary"
           >
-            Mentions légales
+            Créer un brief
           </a>
 
           <span className="text-muted-foreground/50">·</span>
 
           <a
-            href={`${landingBase}/legal/privacy`}
+            href={`${SITE_LINK.docsUrl}/legal/privacy`}
             target="_blank"
             rel="noopener noreferrer"
             className="underline underline-offset-4 transition-colors hover:text-primary"
           >
-            Confidentialité
+            Lire la Documentation
           </a>
-
-          <span className="text-muted-foreground/50">·</span>
-
-          <Link
-            to="/"
-            className="underline underline-offset-4 transition-colors hover:text-primary"
-          >
-            Conditions Générales d'Utilisation
-          </Link>
         </nav>
       </div>
     </footer>
