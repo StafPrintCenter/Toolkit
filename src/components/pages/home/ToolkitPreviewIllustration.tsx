@@ -1,4 +1,6 @@
+import { SITE_LINK } from "@/data/site";
 import { Palette, ScanEye, CheckCircle2, Shield, Wrench, Sparkles } from "lucide-react";
+import { stripProtocol } from "@/lib/domain";
 
 export function ToolkitPreviewIllustration() {
   return (
@@ -10,11 +12,11 @@ export function ToolkitPreviewIllustration() {
         {/* En-tête Navigateur / Hub */}
         <div className="flex items-center justify-between border-b border-border bg-muted px-4 py-2.5">
           <div className="flex items-center gap-2">
-            <span className="size-2.5 rounded-full bg-coral shrink-0" />
-            <span className="size-2.5 rounded-full bg-amber shrink-0" />
-            <span className="size-2.5 rounded-full bg-emerald shrink-0" />
+            <span className="size-2.5 rounded-full bg-danger shrink-0" />
+            <span className="size-2.5 rounded-full bg-warning shrink-0" />
+            <span className="size-2.5 rounded-full bg-success shrink-0" />
             <span className="ml-2 font-mono text-[10px] text-muted-foreground">
-              toolkit.stafprint.com
+              {stripProtocol(SITE_LINK.toolkitUrl)}
             </span>
           </div>
           <span className="inline-flex items-center gap-1 rounded-full border border-primary/20 bg-primary/10 px-2 py-0.5 text-[10px] font-medium text-primary">
