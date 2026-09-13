@@ -123,7 +123,7 @@ function Page() {
               <button
                 key={m}
                 onClick={() => setMode(m)}
-                className={`w-full rounded-xl border p-3 text-left text-sm ${mode === m ? "border-primary bg-accent/60" : "border-border hover:border-primary/50"
+                className={`w-full rounded-xl border p-3 text-left text-sm ${mode === m ? "border-primary bg-accent/60" : "border-border hover:border-primary/50 cursor-pointer"
                   }`}
               >
                 <span className="font-medium">{labels[m].title}</span>
