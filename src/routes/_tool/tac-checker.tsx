@@ -90,7 +90,7 @@ function Page() {
                 <button
                   key={s.label}
                   onClick={() => setSupport(s)}
-                  className={`rounded-full border px-3 py-1.5 text-xs ${support.label === s.label ? "border-primary bg-primary text-primary-foreground" : "border-border"
+                  className={`rounded-full border px-3 py-1.5 text-xs ${support.label === s.label ? "border-primary bg-primary text-primary-foreground" : "border-border cursor-pointer"
                     }`}
                 >
                   {s.label} · {s.limit}%
