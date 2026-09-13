@@ -115,7 +115,7 @@ function Page() {
               <button
                 key={f.label}
                 onClick={() => setSize({ w: f.w, h: f.h })}
-                className={`rounded-full border px-3 py-1.5 text-xs ${size.w === f.w && size.h === f.h ? "border-primary bg-primary text-primary-foreground" : "border-border"
+                className={`rounded-full border px-3 py-1.5 text-xs ${size.w === f.w && size.h === f.h ? "border-primary bg-primary text-primary-foreground" : "border-border cursor-pointer"
                   }`}
               >
                 {f.label}
