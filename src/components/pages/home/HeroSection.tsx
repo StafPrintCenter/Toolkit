@@ -40,7 +40,7 @@ export function HeroSection() {
 
         <Button asChild size="lg" variant="outline" className="w-full bg-card sm:w-auto">
           <a
-            href="http://roadmap.stafprint.com/submit"
+            href={`${SITE_LINK.roadmapUrl}/submit`}
             target="_blank"
             rel="noopener noreferrer"
             className="inline-flex items-center justify-center gap-2"
