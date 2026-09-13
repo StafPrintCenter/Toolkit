@@ -42,7 +42,7 @@ export function ToolkitHeader() {
             title="Suggérer une idée"
           >
             <a
-              href="http://roadmap.stafprint.com/submit"
+              href={`${SITE_LINK.roadmapUrl}/submit`}
               target="_blank"
               rel="noopener noreferrer"
               className="inline-flex items-center gap-1.5"
