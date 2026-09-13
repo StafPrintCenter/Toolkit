@@ -33,7 +33,7 @@ export function HeroSection() {
             rel="noopener noreferrer"
             className="inline-flex items-center justify-center gap-2"
           >
-            <Icons.Heart className="h-4 w-4 fill-current text-rose-500" />
+            <Icons.HeartHandshake className="h-4 w-4" />
             Soutenir le projet
           </a>
         </Button>
