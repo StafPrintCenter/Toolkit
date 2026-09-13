@@ -5,7 +5,8 @@ import { useMemo, useState } from "react";
 import { CATEGORIES, TOOLS, type ToolCategory } from "@/data/toolsRegistry";
 import { ToolkitShell } from "@/components/site";
 import { Input } from "@/components/ui/input";
-import { SITE } from "@/data/site";
+import { Button } from "@/components/ui/button";
+import { SITE, SITE_LINK } from "@/data/site";
 import { ToolkitPreviewIllustration } from "@/components/pages/home/ToolkitPreviewIllustration";
 
 const PAGE_TITLE = `SPC Creative Toolkit - Outils prépresse & impression | ${SITE.name}`;
@@ -51,82 +52,112 @@ function Dashboard() {
     <div className="flex min-h-screen flex-col">
       <ToolkitShell>
         <main className="flex-1">
-          {/* HERO SECTION - Layout 2 colonnes */}
-          <section className="hero-glow border-b border-border/70">
-            <div className="surface-grid">
-              <div className="mx-auto grid max-w-6xl grid-cols-1 gap-12 px-6 py-16 sm:py-20 lg:grid-cols-2 lg:items-center lg:gap-10">
+          {/* HERO SECTION - Layout 2 colonnes standardisé */}
+          <section className="relative mx-auto grid max-w-6xl grid-cols-1 gap-14 px-6 py-16 sm:py-20 lg:grid-cols-2 lg:items-center lg:gap-10">
 
-                {/* COLONNE GAUCHE : Textes, Recherche & Filtres */}
-                <div className="flex flex-col items-start text-left">
-                  <motion.div initial={{ opacity: 0, y: 18 }} animate={{ opacity: 1, y: 0 }}>
-                    <span className="text-num inline-flex items-center gap-2 rounded-full border border-primary/30 bg-background/70 px-3.5 py-1.5 text-xs font-medium uppercase tracking-widest text-muted-foreground shadow-sm">
-                      <Icons.ShieldCheck className="size-3.5 text-primary" /> Zero-Server Storage
-                    </span>
+            {/* COLONNE GAUCHE : Badge, Titre, Description & CTA */}
+            <div className="flex flex-col items-start text-left">
+              <a
+                href={SITE_LINK.landingUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-2 rounded-full border border-border bg-card px-3.5 py-1.5 text-xs font-medium text-muted-foreground shadow-sm transition-colors hover:bg-accent hover:text-accent-foreground"
+              >
+                <Icons.Wrench className="h-3.5 w-3.5 text-primary" />
+                La boîte à outils de {SITE.name}
+              </a>
 
-                    <h1 className="mt-7 text-balance text-4xl font-extralight leading-[1.08] tracking-tight sm:text-6xl">
-                      La boîte à outils <span className="font-black">prépresse</span> de{" "}
-                      <span className="text-primary">STAF PRINT CENTER</span>.
-                    </h1>
+              <h1 className="mt-7 text-balance text-4xl font-extralight leading-[1.08] tracking-tight sm:text-6xl">
+                Optimisez vos visuels avec <span className="font-black">{SITE.name}</span><br />
+                en un <span className="text-primary">instant.</span>
+              </h1>
 
-                    <p className="mt-6 max-w-xl text-balance text-base leading-relaxed text-muted-foreground sm:text-lg">
-                      Dix utilitaires pensés pour les graphistes, agences et étudiants.
-                      Tout tourne dans votre navigateur : aucun fichier n'est envoyé sur un serveur.
-                    </p>
-                  </motion.div>
+              <p className="mt-6 max-w-xl text-balance text-base leading-relaxed text-muted-foreground sm:text-lg">
+                Des utilitaires prépresse et impression gratuits pensés pour les graphistes, agences et étudiants.
+                Tout fonctionne à 100% dans votre navigateur, sans aucun stockage serveur.
+              </p>
 
-                  {/* Barre de Recherche */}
-                  <motion.div
-                    initial={{ opacity: 0, y: 18 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ delay: 0.08 }}
-                    className="mt-8 w-full max-w-xl"
+              {/* Boutons d'Action CTA */}
+              <div className="mt-8 flex w-full flex-col items-start gap-3 sm:flex-row sm:items-center">
+                <Button asChild size="lg" className="w-full sm:w-auto">
+                  <a
+                    href="https://me.fedapay.com/spc-creative-toolkit"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center justify-center gap-2"
                   >
-                    <div className="relative">
-                      <Icons.Search className="pointer-events-none absolute left-4 top-1/2 size-4 -translate-y-1/2 text-muted-foreground" />
-                      <Input
-                        value={query}
-                        onChange={(e) => setQuery(e.target.value)}
-                        placeholder="Rechercher un outil : CMJN, DPI, fond perdu, PDF…"
-                        className="h-13 rounded-xl border-border bg-card pl-11 text-base shadow-soft"
-                      />
-                    </div>
-                  </motion.div>
+                    <Icons.Heart className="h-4 w-4 fill-current text-rose-500" />
+                    Soutenir le projet
+                  </a>
+                </Button>
 
-                  {/* Filtres par catégorie */}
-                  <div className="mt-5 flex flex-wrap gap-2">
-                    {FILTERS.map((f) => (
-                      <button
-                        key={f.key}
-                        onClick={() => setFilter(f.key)}
-                        className={`rounded-full border px-4 py-1.5 text-sm transition-colors ${filter === f.key
-                          ? "border-primary bg-primary text-primary-foreground"
-                          : "border-border bg-card hover:border-primary/50 cursor-pointer"
-                          }`}
-                      >
-                        {f.label}
-                      </button>
-                    ))}
-                  </div>
-                </div>
-
-                {/* COLONNE DROITE : Aperçu de l'Illustration */}
-                <div className="w-full flex justify-center lg:justify-end">
-                  <ToolkitPreviewIllustration />
-                </div>
-
+                <Button asChild size="lg" variant="outline" className="w-full bg-card sm:w-auto">
+                  <a
+                    href="http://roadmap.stafprint.com/submit"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center justify-center gap-2"
+                  >
+                    <Icons.Lightbulb className="h-4 w-4 text-amber-500" />
+                    Suggérer une idée
+                  </a>
+                </Button>
               </div>
+
+              <div className="mt-6 flex items-center gap-2 text-xs font-medium text-muted-foreground">
+                <Icons.ShieldCheck className="h-3.5 w-3.5 text-emerald-500" />
+                Traitement local · Aucun fichier envoyé sur un serveur
+              </div>
+            </div>
+
+            {/* COLONNE DROITE : Preview Illustration */}
+            <div className="w-full flex justify-center lg:justify-end">
+              <ToolkitPreviewIllustration />
             </div>
           </section>
 
-          {/* GRILLE DES OUTILS */}
-          <section className="mx-auto max-w-6xl px-4 py-14">
-            <div className="flex items-baseline justify-between">
-              <h2 className="text-2xl font-bold">Les outils</h2>
-              <span className="text-num text-sm text-muted-foreground">
-                {results.length} / {TOOLS.length}
+          {/* SECTION GRILLE DES OUTILS & RECHERCHE */}
+          <section className="mx-auto max-w-6xl px-6 py-12 border-t border-border/70">
+            {/* Barre de Recherche & Filtres déplacés ici */}
+            <div className="flex flex-col gap-6 md:flex-row md:items-center md:justify-between">
+
+              {/* Filtres par catégorie */}
+              <div className="flex flex-wrap gap-2">
+                {FILTERS.map((f) => (
+                  <button
+                    key={f.key}
+                    onClick={() => setFilter(f.key)}
+                    className={`rounded-full border px-4 py-1.5 text-sm transition-colors ${filter === f.key
+                      ? "border-primary bg-primary text-primary-foreground font-medium"
+                      : "border-border bg-card hover:border-primary/50 text-muted-foreground cursor-pointer"
+                      }`}
+                  >
+                    {f.label}
+                  </button>
+                ))}
+              </div>
+
+              {/* Champ de Recherche */}
+              <div className="relative w-full md:w-80">
+                <Icons.Search className="pointer-events-none absolute left-3.5 top-1/2 size-4 -translate-y-1/2 text-muted-foreground" />
+                <Input
+                  value={query}
+                  onChange={(e) => setQuery(e.target.value)}
+                  placeholder="Rechercher (CMJN, DPI, PDF…)"
+                  className="h-10 rounded-xl border-border bg-card pl-9 text-sm shadow-sm"
+                />
+              </div>
+            </div>
+
+            {/* En-tête du compteur */}
+            <div className="mt-8 flex items-baseline justify-between border-b border-border/50 pb-3">
+              <h2 className="text-xl font-bold tracking-tight">Catalogues des outils</h2>
+              <span className="text-num text-xs font-medium text-muted-foreground">
+                {results.length} sur {TOOLS.length} disponible{TOOLS.length > 1 ? "s" : ""}
               </span>
             </div>
 
+            {/* Grille des cartes d'outils */}
             <div className="mt-6 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
               {results.map((tool, i) => {
                 const cat = CATEGORIES[tool.category];
@@ -171,9 +202,9 @@ function Dashboard() {
             </div>
 
             {results.length === 0 && (
-              <p className="mt-10 text-center text-muted-foreground">
-                Aucun outil ne correspond à « {query} ».
-              </p>
+              <div className="mt-12 text-center text-muted-foreground py-8 border border-dashed rounded-2xl">
+                <p>Aucun outil ne correspond à votre recherche « <span className="text-foreground font-medium">{query}</span> ».</p>
+              </div>
             )}
           </section>
         </main>
