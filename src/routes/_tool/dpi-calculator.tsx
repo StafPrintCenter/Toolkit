@@ -105,7 +105,7 @@ function Page() {
               <button
                 key={p.label}
                 onClick={() => setCm({ w: p.w, h: p.h })}
-                className="rounded-full border border-border px-3 py-1.5 text-xs hover:border-primary"
+                className="rounded-full border border-border px-3 py-1.5 text-xs hover:border-primary cursor-pointer"
               >
                 {p.label}
               </button>
