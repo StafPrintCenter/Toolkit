@@ -202,7 +202,7 @@ function BarcodePanel() {
                   setFormat(f);
                   setValue(f === "EAN13" ? "5901234123457" : "STAFPRINT-2026");
                 }}
-                className={`rounded-full border px-4 py-1.5 text-sm ${format === f ? "border-primary bg-primary text-primary-foreground" : "border-border"
+                className={`rounded-full border px-4 py-1.5 text-sm ${format === f ? "border-primary bg-primary text-primary-foreground" : "border-border cursor-pointer hover:border-primary"
                   }`}
               >
                 {f === "EAN13" ? "EAN-13" : "Code 128"}
@@ -250,7 +250,7 @@ function Page() {
           <button
             key={k}
             onClick={() => setTab(k)}
-            className={`rounded-full px-5 py-1.5 text-sm ${tab === k ? "bg-primary text-primary-foreground" : ""}`}
+            className={`rounded-full px-5 py-1.5 text-sm ${tab === k ? "bg-primary text-primary-foreground" : "hover:bg-primary/10 cursor-pointer"}`}
           >
             {label}
           </button>
