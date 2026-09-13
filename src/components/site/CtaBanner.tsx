@@ -30,7 +30,7 @@ export function CtaBanner({ tool }: { tool: ToolItem }) {
         </Button>
         <Button asChild variant="outline">
           <a
-            href={SITE_LINK.docsUrl}
+            href={`${SITE_LINK.docsUrl}/docs/toolkit/guide-complet`}
             target="_blank"
             rel="noopener noreferrer"
           >
