@@ -6,6 +6,7 @@ import { CATEGORIES, TOOLS, type ToolCategory } from "@/data/toolsRegistry";
 import { ToolkitShell } from "@/components/site";
 import { Input } from "@/components/ui/input";
 import { SITE } from "@/data/site";
+import { ToolkitPreviewIllustration } from "@/components/pages/home/ToolkitPreviewIllustration";
 
 const PAGE_TITLE = `SPC Creative Toolkit - Outils prépresse & impression | ${SITE.name}`;
 const PAGE_DESC = `Le hub d'utilitaires prépresse et impression de ${SITE.name}.`;
@@ -50,58 +51,74 @@ function Dashboard() {
     <div className="flex min-h-screen flex-col">
       <ToolkitShell>
         <main className="flex-1">
+          {/* HERO SECTION - Layout 2 colonnes */}
           <section className="hero-glow border-b border-border/70">
             <div className="surface-grid">
-              <div className="mx-auto max-w-6xl px-4 py-16 sm:py-24">
-                <motion.div initial={{ opacity: 0, y: 18 }} animate={{ opacity: 1, y: 0 }}>
-                  <span className="text-num inline-flex items-center gap-2 rounded-full border border-primary/30 bg-background/70 px-3 py-1 text-xs uppercase tracking-widest">
-                    <Icons.ShieldCheck className="size-3.5 text-primary" /> Zero-Server Storage
-                  </span>
-                  <h1 className="mt-5 max-w-3xl text-4xl font-bold leading-[1.05] sm:text-6xl">
-                    La boîte à outils prépresse de{" "}
-                    <span className="text-primary">STAF PRINT CENTER</span>.
-                  </h1>
-                  <p className="mt-4 max-w-2xl text-lg text-muted-foreground">
-                    Dix utilitaires pensés pour les graphistes, agences et étudiants de Porto-Novo.
-                    Tout tourne dans votre navigateur : aucun fichier n'est envoyé sur un serveur.
-                  </p>
-                </motion.div>
+              <div className="mx-auto grid max-w-6xl grid-cols-1 gap-12 px-6 py-16 sm:py-20 lg:grid-cols-2 lg:items-center lg:gap-10">
 
-                <motion.div
-                  initial={{ opacity: 0, y: 18 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ delay: 0.08 }}
-                  className="mt-8 max-w-xl"
-                >
-                  <div className="relative">
-                    <Icons.Search className="pointer-events-none absolute left-4 top-1/2 size-4 -translate-y-1/2 text-muted-foreground" />
-                    <Input
-                      value={query}
-                      onChange={(e) => setQuery(e.target.value)}
-                      placeholder="Rechercher un outil : CMJN, DPI, fond perdu, PDF…"
-                      className="h-13 rounded-xl border-border bg-card pl-11 text-base shadow-soft"
-                    />
+                {/* COLONNE GAUCHE : Textes, Recherche & Filtres */}
+                <div className="flex flex-col items-start text-left">
+                  <motion.div initial={{ opacity: 0, y: 18 }} animate={{ opacity: 1, y: 0 }}>
+                    <span className="text-num inline-flex items-center gap-2 rounded-full border border-primary/30 bg-background/70 px-3.5 py-1.5 text-xs font-medium uppercase tracking-widest text-muted-foreground shadow-sm">
+                      <Icons.ShieldCheck className="size-3.5 text-primary" /> Zero-Server Storage
+                    </span>
+
+                    <h1 className="mt-7 text-balance text-4xl font-extralight leading-[1.08] tracking-tight sm:text-6xl">
+                      La boîte à outils <span className="font-black">prépresse</span> de{" "}
+                      <span className="text-primary">STAF PRINT CENTER</span>.
+                    </h1>
+
+                    <p className="mt-6 max-w-xl text-balance text-base leading-relaxed text-muted-foreground sm:text-lg">
+                      Dix utilitaires pensés pour les graphistes, agences et étudiants.
+                      Tout tourne dans votre navigateur : aucun fichier n'est envoyé sur un serveur.
+                    </p>
+                  </motion.div>
+
+                  {/* Barre de Recherche */}
+                  <motion.div
+                    initial={{ opacity: 0, y: 18 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ delay: 0.08 }}
+                    className="mt-8 w-full max-w-xl"
+                  >
+                    <div className="relative">
+                      <Icons.Search className="pointer-events-none absolute left-4 top-1/2 size-4 -translate-y-1/2 text-muted-foreground" />
+                      <Input
+                        value={query}
+                        onChange={(e) => setQuery(e.target.value)}
+                        placeholder="Rechercher un outil : CMJN, DPI, fond perdu, PDF…"
+                        className="h-13 rounded-xl border-border bg-card pl-11 text-base shadow-soft"
+                      />
+                    </div>
+                  </motion.div>
+
+                  {/* Filtres par catégorie */}
+                  <div className="mt-5 flex flex-wrap gap-2">
+                    {FILTERS.map((f) => (
+                      <button
+                        key={f.key}
+                        onClick={() => setFilter(f.key)}
+                        className={`rounded-full border px-4 py-1.5 text-sm transition-colors ${filter === f.key
+                          ? "border-primary bg-primary text-primary-foreground"
+                          : "border-border bg-card hover:border-primary/50 cursor-pointer"
+                          }`}
+                      >
+                        {f.label}
+                      </button>
+                    ))}
                   </div>
-                </motion.div>
-
-                <div className="mt-5 flex flex-wrap gap-2">
-                  {FILTERS.map((f) => (
-                    <button
-                      key={f.key}
-                      onClick={() => setFilter(f.key)}
-                      className={`rounded-full border px-4 py-1.5 text-sm transition-colors ${filter === f.key
-                        ? "border-primary bg-primary text-primary-foreground"
-                        : "border-border bg-card hover:border-primary/50 cursor-pointer"
-                        }`}
-                    >
-                      {f.label}
-                    </button>
-                  ))}
                 </div>
+
+                {/* COLONNE DROITE : Aperçu de l'Illustration */}
+                <div className="w-full flex justify-center lg:justify-end">
+                  <ToolkitPreviewIllustration />
+                </div>
+
               </div>
             </div>
           </section>
 
+          {/* GRILLE DES OUTILS */}
           <section className="mx-auto max-w-6xl px-4 py-14">
             <div className="flex items-baseline justify-between">
               <h2 className="text-2xl font-bold">Les outils</h2>
