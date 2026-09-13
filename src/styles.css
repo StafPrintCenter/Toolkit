@@ -183,8 +183,31 @@
   background-size: 28px 28px;
 }
 
-@utility hero-glow {
-  background:
-    radial-gradient(60% 80% at 15% 0%, color-mix(in oklab, var(--color-primary) 22%, transparent), transparent 70%),
-    radial-gradient(50% 70% at 90% 10%, color-mix(in oklab, var(--color-prepress) 18%, transparent), transparent 70%);
+/* Custom Thin Scrollbar */
+@layer utilities {
+
+  /* Pour Firefox */
+  * {
+    scrollbar-width: thin;
+    scrollbar-color: oklch(0.45 0.02 50 / 0.3) transparent;
+  }
+
+  /* Pour Chrome, Safari, Edge et navigateurs Chromium */
+  ::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+  }
+
+  ::-webkit-scrollbar-track {
+    background: transparent;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background-color: oklch(0.45 0.02 50 / 0.3);
+    border-radius: 9999px;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    background-color: oklch(0.45 0.02 50 / 0.6);
+  }
 }
