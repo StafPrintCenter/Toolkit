@@ -10,6 +10,7 @@ const TODAY = new Date().toISOString().split("T")[0];
 
 interface SitemapEntry {
   path: string;
+  lastmod?: string;
   changefreq?: "always" | "hourly" | "daily" | "weekly" | "monthly" | "yearly" | "never";
   priority?: string;
 }
@@ -31,8 +32,18 @@ export const Route = createFileRoute("/sitemap.xml")({
       GET: async () => {
         // 2. Pages statiques de base
         const entries: SitemapEntry[] = [
-          { path: "/", changefreq: "weekly", priority: "1.0" },
-          { path: "/barcode-generator", changefreq: "weekly", priority: "0.8" },
+          { path: "/", lastmod: TODAY, changefreq: "weekly", priority: "1.0" },
+          { path: "/barcode-generator", lastmod: TODAY, changefreq: "weekly", priority: "0.8" },
+          { path: "/bleed-generator", lastmod: TODAY, changefreq: "weekly", priority: "0.8" },
+          { path: "/dpi-calculator", lastmod: TODAY, changefreq: "weekly", priority: "0.8" },
+          { path: "/fold-simulator", lastmod: TODAY, changefreq: "weekly", priority: "0.8" },
+          { path: "/nesting-calc", lastmod: TODAY, changefreq: "weekly", priority: "0.8" },
+          { path: "/pdf-tools", lastmod: TODAY, changefreq: "weekly", priority: "0.8" },
+          { path: "/rgb-to-cmyk", lastmod: TODAY, changefreq: "weekly", priority: "0.8" },
+          { path: "/spine-calculator", lastmod: TODAY, changefreq: "weekly", priority: "0.8" },
+          { path: "/tac-checker", lastmod: TODAY, changefreq: "weekly", priority: "0.8" },
+          { path: "/textile-guide", lastmod: TODAY, changefreq: "weekly", priority: "0.8" },
+
         ];
 
         const urls = entries.map((e) =>
