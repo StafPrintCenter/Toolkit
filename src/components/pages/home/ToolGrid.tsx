@@ -1,10 +1,12 @@
 import { Link } from "@tanstack/react-router";
 import { motion } from "framer-motion";
 import * as Icons from "lucide-react";
-import { CATEGORIES, type ToolDef } from "@/data/toolsRegistry";
+import { CATEGORIES, TOOLS } from "@/data/toolsRegistry";
+
+type ToolItem = (typeof TOOLS)[number];
 
 interface ToolGridProps {
-  tools: ToolDef[];
+  tools: ToolItem[];
 }
 
 export function ToolGrid({ tools }: ToolGridProps) {
