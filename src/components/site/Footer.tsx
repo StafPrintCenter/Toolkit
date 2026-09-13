@@ -36,7 +36,7 @@ export function ToolkitFooter() {
           <span className="text-muted-foreground/50">·</span>
 
           <a
-            href={`${SITE_LINK.docsUrl}/legal/privacy`}
+            href={`${SITE_LINK.docsUrl}/docs/toolkit/guide-complet`}
             target="_blank"
             rel="noopener noreferrer"
             className="underline underline-offset-4 transition-colors hover:text-primary"
