@@ -67,7 +67,7 @@ function Page() {
                   <button
                     key={p.label}
                     onClick={() => setPaper(p)}
-                    className={`rounded-full border px-3 py-1.5 text-xs ${paper.label === p.label ? "border-primary bg-primary text-primary-foreground" : "border-border"
+                    className={`rounded-full border px-3 py-1.5 text-xs ${paper.label === p.label ? "border-primary bg-primary text-primary-foreground" : "border-border cursor-pointer"
                       }`}
                   >
                     {p.label}
@@ -81,7 +81,7 @@ function Page() {
                   <button
                     key={b.label}
                     onClick={() => setBinding(b)}
-                    className={`rounded-full border px-3 py-1.5 text-xs ${binding.label === b.label ? "border-primary bg-primary text-primary-foreground" : "border-border"
+                    className={`rounded-full border px-3 py-1.5 text-xs ${binding.label === b.label ? "border-primary bg-primary text-primary-foreground" : "border-border cursor-pointer"
                       }`}
                   >
                     {b.label}
