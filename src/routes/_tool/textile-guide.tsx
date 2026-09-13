@@ -119,7 +119,7 @@ function Page() {
               <button
                 key={k}
                 onClick={() => setZone(k)}
-                className={`w-full rounded-xl border p-3 text-left text-sm ${zone === k ? "border-primary bg-accent/60" : "border-border hover:border-primary/50"
+                className={`w-full rounded-xl border p-3 text-left text-sm ${zone === k ? "border-primary bg-accent/60" : "border-border hover:border-primary/50 cursor-pointer"
                   }`}
               >
                 <span className="font-medium">{ZONES[k].label}</span>
@@ -150,7 +150,7 @@ function Page() {
                 <button
                   key={s.size}
                   onClick={() => setSize(s.size)}
-                  className={`text-num rounded-full border px-4 py-1.5 text-sm ${size === s.size ? "border-primary bg-primary text-primary-foreground" : "border-border"
+                  className={`text-num rounded-full border px-4 py-1.5 text-sm ${size === s.size ? "border-primary bg-primary text-primary-foreground" : "border-border hover:border-primary cursor-pointer"
                     }`}
                 >
                   {s.size}
