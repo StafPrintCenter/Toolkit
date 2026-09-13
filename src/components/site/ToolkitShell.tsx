@@ -10,6 +10,9 @@ export function ToolkitShell({ tool, children }: { tool?: ToolItem; children: Re
 
   return (
     <div className="flex min-h-screen flex-col">
+      {/* Background papier */}
+      <div className="pointer-events-none absolute inset-0 surface-grid opacity-50" />
+
       <ToolkitHeader />
 
       {tool ? (
