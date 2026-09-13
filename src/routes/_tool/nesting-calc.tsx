@@ -98,7 +98,7 @@ function Page() {
                 <button
                   key={l}
                   onClick={() => setLaize(l)}
-                  className={`text-num rounded-full border px-3 py-1.5 text-xs ${laize === l ? "border-primary bg-primary text-primary-foreground" : "border-border"
+                  className={`text-num rounded-full border px-3 py-1.5 text-xs ${laize === l ? "border-primary bg-primary text-primary-foreground" : "border-border hover:border-primary cursor-pointer"
                     }`}
                 >
                   {(l / 1000).toFixed(2)} m
