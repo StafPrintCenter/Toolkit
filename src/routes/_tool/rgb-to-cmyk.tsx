@@ -159,7 +159,7 @@ function Page() {
                 <button
                   key={p}
                   onClick={() => setPaper(p)}
-                  className={`rounded-full border px-4 py-1.5 text-sm capitalize ${paper === p ? "border-primary bg-primary text-primary-foreground" : "border-border"
+                  className={`rounded-full border px-4 py-1.5 text-sm capitalize ${paper === p ? "border-primary bg-primary text-primary-foreground" : "border-border hover:border-primary cursor-pointer"
                     }`}
                 >
                   Papier {p}
