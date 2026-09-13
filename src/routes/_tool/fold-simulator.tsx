@@ -59,7 +59,7 @@ function Page() {
               <button
                 key={k}
                 onClick={() => setType(k)}
-                className={`w-full rounded-xl border p-3 text-left text-sm transition-colors ${type === k ? "border-primary bg-accent/60" : "border-border hover:border-primary/50"
+                className={`w-full rounded-xl border p-3 text-left text-sm transition-colors ${type === k ? "border-primary bg-accent/60" : "border-border hover:border-primary/50 cursor-pointer"
                   }`}
               >
                 <span className="font-medium">{FOLDS[k].label}</span>
