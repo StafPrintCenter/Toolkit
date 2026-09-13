@@ -5,6 +5,9 @@ import { Button } from "@/components/ui/button";
 import { SITE_LINK } from "@/data/site";
 
 export function CtaBanner({ tool }: { tool: ToolItem }) {
+  const docSlug = tool.slug.replace(/^\//, "");
+  const docsHref = `${SITE_LINK.docsUrl}/docs/toolkit/${docSlug}`;
+
   return (
     <motion.aside
       initial={{ opacity: 0, y: 16 }}
@@ -30,7 +33,7 @@ export function CtaBanner({ tool }: { tool: ToolItem }) {
         </Button>
         <Button asChild variant="outline">
           <a
-            href={`${SITE_LINK.docsUrl}/docs/toolkit/guide-complet`}
+            href={docsHref}
             target="_blank"
             rel="noopener noreferrer"
           >
