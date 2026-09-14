@@ -1,20 +1,5 @@
 import { Link } from "@tanstack/react-router";
-import {
-  Palette,
-  FileText,
-  Grid,
-  QrCode,
-  Scissors,
-  Layers,
-  Sliders,
-  AlertTriangle,
-  RotateCcw,
-  Home,
-  ArrowLeft,
-  Ruler,
-  Maximize2,
-  Minimize2,
-} from "lucide-react";
+import { Palette, FileText, Grid, QrCode, Scissors, Layers, Sliders, AlertTriangle, Home, ArrowLeft, Ruler, Maximize2, Minimize2 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
 export function NotFoundComponent() {
