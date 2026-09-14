@@ -41,7 +41,7 @@ export function NotFoundComponent() {
           <span className="hidden sm:inline text-muted-foreground">FOGRA39</span>
           <div className="flex items-center gap-1">
             <span className="h-2 w-2 sm:h-2.5 sm:w-2.5 rounded-full bg-cyan-500" title="C: 0%" />
-            <span className="h-2 w-2 sm:h-2.5 sm:w-2.5 rounded-full bg-magenta-500" title="M: 0%" />
+            <span className="h-2 w-2 sm:h-2.5 sm:w-2.5 rounded-full bg-pink-500" title="M: 0%" />
             <span className="h-2 w-2 sm:h-2.5 sm:w-2.5 rounded-full bg-yellow-400" title="J: 0%" />
             <span className="h-2 w-2 sm:h-2.5 sm:w-2.5 rounded-full bg-slate-900 dark:bg-slate-100" title="N: 100%" />
           </div>
