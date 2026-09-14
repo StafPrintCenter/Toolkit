@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { Link } from "@tanstack/react-router";
 import { Cookie } from "lucide-react";
+import { SITE_LINK } from "@/data/site";
 
 const STORAGE_KEY = "spc_toolkit_cookie_consent_v1";
 const GA_ID = "G-MJ47YJ4V60";
