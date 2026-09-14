@@ -142,16 +142,6 @@ export function NotFoundComponent() {
                 <ArrowLeft className="mr-2 h-4 w-4" />
                 Retour
               </Button>
-
-              <Button
-                variant="ghost"
-                size="default"
-                className="w-full sm:w-auto rounded-full text-muted-foreground"
-                onClick={() => window.location.reload()}
-              >
-                <RotateCcw className="mr-1.5 h-3.5 w-3.5" />
-                Recharger le plan
-              </Button>
             </div>
           </div>
         </main>
