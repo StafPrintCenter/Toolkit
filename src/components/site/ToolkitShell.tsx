@@ -1,6 +1,6 @@
 import { Link } from "@tanstack/react-router";
 import { motion } from "framer-motion";
-import { ToolkitHeader, ToolkitFooter, CtaBanner } from ".";
+import { ToolkitHeader, ToolkitFooter, CtaBanner, CookieConsent } from ".";
 import { ArrowLeft } from "lucide-react";
 import type { ReactNode } from "react";
 import { CATEGORIES, type ToolItem } from "@/data/toolsRegistry";
@@ -50,6 +50,8 @@ export function ToolkitShell({ tool, children }: { tool?: ToolItem; children: Re
       )}
 
       <ToolkitFooter />
+
+      <CookieConsent />
     </div>
   );
 }
