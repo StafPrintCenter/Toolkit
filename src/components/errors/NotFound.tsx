@@ -1,285 +1,212 @@
 import { Link } from "@tanstack/react-router";
 import {
-  ArrowLeft,
-  FileCog,
+  Palette,
+  FileText,
+  Grid,
+  QrCode,
+  Scissors,
+  Layers,
+  Sliders,
+  AlertTriangle,
+  RotateCcw,
   Home,
-  Layers3,
-  MoreHorizontal,
-  PanelLeft,
-  RefreshCw,
-  Search,
-  SlidersHorizontal,
-  Wrench,
+  ArrowLeft,
+  Ruler,
+  Maximize2,
+  Minimize2,
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
 export function NotFoundComponent() {
   return (
-    <div className="relative flex min-h-screen w-full flex-col overflow-hidden bg-background text-foreground">
-      {/* Subtle workspace background */}
-      <div
-        aria-hidden="true"
-        className="pointer-events-none absolute inset-0 paper-grid opacity-40"
-      />
+    <div className="flex h-screen w-full flex-col bg-background text-foreground select-none overflow-hidden font-sans">
 
-      <div className="relative z-10 flex min-h-screen flex-col">
-        {/* Application top bar */}
-        <header className="flex h-12 shrink-0 items-center border-b border-border/70 bg-card/95 px-3">
-          <div className="flex items-center gap-2">
-            <div className="flex h-7 w-7 items-center justify-center rounded-md bg-primary/10 text-primary">
-              <Wrench className="h-4 w-4" />
-            </div>
-
-            <span className="font-mono text-xs font-semibold">
-              OFFLINE TOOLS
-            </span>
+      {/* 1. BARRE D'EN-TÊTE / MENU APPLICATIF */}
+      <header className="flex h-12 w-full shrink-0 items-center justify-between border-b border-border bg-card px-4 text-xs font-medium">
+        <div className="flex items-center gap-4">
+          <div className="flex items-center gap-2 font-mono font-bold tracking-wider text-primary">
+            <span className="flex h-2 w-2 rounded-full bg-destructive animate-pulse" />
+            SPC_STUDIO // OFFLINE
           </div>
-
-          <div className="mx-4 hidden h-5 w-px bg-border sm:block" />
-
-          {/* Fake document / tool tabs */}
-          <div className="hidden h-full items-end gap-1 sm:flex">
-            <div className="flex h-9 items-center gap-2 border-x border-t border-border/70 bg-background px-4 font-mono text-[10px] text-muted-foreground">
-              <FileCog className="h-3.5 w-3.5" />
-              outil-inconnu
-              <span className="text-destructive">×</span>
-            </div>
+          <div className="hidden sm:flex items-center gap-3 text-muted-foreground border-l border-border pl-4 font-mono text-[11px]">
+            <span>Fichier</span>
+            <span>Édition</span>
+            <span>Affichage</span>
+            <span>Espace de travail</span>
           </div>
-
-          <div className="ml-auto flex items-center gap-1">
-            <button className="flex h-8 w-8 items-center justify-center rounded-md text-muted-foreground hover:bg-muted">
-              <Search className="h-4 w-4" />
-            </button>
-
-            <button className="flex h-8 w-8 items-center justify-center rounded-md text-muted-foreground hover:bg-muted">
-              <MoreHorizontal className="h-4 w-4" />
-            </button>
-          </div>
-        </header>
-
-        {/* Workspace */}
-        <div className="relative flex min-h-0 flex-1">
-          {/* Left toolbar */}
-          <aside className="hidden w-14 shrink-0 flex-col items-center border-r border-border/70 bg-card/70 py-3 sm:flex">
-            <button className="flex h-9 w-9 items-center justify-center rounded-lg bg-primary/10 text-primary">
-              <PanelLeft className="h-4 w-4" />
-            </button>
-
-            <div className="my-3 h-px w-6 bg-border" />
-
-            <button className="flex h-9 w-9 items-center justify-center rounded-lg text-muted-foreground">
-              <Layers3 className="h-4 w-4" />
-            </button>
-
-            <button className="mt-1 flex h-9 w-9 items-center justify-center rounded-lg text-muted-foreground">
-              <SlidersHorizontal className="h-4 w-4" />
-            </button>
-          </aside>
-
-          {/* Tools panel */}
-          <aside className="hidden w-56 shrink-0 border-r border-border/70 bg-card/50 p-4 md:block">
-            <div className="mb-5">
-              <p className="font-mono text-[9px] uppercase tracking-widest text-muted-foreground">
-                OUTILS
-              </p>
-            </div>
-
-            <div className="space-y-1">
-              {[
-                "Couleurs",
-                "PDF",
-                "Gabarits",
-                "Taux d'encre",
-                "QR Code",
-                "Textile",
-                "Calepinage",
-              ].map((tool) => (
-                <div
-                  key={tool}
-                  className="flex items-center rounded-md px-3 py-2 font-sans text-xs text-muted-foreground"
-                >
-                  <span className="mr-2 h-1.5 w-1.5 rounded-full bg-border" />
-                  {tool}
-                </div>
-              ))}
-            </div>
-          </aside>
-
-          {/* Main canvas */}
-          <main className="relative flex min-w-0 flex-1 flex-col">
-            {/* Canvas toolbar */}
-            <div className="flex h-10 shrink-0 items-center justify-between border-b border-border/60 bg-card/40 px-4">
-              <div className="flex items-center gap-2 font-mono text-[10px] text-muted-foreground">
-                <span>WORKSPACE</span>
-                <span>/</span>
-                <span className="text-foreground">outil-inconnu</span>
-              </div>
-
-              <div className="font-mono text-[9px] text-muted-foreground">
-                LOCAL
-              </div>
-            </div>
-
-            {/* Lost tool canvas */}
-            <div className="relative flex flex-1 items-center justify-center overflow-auto p-6 sm:p-10">
-              <div
-                aria-hidden="true"
-                className="pointer-events-none absolute inset-0 opacity-[0.025] [background-image:linear-gradient(to_bottom,transparent_50%,currentColor_50%)] [background-size:100%_4px]"
-              />
-
-              <div className="relative w-full max-w-xl">
-                {/* Tool window */}
-                <div className="overflow-hidden rounded-xl border border-border/80 bg-card shadow-xl">
-                  {/* Tool title bar */}
-                  <div className="flex h-10 items-center justify-between border-b border-border/70 bg-muted/30 px-3">
-                    <div className="flex items-center gap-2">
-                      <FileCog className="h-3.5 w-3.5 text-muted-foreground" />
-                      <span className="font-mono text-[10px] text-muted-foreground">
-                        TOOL_INSTANCE
-                      </span>
-                    </div>
-
-                    <span className="font-mono text-[9px] text-destructive">
-                      NOT_FOUND
-                    </span>
-                  </div>
-
-                  {/* Tool content */}
-                  <div className="px-6 py-10 text-center sm:px-10 sm:py-12">
-                    <div className="mx-auto flex h-14 w-14 items-center justify-center rounded-xl border border-destructive/20 bg-destructive/10 text-destructive">
-                      <FileCog className="h-6 w-6" />
-                    </div>
-
-                    <p className="mt-5 font-mono text-[10px] font-semibold tracking-widest text-destructive">
-                      TOOL_404
-                    </p>
-
-                    <h1 className="mt-3 font-display text-2xl font-bold tracking-tight sm:text-3xl">
-                      Cet outil s'est perdu.
-                    </h1>
-
-                    <p className="mx-auto mt-3 max-w-md font-sans text-sm leading-relaxed text-muted-foreground">
-                      L'outil demandé n'est plus disponible à cette adresse.
-                      L'espace de travail existe toujours, mais cette
-                      fonctionnalité n'a pas pu être chargée.
-                    </p>
-
-                    {/* Fake tool parameters */}
-                    <div className="mx-auto mt-7 max-w-sm overflow-hidden rounded-lg border border-border/70 bg-muted/20 text-left">
-                      <div className="grid grid-cols-2 border-b border-border/60 px-3 py-2.5 font-mono text-[9px]">
-                        <span className="text-muted-foreground">MODULE</span>
-                        <span className="text-right text-destructive">
-                          UNKNOWN
-                        </span>
-                      </div>
-
-                      <div className="grid grid-cols-2 border-b border-border/60 px-3 py-2.5 font-mono text-[9px]">
-                        <span className="text-muted-foreground">STATUS</span>
-                        <span className="text-right text-destructive">
-                          404
-                        </span>
-                      </div>
-
-                      <div className="grid grid-cols-2 px-3 py-2.5 font-mono text-[9px]">
-                        <span className="text-muted-foreground">
-                          WORKSPACE
-                        </span>
-                        <span className="text-right text-primary">
-                          AVAILABLE
-                        </span>
-                      </div>
-                    </div>
-
-                    {/* Actions */}
-                    <div className="mt-7 flex flex-col justify-center gap-2 sm:flex-row">
-                      <Button asChild size="sm">
-                        <Link to="/">
-                          <Home className="mr-2 h-3.5 w-3.5" />
-                          Ouvrir les outils
-                        </Link>
-                      </Button>
-
-                      <Button
-                        variant="outline"
-                        size="sm"
-                        onClick={() => window.history.back()}
-                      >
-                        <ArrowLeft className="mr-2 h-3.5 w-3.5" />
-                        Retour
-                      </Button>
-
-                      <Button
-                        variant="ghost"
-                        size="sm"
-                        onClick={() => window.location.reload()}
-                      >
-                        <RefreshCw className="mr-2 h-3.5 w-3.5" />
-                        Recharger
-                      </Button>
-                    </div>
-                  </div>
-
-                  {/* Tool status bar */}
-                  <div className="flex items-center justify-between border-t border-border/60 bg-muted/20 px-3 py-2 font-mono text-[8px] text-muted-foreground">
-                    <span>READY</span>
-                    <span>LOCAL PROCESSING</span>
-                    <span>HTTP 404</span>
-                  </div>
-                </div>
-
-                {/* Canvas coordinates */}
-                <div className="mt-3 flex justify-between px-1 font-mono text-[8px] text-muted-foreground/50">
-                  <span>X: 0000</span>
-                  <span>Y: 0000</span>
-                  <span>100%</span>
-                </div>
-              </div>
-            </div>
-          </main>
-
-          {/* Right properties panel */}
-          <aside className="hidden w-48 shrink-0 border-l border-border/70 bg-card/50 p-4 lg:block">
-            <p className="font-mono text-[9px] uppercase tracking-widest text-muted-foreground">
-              PROPRIÉTÉS
-            </p>
-
-            <div className="mt-5 space-y-4">
-              <div>
-                <p className="font-mono text-[8px] text-muted-foreground">
-                  FORMAT
-                </p>
-                <div className="mt-1 h-7 rounded border border-border/60 bg-muted/20" />
-              </div>
-
-              <div>
-                <p className="font-mono text-[8px] text-muted-foreground">
-                  MODE
-                </p>
-                <div className="mt-1 h-7 rounded border border-border/60 bg-muted/20" />
-              </div>
-
-              <div>
-                <p className="font-mono text-[8px] text-muted-foreground">
-                  OPTIONS
-                </p>
-                <div className="mt-1 h-20 rounded border border-border/60 bg-muted/20" />
-              </div>
-            </div>
-          </aside>
         </div>
 
-        {/* Application status bar */}
-        <footer className="flex h-7 shrink-0 items-center justify-between border-t border-border/70 bg-card px-3 font-mono text-[8px] text-muted-foreground">
-          <div className="flex items-center gap-3">
-            <span>OFFLINE</span>
-            <span className="text-primary">● LOCAL</span>
+        {/* Profil de couleur CMJN en erreur */}
+        <div className="flex items-center gap-3 font-mono text-[11px]">
+          <span className="hidden md:inline text-muted-foreground">Profil: FOGRA39</span>
+          <div className="flex items-center gap-1">
+            <span className="h-2.5 w-2.5 rounded-full bg-cyan-500" title="C: 0%" />
+            <span className="h-2.5 w-2.5 rounded-full bg-magenta-500" title="M: 0%" />
+            <span className="h-2.5 w-2.5 rounded-full bg-yellow-400" title="J: 0%" />
+            <span className="h-2.5 w-2.5 rounded-full bg-slate-900 dark:bg-slate-100" title="N: 100%" />
+          </div>
+          <span className="rounded bg-destructive/10 px-2 py-0.5 text-[10px] font-bold text-destructive">
+            404_ERR
+          </span>
+        </div>
+      </header>
+
+      {/* 2. CORPS PRINCIPAL DU STUDIO */}
+      <div className="flex flex-1 overflow-hidden">
+
+        {/* BARRE D'OUTILS LATÉRALE GAUCHE (Désactivée) */}
+        <aside className="flex w-14 shrink-0 flex-col items-center justify-between border-r border-border bg-card/50 py-3 text-muted-foreground/50">
+          <div className="flex flex-col gap-4">
+            <div className="p-2 rounded-lg bg-muted text-muted-foreground cursor-not-allowed" title="Sélection">
+              <Palette size={18} />
+            </div>
+            <div className="p-2 hover:bg-muted/50 rounded-lg cursor-not-allowed" title="PDF Extract">
+              <FileText size={18} />
+            </div>
+            <div className="p-2 hover:bg-muted/50 rounded-lg cursor-not-allowed" title="Calepinage">
+              <Grid size={18} />
+            </div>
+            <div className="p-2 hover:bg-muted/50 rounded-lg cursor-not-allowed" title="QR Code">
+              <QrCode size={18} />
+            </div>
+            <div className="p-2 hover:bg-muted/50 rounded-lg cursor-not-allowed" title="Flocage / Textile">
+              <Scissors size={18} />
+            </div>
           </div>
 
-          <span>TOOLBOX v1.0</span>
+          <div className="flex flex-col gap-3">
+            <Ruler size={18} />
+            <Layers size={18} />
+          </div>
+        </aside>
 
-          <span>NO DATA SENT</span>
-        </footer>
+        {/* CANVA CENTRAL (Zone de travail / Plan de coupe perdu) */}
+        <main className="relative flex flex-1 flex-col items-center justify-center p-6 bg-muted/20 overflow-hidden">
+          {/* Motifs de fond : Grille de découpe et repères d'imprimerie */}
+          <div className="pointer-events-none absolute inset-0 grid-field opacity-60" />
+
+          {/* Repères de coupe d'atelier au centre */}
+          <div className="relative flex w-full max-w-xl flex-col items-center rounded-3xl border-2 border-dashed border-destructive/40 bg-card p-8 sm:p-10 shadow-2xl backdrop-blur-md">
+
+            {/* Repères d'angles de découpe */}
+            <div className="pointer-events-none absolute -top-3 -left-3 h-6 w-6 border-t-2 border-l-2 border-destructive" />
+            <div className="pointer-events-none absolute -top-3 -right-3 h-6 w-6 border-t-2 border-r-2 border-destructive" />
+            <div className="pointer-events-none absolute -bottom-3 -left-3 h-6 w-6 border-b-2 border-l-2 border-destructive" />
+            <div className="pointer-events-none absolute -bottom-3 -right-3 h-6 w-6 border-b-2 border-r-2 border-destructive" />
+
+            {/* Badge de statut central */}
+            <div className="mb-4 inline-flex items-center gap-2 rounded-full border border-destructive/30 bg-destructive/10 px-4 py-1.5 font-mono text-xs font-semibold text-destructive">
+              <AlertTriangle size={14} />
+              UTILITAIRE_HORS_GABARIT // 404
+            </div>
+
+            <h1 className="font-display text-2xl font-extrabold tracking-tight text-foreground sm:text-3xl text-center">
+              Fichier ou outil introuvable
+            </h1>
+
+            <p className="mt-3 text-sm text-muted-foreground text-center leading-relaxed max-w-md">
+              Le gabarit, le convertisseur ou le module d'atelier sélectionné n'est pas chargé sur votre plan de travail local.
+            </p>
+
+            {/* Fiche technique / Diagnostic */}
+            <div className="mt-6 w-full rounded-xl border border-border bg-muted/40 p-4 font-mono text-xs space-y-2">
+              <div className="flex justify-between text-muted-foreground">
+                <span>Coordonnées canvas :</span>
+                <span className="text-destructive font-bold">X: -999 | Y: -999</span>
+              </div>
+              <div className="flex justify-between text-muted-foreground">
+                <span>Taux d'ancrage (TAC) :</span>
+                <span className="text-foreground">0% (Inconnu)</span>
+              </div>
+              <div className="flex justify-between text-muted-foreground">
+                <span>Diagnostic :</span>
+                <span className="text-destructive">MODULE_UNAVAILABLE</span>
+              </div>
+            </div>
+
+            {/* Actions de réinitialisation */}
+            <div className="mt-8 flex flex-col sm:flex-row items-center gap-3 w-full justify-center">
+              <Button asChild size="default" className="w-full sm:w-auto rounded-full font-semibold shadow-md">
+                <Link to="/">
+                  <Home className="mr-2 h-4 w-4" />
+                  Catalogue des outils
+                </Link>
+              </Button>
+
+              <Button
+                variant="outline"
+                size="default"
+                className="w-full sm:w-auto rounded-full font-semibold"
+                onClick={() => window.history.back()}
+              >
+                <ArrowLeft className="mr-2 h-4 w-4" />
+                Retour
+              </Button>
+
+              <Button
+                variant="ghost"
+                size="default"
+                className="w-full sm:w-auto rounded-full text-muted-foreground"
+                onClick={() => window.location.reload()}
+              >
+                <RotateCcw className="mr-1.5 h-3.5 w-3.5" />
+                Recharger le plan
+              </Button>
+            </div>
+          </div>
+        </main>
+
+        {/* PANNEAU LATÉRAL DROIT (Réglages désactivés) */}
+        <aside className="hidden lg:flex w-64 shrink-0 flex-col border-l border-border bg-card/50 p-4 font-mono text-xs">
+          <div className="flex items-center justify-between border-b border-border pb-3 mb-4 text-muted-foreground">
+            <span className="flex items-center gap-1.5 font-bold text-foreground">
+              <Sliders size={14} /> PROPRIÉTÉS
+            </span>
+            <span className="text-[10px]">VERROUILLÉ</span>
+          </div>
+
+          <div className="space-y-4 opacity-50 pointer-events-none">
+            <div>
+              <label className="text-[10px] text-muted-foreground block mb-1">Format de sortie</label>
+              <div className="h-8 w-full rounded-md border border-border bg-muted/60 px-2 flex items-center justify-between text-muted-foreground">
+                <span>Inconnu (0 x 0 mm)</span>
+              </div>
+            </div>
+
+            <div>
+              <label className="text-[10px] text-muted-foreground block mb-1">Résolution (DPI)</label>
+              <div className="h-8 w-full rounded-md border border-border bg-muted/60 px-2 flex items-center justify-between text-muted-foreground">
+                <span>0 DPI</span>
+              </div>
+            </div>
+
+            <div>
+              <label className="text-[10px] text-muted-foreground block mb-1">Calques d'impression</label>
+              <div className="space-y-1.5 pt-1">
+                <div className="h-6 rounded bg-muted/80 w-full" />
+                <div className="h-6 rounded bg-muted/80 w-3/4" />
+              </div>
+            </div>
+          </div>
+        </aside>
+
       </div>
+
+      {/* 3. BARRE DE STATUT ET RÉGLETTE EN BAS */}
+      <footer className="flex h-8 w-full shrink-0 items-center justify-between border-t border-border bg-card px-4 font-mono text-[11px] text-muted-foreground">
+        <div className="flex items-center gap-4">
+          <span className="flex items-center gap-1">
+            <Maximize2 size={12} /> ÉCHELLE: N/A
+          </span>
+          <span className="hidden sm:inline">UNITÉ: MILLIMÈTRES (MM)</span>
+        </div>
+
+        <div className="flex items-center gap-4">
+          <span>MODE: OFFLINE_WASM</span>
+          <Minimize2 size={12} className="cursor-pointer hover:text-foreground" />
+        </div>
+      </footer>
+
     </div>
   );
 }
