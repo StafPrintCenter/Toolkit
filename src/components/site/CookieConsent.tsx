@@ -2,8 +2,8 @@ import { useEffect, useState } from "react";
 import { Link } from "@tanstack/react-router";
 import { Cookie } from "lucide-react";
 
-const STORAGE_KEY = "spc_cookie_consent_v1";
-const GA_ID = "G-RJG7K6M9S0";
+const STORAGE_KEY = "spc_toolkit_cookie_consent_v1";
+const GA_ID = "G-MJ47YJ4V60";
 
 type Consent = "accepted" | "declined";
 
