@@ -95,7 +95,15 @@ export function CookieConsent() {
             <p className="mt-1 text-foreground/70">
               Nous utilisons Google Analytics pour comprendre l'usage du site et l'améliorer. Vous pouvez accepter
               ou refuser. Voir nos {" "}
-              <Link to="/legal/mentions" hash="cookies" className="underline hover:text-primary">mentions légales</Link>.
+              <a
+                href={`${SITE_LINK.landingUrl}/legal/mentions#cookies`}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="underline hover:text-primary"
+              >
+                mentions légales
+              </a>
+              .
             </p>
           </div>
         </div>
