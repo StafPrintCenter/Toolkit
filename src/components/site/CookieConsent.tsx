@@ -1,5 +1,4 @@
 import { useEffect, useState } from "react";
-import { Link } from "@tanstack/react-router";
 import { Cookie } from "lucide-react";
 import { SITE_LINK } from "@/data/site";
 
