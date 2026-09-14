@@ -85,7 +85,6 @@ export function CookieConsent() {
 
 
   const baseUrl = SITE_LINK.landingUrl;
-  const cleanBaseUrl = baseUrl.endsWith("/") ? baseUrl.slice(0, -1) : baseUrl;
 
   return (
     <div className="fixed inset-x-3 bottom-3 z-60 md:inset-x-auto md:right-6 md:bottom-6 md:max-w-md">
