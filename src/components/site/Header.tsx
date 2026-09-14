@@ -10,7 +10,7 @@ export function ToolkitHeader() {
     <header className="sticky top-0 z-40 border-b border-border/70 bg-background/80 backdrop-blur-xl">
       <div className="mx-auto flex h-16 max-w-6xl items-center justify-between px-4">
         <Link to="/" className="flex items-center">
-          <SpcDeskLogo className="mx-auto h-14 w-auto" />
+          <SpcDeskLogo className="mx-auto h-12 w-auto" />
         </Link>
 
         <div className="flex items-center gap-1.5 sm:gap-2">
