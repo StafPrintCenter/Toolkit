@@ -7,7 +7,7 @@ import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import { SITE } from "@/data/site";
 
-const PAGE_TITLE = `Boîte à outils PDF : fusion, extraction, niveaux de gris | SPC Toolkit | ${SITE.name}`;
+const PAGE_TITLE = `Boîte à outils PDF : fusion, extraction, niveaux de gris | ${SITE.tool} | ${SITE.name}`;
 const PAGE_DESC = `Fusionnez des PDF, extrayez des pages et convertissez en niveaux de gris sans rien envoyer sur un serveur : tout se passe dans votre navigateur.`;
 
 const tool = getTool("/pdf-tools")!;
