@@ -13,4 +13,4 @@ Allow: /
 User-agent: *
 Allow: /
 
-Sitemap: https://toolkit.stafprint.com/sitemap.xml
+Sitemap: https://tools.stafprint.com/sitemap.xml
