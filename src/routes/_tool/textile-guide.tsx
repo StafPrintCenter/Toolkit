@@ -4,7 +4,7 @@ import { ToolkitShell, Panel } from "@/components/site";
 import { getTool } from "@/data/toolsRegistry";
 import { SITE } from "@/data/site";
 
-const PAGE_TITLE = `Guide des tailles textiles & zones de flocage | SPC Toolkit | ${SITE.name}`;
+const PAGE_TITLE = `Guide des tailles textiles & zones de flocage | ${SITE.tool} | ${SITE.name}`;
 const PAGE_DESC = `Tableau des tailles de t-shirts du S au XXL et prévisualisation des emplacements d'impression : cœur, A4 poitrine, A3 dos, manche.`;
 
 const tool = getTool("/textile-guide")!;
