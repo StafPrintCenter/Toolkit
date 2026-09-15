@@ -9,7 +9,7 @@ import { Button } from "@/components/ui/button";
 import { gamutDelta, hexToRgb, rgbToCmyk, rgbToHex, simulatePaper } from "@/lib/color";
 import { SITE } from "@/data/site";
 
-const PAGE_TITLE = `Convertisseur RVB vers CMJN & simulateur papier | SPC Toolkit | ${SITE.name}`;
+const PAGE_TITLE = `Convertisseur RVB vers CMJN & simulateur papier | ${SITE.tool} | ${SITE.name}`;
 const PAGE_DESC = `Convertissez une couleur hex/RVB en CMJN, simulez le rendu sur papier mat ou brillant et détectez les couleurs hors gamme d'impression.`;
 
 const tool = getTool("/rgb-to-cmyk")!;
