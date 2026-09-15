@@ -7,7 +7,7 @@ import { Input } from "@/components/ui/input";
 import { cmykToRgb, hexToRgb, rgbToCmyk, rgbToHex } from "@/lib/color";
 import { SITE } from "@/data/site";
 
-const PAGE_TITLE = `Simulateur de taux d'encrage maximum (TAC) | SPC Toolkit | ${SITE.name}`;
+const PAGE_TITLE = `Simulateur de taux d'encrage maximum (TAC) | ${SITE.tool} | ${SITE.name}`;
 const PAGE_DESC = `Vérifiez la somme C+M+J+N de vos aplats et évitez le maculage : limites conseillées par support, du journal au couché brillant.`;
 
 const tool = getTool("/tac-checker")!;
