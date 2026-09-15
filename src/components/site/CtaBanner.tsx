@@ -6,7 +6,7 @@ import { SITE_LINK } from "@/data/site";
 
 export function CtaBanner({ tool }: { tool: ToolItem }) {
   const docSlug = tool.slug.replace(/^\//, "");
-  const docsHref = `${SITE_LINK.docsUrl}/docs/toolkit/${docSlug}`;
+  const docsHref = `${SITE_LINK.docsUrl}/docs/tools/${docSlug}`;
 
   return (
     <motion.aside
