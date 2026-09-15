@@ -7,7 +7,7 @@ import { Input } from "@/components/ui/input";
 import { Slider } from "@/components/ui/slider";
 import { SITE } from "@/data/site";
 
-const PAGE_TITLE = `Simulateur de pliage : dépliants 2, 3 volets & accordéon | SPC Toolkit | ${SITE.name}`;
+const PAGE_TITLE = `Simulateur de pliage : dépliants 2, 3 volets & accordéon | ${SITE.tool} | ${SITE.name}`;
 const PAGE_DESC = `Visualisez le pliage de vos dépliants, obtenez la largeur exacte de chaque volet et l'ordre des pages recto-verso.`;
 
 const tool = getTool("/fold-simulator")!;
