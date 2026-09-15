@@ -7,7 +7,7 @@ import { SITE, SITE_LINK } from "@/data/site";
 import logo from "@/assets/logos.json";
 import { NotFoundComponent, ErrorComponent } from "@/components/errors";
 
-const PAGE_TITLE = `SPC Creative Toolkit - Outils prépresse & impression | ${SITE.name}`;
+const PAGE_TITLE = `${SITE.tool} - Outils prépresse & impression | ${SITE.name}`;
 const PAGE_DESC = `Le hub d'utilitaires prépresse et impression de${SITE.name}.`;
 
 export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()({
@@ -24,11 +24,11 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       { property: "og:title", content: PAGE_TITLE },
       { property: "og:description", content: PAGE_DESC },
       { property: "og:type", content: "website" },
-      { property: "og:site_name", content: `SPC Toolkit - ${SITE.name}` },
+      { property: "og:site_name", content: `${SITE.tool} - ${SITE.name}` },
       { property: "og:image", content: `${logo.meta}` },
       { property: "og:image:width", content: "1200" },
       { property: "og:image:height", content: "630" },
-      { property: "og:image:alt", content: `SPC Creative Toolkit - ${SITE.name}` },
+      { property: "og:image:alt", content: `${SITE.tool} - ${SITE.name}` },
       { property: "og:url", content: `${SITE_LINK.toolkitUrl}` },
       { property: "og:locale", content: "fr_BJ" },
 
@@ -60,7 +60,7 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
           "@type": "WebApplication",
           "@id": `${SITE_LINK.toolkitUrl}/#webapp`,
           url: SITE_LINK.toolkitUrl,
-          name: `SPC Creative Toolkit`,
+          name: `${SITE.tool}`,
           applicationCategory: "BusinessApplication",
           operatingSystem: "All",
           description: PAGE_DESC,
