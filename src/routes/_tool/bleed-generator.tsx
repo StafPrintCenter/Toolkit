@@ -7,7 +7,7 @@ import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import { SITE } from "@/data/site";
 
-const PAGE_TITLE = `Générateur de gabarits & fonds perdus 3 mm | SPC Toolkit | ${SITE.name}`;
+const PAGE_TITLE = `Générateur de gabarits & fonds perdus 3 mm | ${SITE.tool} | ${SITE.name}`;
 const PAGE_DESC = `Créez un gabarit d'impression avec trait de coupe, fond perdu de 3 mm et marge de sécurité, puis exportez-le en PNG ou PDF.`;
 
 const tool = getTool("/bleed-generator")!;
