@@ -5,7 +5,7 @@ import { ToolkitShell } from "@/components/site";
 import { SITE } from "@/data/site";
 import { HeroSection, ToolkitFilterBar, ToolGrid, EmptyState, ToolkitPreviewIllustration } from "@/components/pages/home";
 
-const PAGE_TITLE = `SPC Creative Toolkit - Outils prépresse & impression | ${SITE.name}`;
+const PAGE_TITLE = `${SITE.tool} - Outils prépresse & impression | ${SITE.name}`;
 const PAGE_DESC = `Le hub d'utilitaires prépresse et impression de ${SITE.name}.`;
 
 export const Route = createFileRoute("/")({
