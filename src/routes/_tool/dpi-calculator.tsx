@@ -7,7 +7,7 @@ import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import { SITE } from "@/data/site";
 
-const PAGE_TITLE = `Calculateur de DPI & diagnostic résolution | SPC Toolkit | ${SITE.name}`;
+const PAGE_TITLE = `Calculateur de DPI & diagnostic résolution | ${SITE.tool} | ${SITE.name}`;
 const PAGE_DESC = `Calculez la résolution réelle d'une image à la taille d'impression voulue et vérifiez si elle est suffisante pour le flyer ou le grand format.`;
 
 const tool = getTool("/dpi-calculator")!;
