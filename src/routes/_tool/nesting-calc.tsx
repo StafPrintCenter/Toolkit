@@ -7,7 +7,7 @@ import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import { SITE } from "@/data/site";
 
-const PAGE_TITLE = `Calculateur de calepinage bâche et vinyle | SPC Toolkit | ${SITE.name}`;
+const PAGE_TITLE = `Calculateur de calepinage bâche et vinyle | ${SITE.tool} | ${SITE.name}`;
 const PAGE_DESC = `Optimisez la disposition de vos visuels sur une laize de 1,60 m ou 3,20 m, calculez le métrage consommé et le taux de chute.`;
 
 const tool = getTool("/nesting-calc")!;
