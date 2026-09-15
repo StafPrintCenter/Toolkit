@@ -5,7 +5,7 @@ import { getTool } from "@/data/toolsRegistry";
 import { Input } from "@/components/ui/input";
 import { SITE } from "@/data/site";
 
-const PAGE_TITLE = `Calculateur d'épaisseur de tranche et de poids | SPC Toolkit | ${SITE.name}`;
+const PAGE_TITLE = `Calculateur d'épaisseur de tranche et de poids | ${SITE.tool} | ${SITE.name}`;
 const PAGE_DESC = `Calculez le dos d'un livre, catalogue ou magazine selon le grammage, le nombre de pages et la reliure, ainsi que le poids du tirage.`;
 
 const tool = getTool("/spine-calculator")!;
