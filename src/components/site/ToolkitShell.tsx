@@ -12,7 +12,6 @@ export function ToolkitShell({ tool, children }: { tool?: ToolItem; children: Re
     <div className="flex min-h-screen flex-col">
       {/* Background papier */}
       <div className="pointer-events-none absolute inset-0 surface-grid opacity-50" />
-
       <ToolkitHeader />
 
       {tool ? (
@@ -21,7 +20,8 @@ export function ToolkitShell({ tool, children }: { tool?: ToolItem; children: Re
             to="/"
             className="inline-flex items-center gap-1.5 text-sm text-muted-foreground transition-colors hover:text-primary"
           >
-            <ArrowLeft className="size-4" />            <span>Tous les outils</span>
+            <ArrowLeft className="size-4" />
+            <span>Tous les outils</span>
           </Link>
 
           <motion.div
@@ -50,7 +50,6 @@ export function ToolkitShell({ tool, children }: { tool?: ToolItem; children: Re
       )}
 
       <ToolkitFooter />
-
       <CookieConsent />
     </div>
   );
