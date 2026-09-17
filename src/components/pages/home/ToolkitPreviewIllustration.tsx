@@ -51,7 +51,7 @@ export function ToolkitPreviewIllustration() {
               <div className="rounded bg-yellow-500/15 border border-yellow-500/30 p-1.5 text-center">
                 <span className="block font-mono text-[9px] text-yellow-600 dark:text-yellow-400">J: 0%</span>
               </div>
-              <div className="rounded bg-slate-900/15 border border-slate-900/30 p-1.5 text-center">
+              <div className="rounded border border-slate-900/30 bg-slate-900/15 p-1.5 text-center dark:border-black/40 dark:bg-black/40">
                 <span className="block font-mono text-[9px] text-foreground">N: 10%</span>
               </div>
             </div>
