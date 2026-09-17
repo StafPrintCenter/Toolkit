@@ -2,7 +2,7 @@ import { motion } from "framer-motion";
 import { ArrowUpRight } from "lucide-react";
 import type { ToolItem } from "@/data/toolsRegistry";
 import { Button } from "@/components/ui/button";
-import { SITE_LINK } from "@/data/site";
+import { SITE, SITE_LINK } from "@/data/site";
 
 export function CtaBanner({ tool }: { tool: ToolItem }) {
   const docSlug = tool.slug.replace(/^\//, "");
@@ -18,7 +18,7 @@ export function CtaBanner({ tool }: { tool: ToolItem }) {
       <div>
         <h3 className="text-lg font-semibold">{tool.ctaText}</h3>
         <p className="mt-1 text-sm text-muted-foreground">
-          L'équipe STAF PRINT CENTER prend le relais : contrôle prépresse, épreuve et production.
+          L'équipe ${SITE.name} prend le relais : contrôle prépresse, épreuve et production.
         </p>
       </div>
       <div className="mt-4 flex flex-wrap gap-2 sm:mt-0 sm:shrink-0">
