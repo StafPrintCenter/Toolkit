@@ -105,7 +105,7 @@ export function ToolkitHeader() {
 
       {/* Mobile menu */}
       {menuOpen && (
-        <div className="border-t border-border/70 bg-background/95 px-4 py-4 backdrop-blur-xl sm:hidden">
+        <div className="border-t border-border/70 bg-background px-4 py-4 backdrop-blur-xl sm:hidden">
           <nav className="mx-auto flex max-w-6xl flex-col gap-3">
             {/* Actions principales alignées côte à côte */}
             <div className="grid grid-cols-2 gap-2">
