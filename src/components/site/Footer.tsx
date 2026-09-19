@@ -32,6 +32,14 @@ export function ToolkitFooter() {
           >
             Créer un brief
           </a>
+          <a
+            href={`${SITE_LINK.studioUrl}`}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="underline underline-offset-4 transition-colors hover:text-primary"
+          >
+            Création 3D
+          </a>
 
           <span className="text-muted-foreground/50">·</span>
 
