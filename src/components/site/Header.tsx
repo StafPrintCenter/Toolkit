@@ -107,42 +107,36 @@ export function ToolkitHeader() {
       {menuOpen && (
         <div className="border-t border-border/70 bg-background/95 px-4 py-4 backdrop-blur-xl sm:hidden">
           <nav className="mx-auto flex max-w-6xl flex-col gap-3">
-            {/* Actions principales mises en valeur */}
-            <div className="flex flex-col gap-2">
-              {/* Brief - Action Principale (Primary) */}
+            {/* Actions principales alignées côte à côte */}
+            <div className="grid grid-cols-2 gap-2">
+              {/* Brief */}
               <a
                 href={SITE_LINK.briefUrl}
                 target="_blank"
                 rel="noopener noreferrer"
                 onClick={() => setMenuOpen(false)}
-                className="flex items-center justify-between rounded-xl bg-primary px-4 py-3 text-sm font-medium text-primary-foreground shadow-sm transition-opacity hover:opacity-90"
+                className="flex items-center justify-center gap-2 rounded-xl bg-primary px-3 py-2.5 text-xs font-medium text-primary-foreground shadow-sm transition-opacity hover:opacity-90"
               >
-                <div className="flex items-center gap-3">
-                  <Icons.MessageSquareText className="h-4 w-4" />
-                  <span>Lancer un brief</span>
-                </div>
-                <Icons.ExternalLink className="h-4 w-4 opacity-80" />
+                <Icons.MessageSquareText className="h-4 w-4 shrink-0" />
+                <span>Lancer un brief</span>
               </a>
 
-              {/* Studio 3D - Action Secondaire (Secondary) */}
+              {/* Studio 3D */}
               <a
                 href={SITE_LINK.studioUrl}
                 target="_blank"
                 rel="noopener noreferrer"
                 onClick={() => setMenuOpen(false)}
-                className="flex items-center justify-between rounded-xl bg-secondary px-4 py-3 text-sm font-medium text-secondary-foreground transition-colors hover:bg-secondary/80"
+                className="flex items-center justify-center gap-2 rounded-xl bg-secondary px-3 py-2.5 text-xs font-medium text-secondary-foreground transition-colors hover:bg-secondary/80"
               >
-                <div className="flex items-center gap-3">
-                  <Icons.Box className="h-4 w-4" />
-                  <span>Studio 3D</span>
-                </div>
-                <Icons.ExternalLink className="h-4 w-4 opacity-80" />
+                <Icons.Box className="h-4 w-4 shrink-0" />
+                <span>Studio 3D</span>
               </a>
             </div>
 
             <div className="my-1 h-px w-full bg-border/60" />
 
-            {/* Liens secondaires (Soutenir & Suggérer) */}
+            {/* Liens secondaires */}
             <div className="flex flex-col gap-1">
               {/* Soutenir */}
               <a
