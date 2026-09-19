@@ -57,7 +57,7 @@ export function ToolkitHeader() {
           {/* Theme Switcher */}
           <ThemeToggle />
 
-          {/* CTA Brief principal */}
+          {/* CTA */}
           <Button asChild size="sm" className="hidden md:inline-flex h-9 text-xs">
             <a
               href={SITE_LINK.briefUrl}
@@ -65,6 +65,15 @@ export function ToolkitHeader() {
               rel="noopener noreferrer"
             >
               Lancer un brief
+            </a>
+          </Button>
+          <Button asChild size="sm" className="hidden md:inline-flex h-9 text-xs">
+            <a
+              href={SITE_LINK.studioUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Studo 3D
             </a>
           </Button>
         </div>
