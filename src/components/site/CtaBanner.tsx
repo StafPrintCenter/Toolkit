@@ -18,10 +18,19 @@ export function CtaBanner({ tool }: { tool: ToolItem }) {
       <div>
         <h3 className="text-lg font-semibold">{tool.ctaText}</h3>
         <p className="mt-1 text-sm text-muted-foreground">
-          L'équipe ${SITE.name} prend le relais : contrôle prépresse, épreuve et production.
+          L'équipe {SITE.name} prend le relais : contrôle prépresse, épreuve et production.
         </p>
       </div>
       <div className="mt-4 flex flex-wrap gap-2 sm:mt-0 sm:shrink-0">
+        <Button asChild>
+          <a
+            href={SITE_LINK.briefUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Continuer <ArrowUpRight className="size-4" />
+          </a>
+        </Button>
         <Button asChild>
           <a
             href={SITE_LINK.briefUrl}
