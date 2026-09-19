@@ -31,7 +31,7 @@ export function CtaBanner({ tool }: { tool: ToolItem }) {
             Continuer <ArrowUpRight className="size-4" />
           </a>
         </Button>
-        <Button asChild>
+        <Button asChild variant="secondary">
           <a
             href={SITE_LINK.briefUrl}
             target="_blank"
