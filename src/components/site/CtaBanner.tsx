@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { ArrowUpRight } from "lucide-react";
+import { ArrowUpRight, Box } from "lucide-react";
 import type { ToolItem } from "@/data/toolsRegistry";
 import { Button } from "@/components/ui/button";
 import { SITE, SITE_LINK } from "@/data/site";
@@ -37,7 +37,7 @@ export function CtaBanner({ tool }: { tool: ToolItem }) {
             target="_blank"
             rel="noopener noreferrer"
           >
-            Continuer <ArrowUpRight className="size-4" />
+            Création 3D <Box className="size-4" />
           </a>
         </Button>
         <Button asChild variant="outline">
