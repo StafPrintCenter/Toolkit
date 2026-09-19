@@ -67,7 +67,7 @@ export function ToolkitHeader() {
               Lancer un brief
             </a>
           </Button>
-          <Button asChild size="sm" className="hidden md:inline-flex h-9 text-xs">
+          <Button asChild size="sm" variant="secondary" className="hidden md:inline-flex h-9 text-xs">
             <a
               href={SITE_LINK.studioUrl}
               target="_blank"
