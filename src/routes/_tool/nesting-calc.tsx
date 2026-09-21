@@ -163,7 +163,7 @@ function Page() {
             />
           </div>
 
-          <Panel title="Plan de découpe" description={`Laize ${(laize / 1000).toFixed(2)} m — le rouleau se déroule vers le bas.`}>
+          <Panel title="Plan de découpe" description={`Laize ${(laize / 1000).toFixed(2)} m - le rouleau se déroule vers le bas.`}>
             <div className="overflow-auto rounded-xl bg-secondary/40 p-4">
               <div
                 className="relative border border-dashed border-border bg-card"
