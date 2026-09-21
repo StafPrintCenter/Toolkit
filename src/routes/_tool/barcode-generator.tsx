@@ -6,6 +6,7 @@ import { getTool } from "@/data/toolsRegistry";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import { SITE } from "@/data/site";
+import { useIsMobile } from "@/hooks/use-mobile";
 
 const PAGE_TITLE = `Générateur de QR codes et codes-barres vectoriels | ${SITE.tool} | ${SITE.name}`;
 const PAGE_DESC = `Créez des QR codes avec logo central et des codes-barres EAN-13 ou Code 128, exportables en SVG et PDF pour l'impression.`;
@@ -63,12 +64,16 @@ async function svgToPdf(svgEl: SVGSVGElement, filename: string) {
 }
 
 function QrPanel() {
+  const isMobile = useIsMobile();
   const [text, setText] = useState("https://stafprint.com");
   const [size, setSize] = useState(280);
   const [dark, setDark] = useState("#0f172a");
   const [logo, setLogo] = useState(true);
   const [svg, setSvg] = useState("");
   const holder = useRef<HTMLDivElement>(null);
+
+  // Dimension d'affichage adaptée dynamiquement
+  const effectiveSize = isMobile ? Math.min(size, 220) : size;
 
   useEffect(() => {
     let cancelled = false;
@@ -77,7 +82,7 @@ function QrPanel() {
         type: "svg",
         errorCorrectionLevel: "H",
         margin: 1,
-        width: size,
+        width: effectiveSize,
         color: { dark, light: "#ffffff" },
       });
       if (!cancelled) setSvg(out);
@@ -85,7 +90,7 @@ function QrPanel() {
     return () => {
       cancelled = true;
     };
-  }, [text, size, dark]);
+  }, [text, effectiveSize, dark]);
 
   const exportSvg = () => {
     const el = holder.current?.querySelector("svg");
@@ -111,7 +116,7 @@ function QrPanel() {
               <Input type="color" value={dark} onChange={(e) => setDark(e.target.value)} className="h-10 p-1" />
             </Field>
           </div>
-          <label className="flex items-center gap-2 text-sm">
+          <label className="flex items-center gap-2 text-sm cursor-pointer">
             <input type="checkbox" checked={logo} onChange={(e) => setLogo(e.target.checked)} className="accent-primary" />
             Pastille STAF PRINT au centre
           </label>
@@ -126,17 +131,17 @@ function QrPanel() {
         </div>
       </Panel>
       <Panel title="Aperçu">
-        <div className="flex justify-center rounded-xl bg-secondary/40 p-8">
-          <div className="relative bg-white p-3">
-            <div ref={holder} dangerouslySetInnerHTML={{ __html: svg }} className="[&>svg]:block" />
+        <div className="flex justify-center items-center rounded-xl bg-secondary/40 p-4 sm:p-8 min-h-60 overflow-hidden">
+          <div className="relative bg-white p-3 shadow-sm rounded-lg">
+            <div ref={holder} dangerouslySetInnerHTML={{ __html: svg }} className="[&>svg]:block [&>svg]:max-w-full [&>svg]:h-auto" />
             {logo && (
-              <span className="text-num absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 rounded-lg bg-primary px-2 py-1 text-[10px] font-bold text-primary-foreground">
+              <span className="text-num absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 rounded-lg bg-primary px-2 py-1 text-[10px] font-bold text-primary-foreground select-none">
                 SPC
               </span>
             )}
           </div>
         </div>
-        <p className="mt-4 text-sm text-muted-foreground">
+        <p className="mt-4 text-xs sm:text-sm text-muted-foreground">
           Correction d'erreur niveau H : le code reste lisible même avec le logo central. Taille minimale conseillée à
           l'impression : 2 cm.
         </p>
@@ -146,6 +151,7 @@ function QrPanel() {
 }
 
 function BarcodePanel() {
+  const isMobile = useIsMobile();
   const [format, setFormat] = useState<"EAN13" | "CODE128">("EAN13");
   const [value, setValue] = useState("5901234123457");
   const [error, setError] = useState("");
@@ -160,8 +166,8 @@ function BarcodePanel() {
       try {
         (mod.default as unknown as (el: Element, v: string, o: object) => void)(svgEl, value, {
           format,
-          width: 2,
-          height: 90,
+          width: isMobile ? 1.5 : 2,
+          height: isMobile ? 70 : 90,
           displayValue: true,
           fontOptions: "bold",
           font: "monospace",
@@ -179,7 +185,7 @@ function BarcodePanel() {
     return () => {
       active = false;
     };
-  }, [value, format]);
+  }, [value, format, isMobile]);
 
   const exportSvg = () => {
     const el = holder.current?.querySelector("svg");
@@ -224,10 +230,10 @@ function BarcodePanel() {
         </div>
       </Panel>
       <Panel title="Aperçu">
-        <div ref={holder} className="flex justify-center rounded-xl bg-white p-8">
-          <svg />
+        <div ref={holder} className="flex justify-center items-center rounded-xl bg-white p-4 sm:p-8 overflow-hidden border border-border">
+          <svg className="max-w-full h-auto" />
         </div>
-        <p className="mt-4 text-sm text-muted-foreground">
+        <p className="mt-4 text-xs sm:text-sm text-muted-foreground">
           Prévoyez une zone blanche de 3 mm autour du code et évitez de l'imprimer sur un fond sombre : les lecteurs
           optiques ont besoin de contraste.
         </p>
@@ -250,7 +256,8 @@ function Page() {
           <button
             key={k}
             onClick={() => setTab(k)}
-            className={`rounded-full px-5 py-1.5 text-sm ${tab === k ? "bg-primary text-primary-foreground" : "hover:bg-primary/10 cursor-pointer"}`}
+            className={`rounded-full px-5 py-1.5 text-sm transition-colors ${tab === k ? "bg-primary text-primary-foreground" : "hover:bg-primary/10 cursor-pointer"
+              }`}
           >
             {label}
           </button>
