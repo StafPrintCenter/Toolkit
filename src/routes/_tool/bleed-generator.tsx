@@ -1,5 +1,5 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { useState } from "react";
+import { useState, useRef, useEffect } from "react";
 import { Download } from "lucide-react";
 import { ToolkitShell, Field, Panel } from "@/components/site";
 import { getTool } from "@/data/toolsRegistry";
@@ -38,8 +38,26 @@ function Page() {
   const [bleed, setBleed] = useState(3);
   const [safe, setSafe] = useState(3);
 
+  const previewRef = useRef<HTMLDivElement>(null);
+  const [containerWidth, setContainerWidth] = useState(320);
+
   const total = { w: size.w + bleed * 2, h: size.h + bleed * 2 };
-  const scale = Math.min(420 / total.w, 460 / total.h);
+
+  // Ajustement dynamique de l'échelle selon la largeur disponible sur mobile/desktop
+  useEffect(() => {
+    if (!previewRef.current) return;
+    const observer = new ResizeObserver((entries) => {
+      for (const entry of entries) {
+        setContainerWidth(entry.contentRect.width);
+      }
+    });
+    observer.observe(previewRef.current);
+    return () => observer.disconnect();
+  }, []);
+
+  const maxPreviewHeight = 460;
+  const availableWidth = Math.max(100, containerWidth - 32);
+  const scale = Math.min(availableWidth / total.w, maxPreviewHeight / total.h);
   const px = (mm: number) => mm * scale;
 
   const buildCanvas = () => {
@@ -147,9 +165,9 @@ function Page() {
         </Panel>
 
         <Panel title="Aperçu du gabarit">
-          <div className="flex justify-center rounded-xl bg-secondary/40 p-6">
+          <div ref={previewRef} className="flex items-center justify-center rounded-xl bg-secondary/40 p-4 sm:p-6 w-full overflow-hidden min-h-75">
             <div
-              className="relative border-2 border-dashed border-danger bg-card"
+              className="relative border-2 border-dashed border-danger bg-card transition-all duration-200"
               style={{ width: px(total.w), height: px(total.h) }}
             >
               <div
@@ -163,15 +181,18 @@ function Page() {
               </div>
             </div>
           </div>
-          <ul className="mt-5 space-y-2 text-sm">
+          <ul className="mt-5 space-y-2 text-xs sm:text-sm">
             <li className="flex items-center gap-2">
-              <span className="inline-block h-0.5 w-6 bg-danger" /> Fond perdu — {total.w} × {total.h} mm (l'image doit aller jusqu'ici)
+              <span className="inline-block h-0.5 w-6 shrink-0 bg-danger" />
+              <span>Fond perdu — {total.w} × {total.h} mm (l'image doit aller jusqu'ici)</span>
             </li>
             <li className="flex items-center gap-2">
-              <span className="inline-block h-0.5 w-6 bg-foreground" /> Trait de coupe — {size.w} × {size.h} mm
+              <span className="inline-block h-0.5 w-6 shrink-0 bg-foreground" />
+              <span>Trait de coupe — {size.w} × {size.h} mm</span>
             </li>
             <li className="flex items-center gap-2">
-              <span className="inline-block h-0.5 w-6 bg-success" /> Zone de sécurité — textes et logos à l'intérieur
+              <span className="inline-block h-0.5 w-6 shrink-0 bg-success" />
+              <span>Zone de sécurité — textes et logos à l'intérieur</span>
             </li>
           </ul>
         </Panel>
