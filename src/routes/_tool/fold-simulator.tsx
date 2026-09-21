@@ -6,6 +6,7 @@ import { getTool } from "@/data/toolsRegistry";
 import { Input } from "@/components/ui/input";
 import { Slider } from "@/components/ui/slider";
 import { SITE } from "@/data/site";
+import { useIsMobile } from "@/hooks/use-mobile";
 
 const PAGE_TITLE = `Simulateur de pliage : dépliants 2, 3 volets & accordéon | ${SITE.tool} | ${SITE.name}`;
 const PAGE_DESC = `Visualisez le pliage de vos dépliants, obtenez la largeur exacte de chaque volet et l'ordre des pages recto-verso.`;
@@ -34,6 +35,7 @@ const FOLDS: Record<FoldType, { label: string; panels: number; desc: string }> =
 };
 
 function Page() {
+  const isMobile = useIsMobile();
   const [type, setType] = useState<FoldType>("roule");
   const [total, setTotal] = useState(297);
   const [height, setHeight] = useState(210);
@@ -48,7 +50,10 @@ function Page() {
         ? [total / 4 - 1, total / 4, total / 4, total / 4 + 1]
         : Array.from({ length: cfg.panels }, () => base);
 
-  const scale = Math.min(620 / total, 260 / height);
+  // Échelle ajustée dynamiquement en fonction du mobile
+  const maxW = isMobile ? 280 : 620;
+  const maxH = isMobile ? 180 : 260;
+  const scale = Math.min(maxW / total, maxH / height);
 
   return (
     <ToolkitShell tool={tool}>
@@ -87,7 +92,7 @@ function Page() {
         <div className="space-y-6">
           <Panel title="Vue 3D du dépliant" description="Faites varier l'ouverture pour voir le pliage se refermer.">
             <div
-              className="flex items-center justify-center overflow-hidden rounded-xl bg-secondary/40 p-8"
+              className="flex items-center justify-center overflow-hidden rounded-xl bg-secondary/40 p-4 sm:p-8 min-h-55 sm:min-h-75"
               style={{ perspective: 1400 }}
             >
               <div className="flex" style={{ transformStyle: "preserve-3d" }}>
@@ -102,10 +107,14 @@ function Page() {
                       transformOrigin: i % 2 === 0 ? "right center" : "left center",
                       transformStyle: "preserve-3d",
                     }}
-                    className="flex flex-col items-center justify-center border border-border bg-card shadow-soft"
+                    className="flex flex-col items-center justify-center border border-border bg-card shadow-soft p-1"
                   >
-                    <span className="text-num text-sm font-semibold">Volet {i + 1}</span>
-                    <span className="text-num text-xs text-muted-foreground">{w.toFixed(1)} mm</span>
+                    <span className="text-num text-xs sm:text-sm font-semibold truncate max-w-full">
+                      Volet {i + 1}
+                    </span>
+                    <span className="text-num text-[10px] sm:text-xs text-muted-foreground truncate max-w-full">
+                      {w.toFixed(1)} mm
+                    </span>
                   </motion.div>
                 ))}
               </div>
@@ -116,9 +125,9 @@ function Page() {
             <div className="grid gap-4 sm:grid-cols-2">
               <div className="rounded-xl border border-border p-4">
                 <p className="text-sm font-medium">Recto (extérieur)</p>
-                <div className="text-num mt-2 flex gap-2 text-xs">
+                <div className="text-num mt-2 flex gap-1.5 sm:gap-2 text-[10px] sm:text-xs">
                   {widths.map((_, i) => (
-                    <span key={i} className="flex-1 rounded bg-secondary p-2 text-center">
+                    <span key={i} className="flex-1 rounded bg-secondary p-1.5 sm:p-2 text-center truncate">
                       {type === "roule" && i === 0 ? "Dos" : i === widths.length - 1 ? "Couverture" : `Page ${i + 1}`}
                     </span>
                   ))}
@@ -126,9 +135,9 @@ function Page() {
               </div>
               <div className="rounded-xl border border-border p-4">
                 <p className="text-sm font-medium">Verso (intérieur)</p>
-                <div className="text-num mt-2 flex gap-2 text-xs">
+                <div className="text-num mt-2 flex gap-1.5 sm:gap-2 text-[10px] sm:text-xs">
                   {widths.map((_, i) => (
-                    <span key={i} className="flex-1 rounded bg-secondary p-2 text-center">
+                    <span key={i} className="flex-1 rounded bg-secondary p-1.5 sm:p-2 text-center truncate">
                       Int. {i + 1}
                     </span>
                   ))}
