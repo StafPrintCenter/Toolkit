@@ -1,11 +1,12 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { useState, useRef, useEffect } from "react";
+import { useState } from "react";
 import { Download } from "lucide-react";
 import { ToolkitShell, Field, Panel } from "@/components/site";
 import { getTool } from "@/data/toolsRegistry";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import { SITE } from "@/data/site";
+import { useIsMobile } from "@/hooks/use-mobile";
 
 const PAGE_TITLE = `Générateur de gabarits & fonds perdus 3 mm | ${SITE.tool} | ${SITE.name}`;
 const PAGE_DESC = `Créez un gabarit d'impression avec trait de coupe, fond perdu de 3 mm et marge de sécurité, puis exportez-le en PNG ou PDF.`;
@@ -34,30 +35,17 @@ const FORMATS = [
 ];
 
 function Page() {
+  const isMobile = useIsMobile();
   const [size, setSize] = useState({ w: 210, h: 297 });
   const [bleed, setBleed] = useState(3);
   const [safe, setSafe] = useState(3);
 
-  const previewRef = useRef<HTMLDivElement>(null);
-  const [containerWidth, setContainerWidth] = useState(320);
-
   const total = { w: size.w + bleed * 2, h: size.h + bleed * 2 };
 
-  // Ajustement dynamique de l'échelle selon la largeur disponible sur mobile/desktop
-  useEffect(() => {
-    if (!previewRef.current) return;
-    const observer = new ResizeObserver((entries) => {
-      for (const entry of entries) {
-        setContainerWidth(entry.contentRect.width);
-      }
-    });
-    observer.observe(previewRef.current);
-    return () => observer.disconnect();
-  }, []);
-
-  const maxPreviewHeight = 460;
-  const availableWidth = Math.max(100, containerWidth - 32);
-  const scale = Math.min(availableWidth / total.w, maxPreviewHeight / total.h);
+  // Ajustement dynamique des contraintes de taille selon l'appareil
+  const maxW = isMobile ? 280 : 420;
+  const maxH = isMobile ? 320 : 460;
+  const scale = Math.min(maxW / total.w, maxH / total.h);
   const px = (mm: number) => mm * scale;
 
   const buildCanvas = () => {
@@ -165,7 +153,7 @@ function Page() {
         </Panel>
 
         <Panel title="Aperçu du gabarit">
-          <div ref={previewRef} className="flex items-center justify-center rounded-xl bg-secondary/40 p-4 sm:p-6 w-full overflow-hidden min-h-75">
+          <div className="flex items-center justify-center rounded-xl bg-secondary/40 p-4 sm:p-6 w-full overflow-hidden min-h-65 sm:min-h-85">
             <div
               className="relative border-2 border-dashed border-danger bg-card transition-all duration-200"
               style={{ width: px(total.w), height: px(total.h) }}
