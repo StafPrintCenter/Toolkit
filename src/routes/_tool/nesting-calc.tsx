@@ -6,6 +6,7 @@ import { getTool } from "@/data/toolsRegistry";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import { SITE } from "@/data/site";
+import { useIsMobile } from "@/hooks/use-mobile";
 
 const PAGE_TITLE = `Calculateur de calepinage bâche et vinyle | ${SITE.tool} | ${SITE.name}`;
 const PAGE_DESC = `Optimisez la disposition de vos visuels sur une laize de 1,60 m ou 3,20 m, calculez le métrage consommé et le taux de chute.`;
@@ -72,6 +73,7 @@ function pack(pieces: Piece[], laize: number, gap: number, rotate: boolean) {
 }
 
 function Page() {
+  const isMobile = useIsMobile();
   const [laize, setLaize] = useState(1600);
   const [gap, setGap] = useState(10);
   const [rotate, setRotate] = useState(true);
@@ -82,7 +84,10 @@ function Page() {
   ]);
 
   const result = useMemo(() => pack(pieces, laize, gap, rotate), [pieces, laize, gap, rotate]);
-  const scale = 520 / laize;
+
+  // Échelle de visualisation ajustée dynamiquement sur mobile
+  const maxContainerWidth = isMobile ? 280 : 520;
+  const scale = maxContainerWidth / laize;
   const colors = ["bg-primary/70", "bg-prepress/60", "bg-format/60", "bg-pdf/60", "bg-warning/60"];
 
   const update = (id: number, patch: Partial<Piece>) =>
@@ -98,7 +103,9 @@ function Page() {
                 <button
                   key={l}
                   onClick={() => setLaize(l)}
-                  className={`text-num rounded-full border px-3 py-1.5 text-xs ${laize === l ? "border-primary bg-primary text-primary-foreground" : "border-border hover:border-primary cursor-pointer"
+                  className={`text-num rounded-full border px-3 py-1.5 text-xs ${laize === l
+                    ? "border-primary bg-primary text-primary-foreground"
+                    : "border-border hover:border-primary cursor-pointer"
                     }`}
                 >
                   {(l / 1000).toFixed(2)} m
@@ -114,25 +121,27 @@ function Page() {
               <Input type="number" className="text-num" value={price} onChange={(e) => setPrice(+e.target.value)} />
             </Field>
           </div>
-          <label className="mt-3 flex items-center gap-2 text-sm">
+          <label className="mt-3 flex items-center gap-2 text-sm cursor-pointer">
             <input type="checkbox" checked={rotate} onChange={(e) => setRotate(e.target.checked)} className="accent-primary" />
             Autoriser la rotation à 90°
           </label>
 
           <div className="mt-5 space-y-3">
             {pieces.map((p, i) => (
-              <div key={p.id} className="flex items-end gap-2 rounded-xl border border-border p-3">
+              <div key={p.id} className="flex flex-wrap sm:flex-nowrap items-end gap-2 rounded-xl border border-border p-3">
                 <span className={`mb-2 size-4 shrink-0 rounded ${colors[i % colors.length]}`} />
-                <Field label="L (mm)">
-                  <Input type="number" className="text-num h-9" value={p.w} onChange={(e) => update(p.id, { w: +e.target.value })} />
-                </Field>
-                <Field label="H (mm)">
-                  <Input type="number" className="text-num h-9" value={p.h} onChange={(e) => update(p.id, { h: +e.target.value })} />
-                </Field>
-                <Field label="Qté">
-                  <Input type="number" className="text-num h-9" value={p.qty} onChange={(e) => update(p.id, { qty: +e.target.value })} />
-                </Field>
-                <Button variant="ghost" size="icon" onClick={() => setPieces((s) => s.filter((x) => x.id !== p.id))}>
+                <div className="grid grid-cols-3 gap-2 flex-1 min-w-50">
+                  <Field label="L (mm)">
+                    <Input type="number" className="text-num h-9" value={p.w} onChange={(e) => update(p.id, { w: +e.target.value })} />
+                  </Field>
+                  <Field label="H (mm)">
+                    <Input type="number" className="text-num h-9" value={p.h} onChange={(e) => update(p.id, { h: +e.target.value })} />
+                  </Field>
+                  <Field label="Qté">
+                    <Input type="number" className="text-num h-9" value={p.qty} onChange={(e) => update(p.id, { qty: +e.target.value })} />
+                  </Field>
+                </div>
+                <Button variant="ghost" size="icon" className="mb-0.5 shrink-0" onClick={() => setPieces((s) => s.filter((x) => x.id !== p.id))}>
                   <Trash2 className="size-4" />
                 </Button>
               </div>
@@ -148,7 +157,7 @@ function Page() {
         </Panel>
 
         <div className="space-y-6">
-          <div className="grid gap-4 sm:grid-cols-3">
+          <div className="grid gap-3 sm:gap-4 grid-cols-1 sm:grid-cols-3">
             <Stat label="Métrage consommé" value={(result.usedLength / 1000).toFixed(2)} unit="m linéaires" tone="success" />
             <Stat
               label="Taux de chute"
@@ -164,9 +173,9 @@ function Page() {
           </div>
 
           <Panel title="Plan de découpe" description={`Laize ${(laize / 1000).toFixed(2)} m - le rouleau se déroule vers le bas.`}>
-            <div className="overflow-auto rounded-xl bg-secondary/40 p-4">
+            <div className="flex justify-center overflow-auto rounded-xl bg-secondary/40 p-4 min-h-50">
               <div
-                className="relative border border-dashed border-border bg-card"
+                className="relative border border-dashed border-border bg-card transition-all duration-200"
                 style={{ width: laize * scale, height: Math.max(120, result.usedLength * scale) }}
               >
                 {result.placed.map((p, i) => (
@@ -176,7 +185,7 @@ function Page() {
                       }`}
                     style={{ left: p.x * scale, top: p.y * scale, width: p.w * scale, height: p.h * scale }}
                   >
-                    <span className="text-num text-[10px]">
+                    <span className="text-num text-[9px] sm:text-[10px] truncate max-w-full px-0.5">
                       {p.w}×{p.h}
                     </span>
                   </div>
@@ -184,7 +193,7 @@ function Page() {
               </div>
             </div>
             {result.skipped > 0 && (
-              <p className="mt-4 text-sm text-danger">
+              <p className="mt-4 text-xs sm:text-sm text-danger">
                 {result.skipped} visuel(s) dépassent la laize choisie : prévoyez un raccord ou une laize plus large.
               </p>
             )}
