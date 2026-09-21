@@ -115,7 +115,7 @@ function Page() {
       </div>
 
       <div className="mt-6 grid gap-4 sm:grid-cols-3">
-        <Stat label="Résolution effective" value={dpi ? dpi.toFixed(0) : "—"} unit="DPI" tone={v.tone} />
+        <Stat label="Résolution effective" value={dpi ? dpi.toFixed(0) : "-"} unit="DPI" tone={v.tone} />
         <Stat label="Taille max à 300 DPI" value={`${maxCm300} × ${maxCm300H}`} unit="cm" />
         <Stat label="Mégapixels" value={((px.w * px.h) / 1_000_000).toFixed(1)} unit="Mpx" />
       </div>
