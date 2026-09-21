@@ -82,7 +82,7 @@ function Page() {
     ctx.fillStyle = "#64748b";
     ctx.font = `${Math.round(f * 3.5)}px monospace`;
     ctx.fillText(
-      `STAF PRINT — ${size.w}x${size.h}mm | FP ${bleed}mm | Securite ${safe}mm`,
+      `STAF PRINT - ${size.w}x${size.h}mm | FP ${bleed}mm | Securite ${safe}mm`,
       bleed * f,
       canvas.height - bleed * f * 0.3,
     );
@@ -184,15 +184,15 @@ function Page() {
           <ul className="mt-5 space-y-2 text-xs sm:text-sm">
             <li className="flex items-center gap-2">
               <span className="inline-block h-0.5 w-6 shrink-0 bg-danger" />
-              <span>Fond perdu — {total.w} × {total.h} mm (l'image doit aller jusqu'ici)</span>
+              <span>Fond perdu - {total.w} × {total.h} mm (l'image doit aller jusqu'ici)</span>
             </li>
             <li className="flex items-center gap-2">
               <span className="inline-block h-0.5 w-6 shrink-0 bg-foreground" />
-              <span>Trait de coupe — {size.w} × {size.h} mm</span>
+              <span>Trait de coupe - {size.w} × {size.h} mm</span>
             </li>
             <li className="flex items-center gap-2">
               <span className="inline-block h-0.5 w-6 shrink-0 bg-success" />
-              <span>Zone de sécurité — textes et logos à l'intérieur</span>
+              <span>Zone de sécurité - textes et logos à l'intérieur</span>
             </li>
           </ul>
         </Panel>
