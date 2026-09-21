@@ -4,6 +4,7 @@ import { ToolkitShell, Field, Panel, Stat } from "@/components/site";
 import { getTool } from "@/data/toolsRegistry";
 import { Input } from "@/components/ui/input";
 import { SITE } from "@/data/site";
+import { useIsMobile } from "@/hooks/use-mobile";
 
 const PAGE_TITLE = `Calculateur d'épaisseur de tranche et de poids | ${SITE.tool} | ${SITE.name}`;
 const PAGE_DESC = `Calculez le dos d'un livre, catalogue ou magazine selon le grammage, le nombre de pages et la reliure, ainsi que le poids du tirage.`;
@@ -39,6 +40,7 @@ const BINDINGS = [
 ];
 
 function Page() {
+  const isMobile = useIsMobile();
   const [paper, setPaper] = useState(PAPERS[2]!);
   const [pages, setPages] = useState(120);
   const [binding, setBinding] = useState(BINDINGS[0]!);
@@ -55,6 +57,15 @@ function Page() {
   const weightUnit = sheets * areaM2 * paper.grammage + 2 * areaM2 * cover; // grammes
   const totalKg = (weightUnit * qty) / 1000;
   const coverWidth = format.w * 2 + spine;
+
+  // Ajustement dynamique de l'échelle d'affichage de la couverture via useIsMobile
+  const maxW = isMobile ? 260 : 420;
+  const maxH = isMobile ? 180 : 260;
+  const scale = Math.min(maxW / coverWidth, maxH / format.h);
+
+  const renderWidth = coverWidth * scale;
+  const renderHeight = format.h * scale;
+  const renderSpineWidth = Math.max(isMobile ? 16 : 22, spine * scale);
 
   return (
     <ToolkitShell tool={tool}>
@@ -110,31 +121,31 @@ function Page() {
         </Panel>
 
         <div className="space-y-6">
-          <div className="grid gap-4 sm:grid-cols-3">
+          <div className="grid gap-3 sm:gap-4 grid-cols-1 sm:grid-cols-3">
             <Stat label="Épaisseur du dos" value={spine.toFixed(1)} unit="mm" tone="success" />
             <Stat label="Poids unitaire" value={weightUnit.toFixed(0)} unit="g" />
             <Stat label={`Poids de ${qty} ex.`} value={totalKg.toFixed(1)} unit="kg" />
           </div>
 
           <Panel title="Gabarit de couverture (à plat)" description={`Largeur totale : ${coverWidth.toFixed(1)} mm × ${format.h} mm, fond perdu non compris.`}>
-            <div className="flex justify-center overflow-x-auto rounded-xl bg-secondary/40 p-6">
-              <div className="flex" style={{ height: Math.min(280, format.h * 0.8) }}>
-                <div className="flex w-40 items-center justify-center border border-border bg-card text-xs text-muted-foreground">
+            <div className="flex justify-center items-center overflow-hidden rounded-xl bg-secondary/40 p-4 sm:p-6 min-h-55">
+              <div className="flex shadow-sm transition-all duration-200" style={{ width: renderWidth, height: renderHeight }}>
+                <div className="flex flex-1 items-center justify-center border border-border bg-card p-1 text-[10px] sm:text-xs text-center text-muted-foreground select-none">
                   4e de couverture
                 </div>
                 <div
-                  className="flex items-center justify-center border-y border-border bg-primary/15 text-[10px]"
-                  style={{ width: Math.max(10, spine * 1.4) }}
+                  className="flex items-center justify-center border-y border-border bg-primary/20 text-[10px] font-medium"
+                  style={{ width: renderSpineWidth }}
                 >
-                  <span className="text-num rotate-90 whitespace-nowrap">{spine.toFixed(1)} mm</span>
+                  <span className="text-num rotate-90 whitespace-nowrap select-none">{spine.toFixed(1)} mm</span>
                 </div>
-                <div className="flex w-40 items-center justify-center border border-border bg-card text-xs text-muted-foreground">
+                <div className="flex flex-1 items-center justify-center border border-border bg-card p-1 text-[10px] sm:text-xs text-center text-muted-foreground select-none">
                   1re de couverture
                 </div>
               </div>
             </div>
             {binding.label === "Piqûre à cheval" && pages % 4 !== 0 && (
-              <p className="mt-4 text-sm text-danger">
+              <p className="mt-4 text-sm text-danger font-medium">
                 En piqûre à cheval, le nombre de pages doit être un multiple de 4.
               </p>
             )}
