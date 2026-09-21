@@ -1,4 +1,5 @@
 import { SITE, SITE_LINK } from "@/data/site";
+import { FacebookIcon, InstagramIcon, LinkedinIcon, XIcon, WhatsAppIcon } from "@/components/site/icons";
 
 export function ToolkitFooter() {
   return (
