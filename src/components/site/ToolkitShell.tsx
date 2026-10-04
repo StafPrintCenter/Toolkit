@@ -16,13 +16,16 @@ export function ToolkitShell({ tool, children }: { tool?: ToolItem; children: Re
 
       {tool ? (
         <main className="mx-auto w-full max-w-6xl flex-1 px-4 py-10">
-          <Link
-            to="/"
-            className="inline-flex items-center gap-1.5 text-sm text-muted-foreground transition-colors hover:text-primary"
-          >
-            <ArrowLeft className="size-4" /> Tous les outils
-          </Link>
-          <ToolSwitcher current={tool.slug} />
+          {/* Aligné en flex avec gestion responsive */}
+          <div className="flex flex-wrap items-center justify-between gap-4">
+            <Link
+              to="/"
+              className="inline-flex items-center gap-1.5 text-sm text-muted-foreground transition-colors hover:text-primary"
+            >
+              <ArrowLeft className="size-4" /> Tous les outils
+            </Link>
+            <ToolSwitcher current={tool.slug} />
+          </div>
 
           <motion.div
             initial={{ opacity: 0, y: 12 }}
