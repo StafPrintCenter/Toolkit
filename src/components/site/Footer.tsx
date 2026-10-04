@@ -1,3 +1,4 @@
+import { Link } from "@tanstack/react-router";
 import { SITE, SITE_LINK } from "@/data/site";
 import { FacebookIcon, InstagramIcon, LinkedinIcon, XIcon, WhatsAppIcon } from "@/components/site/icons";
 
@@ -34,22 +35,12 @@ export function ToolkitFooter() {
             aria-label="Liens légaux et résaux sociaux"
             className="flex flex-wrap items-center justify-center gap-x-3 gap-y-1 text-xs text-muted-foreground"
           >
-            <a
-              href={`${SITE_LINK.briefUrl}`}
-              target="_blank"
-              rel="noopener noreferrer"
+            <Link
+              to="/cgu"
               className="underline underline-offset-4 transition-colors hover:text-primary"
             >
-              Créer un brief
-            </a>
-            <a
-              href={`${SITE_LINK.studioUrl}`}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="underline underline-offset-4 transition-colors hover:text-primary"
-            >
-              Création 3D
-            </a>
+              Conditions générales d'utilisation
+            </Link>
 
             <span className="text-muted-foreground/50">·</span>
 
