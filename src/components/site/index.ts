@@ -5,4 +5,5 @@ export { CookieConsent } from "./CookieConsent";
 export { ThemeToggle } from "./ThemeToggle";
 export { SpcMobLogo, SpcDeskLogo } from "./SpcLogo";
 export { CtaBanner } from "./CtaBanner";
+export { ImagePicker } from "./ImagePicker";
 export * from "./Layout";
