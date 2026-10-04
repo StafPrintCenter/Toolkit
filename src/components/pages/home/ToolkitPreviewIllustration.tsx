@@ -81,7 +81,7 @@ export function ToolkitPreviewIllustration() {
       </div>
       <div className="absolute -bottom-5 -left-4 hidden items-center gap-2 rounded-xl border border-border bg-card px-3 py-2 shadow-soft sm:flex">
         <span className="size-2 animate-pulse rounded-full bg-success" />
-        <span className="text-xs text-muted-foreground">10 outils · traitement local</span>
+        <span className="text-xs text-muted-foreground">15 outils · traitement local</span>
       </div>
     </div>
   );
