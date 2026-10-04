@@ -6,12 +6,22 @@ import { getTool } from "@/data/toolsRegistry";
 import { Slider } from "@/components/ui/slider";
 import { Button } from "@/components/ui/button";
 import { demoImage, downloadCanvas } from "@/lib/imageTools";
+import { SITE } from "@/data/site";
+
+const PAGE_TITLE = `Studio vernis sélectif UV & dorure à chaud | ${SITE.tool} | ${SITE.name}`;
+const PAGE_DESC = `Prévisualisez un vernis UV sélectif ou une dorure or, argent ou holographique, puis exportez le masque technique noir 100 % pour la production.`;
 
 const tool = getTool("/spot-finish")!;
 
 export const Route = createFileRoute("/_tool/spot-finish")({
-  staticData: { sitemap: true },
-  head: () => toolMeta("Studio vernis sélectif UV & dorure à chaud | SPC Toolkit", "Prévisualisez un vernis UV sélectif ou une dorure or, argent ou holographique, puis exportez le masque technique noir 100 % pour la production.", "/spot-finish"),
+  head: () => ({
+    meta: [
+      { title: PAGE_TITLE },
+      { name: "description", content: PAGE_DESC },
+      { property: "og:title", content: PAGE_TITLE },
+      { property: "og:description", content: PAGE_DESC },
+    ],
+  }),
   component: Page,
 });
 
