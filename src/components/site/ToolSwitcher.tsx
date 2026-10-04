@@ -8,7 +8,7 @@ export function ToolSwitcher({ current }: { current: string }) {
   const cats = Object.keys(CATEGORIES) as ToolCategory[];
   return (
     <Select value={current} onValueChange={(slug) => navigate({ to: slug })}>
-      <SelectTrigger className="h-9 w-full max-w-xs sm:w-72" aria-label="Choisir un outil">
+      <SelectTrigger className="h-9 w-full max-w-xs sm:w-72 bg-card" aria-label="Choisir un outil">
         <SelectValue placeholder="Choisir un outil" />
       </SelectTrigger>
       <SelectContent>
