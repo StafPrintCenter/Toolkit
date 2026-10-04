@@ -1,13 +1,23 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { ArrowLeft } from "lucide-react";
-import { toolMeta } from "@/lib/seo";
-import { SiteFooter, SiteHeader } from "@/components/spc/Layout";
+import { ToolkitShell } from "@/components/site";
+import { SITE } from "@/data/site";
+
+const PAGE_TITLE = `Conditions générales d'utilisation | ${SITE.tool} | ${SITE.name}`;
+const PAGE_DESC = `CGU du SPC Creative Toolkit de STAF PRINT CENTER : accès gratuit, traitement local des fichiers, responsabilités et propriété intellectuelle.`;
 
 export const Route = createFileRoute("/cgu")({
-  staticData: { sitemap: true },
-  head: () => toolMeta("Conditions générales d'utilisation | SPC Creative Toolkit", "CGU du SPC Creative Toolkit de STAF PRINT CENTER : accès gratuit, traitement local des fichiers, responsabilités et propriété intellectuelle.", "/cgu"),
-  component: Page,
+  head: () => ({
+    meta: [
+      { title: PAGE_TITLE },
+      { name: "description", content: PAGE_DESC },
+      { property: "og:title", content: PAGE_TITLE },
+      { property: "og:description", content: PAGE_DESC },
+    ],
+  }),
+  component: CguPage,
 });
+
 
 const SECTIONS: { t: string; p: string[] }[] = [
   { t: "1. Objet", p: ["Les présentes conditions générales d'utilisation (CGU) encadrent l'accès et l'utilisation du SPC Creative Toolkit, accessible à l'adresse tools.stafprint.com, édité par STAF PRINT CENTER, Porto-Novo, Bénin.", "Toute utilisation du service vaut acceptation pleine et entière des présentes CGU."] },
@@ -22,10 +32,10 @@ const SECTIONS: { t: string; p: string[] }[] = [
   { t: "10. Droit applicable", p: ["Les présentes CGU sont régies par le droit béninois. Tout litige relève de la compétence des juridictions de Porto-Novo, après tentative de résolution amiable.", "Contact : via brief.stafprint.com ou roadmap.stafprint.com/submit."] },
 ];
 
-function Page() {
+function CguPage() {
   return (
     <div className="flex min-h-screen flex-col">
-      <SiteHeader />
+      <ToolkitShell />
       <main className="mx-auto w-full max-w-3xl flex-1 px-4 py-10">
         <Link to="/" className="inline-flex items-center gap-1.5 text-sm text-muted-foreground hover:text-primary">
           <ArrowLeft className="size-4" /> Tous les outils
@@ -41,7 +51,7 @@ function Page() {
           ))}
         </div>
       </main>
-      <SiteFooter />
+      <ToolkitShell />
     </div>
   );
 }
