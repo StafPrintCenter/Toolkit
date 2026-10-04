@@ -63,10 +63,28 @@ const SECTIONS: { t: string; p: string[] }[] = [
       , "Les fichiers exportés à partir de vos propres visuels (gabarits, masques, films, QR codes…) restent votre propriété et peuvent être librement utilisés."
     ]
   },
-  { t: "7. Usage acceptable", p: ["L'utilisateur s'engage à ne pas détourner le service, perturber son fonctionnement, ni l'utiliser à des fins illicites ou pour produire des contenus contrefaisants."] },
-  { t: "8. Liens externes et soutien", p: ["Le service contient des liens vers des sites tiers (FedaPay pour les dons, roadmap, documentation). STAF PRINT CENTER n'est pas responsable de leur contenu. Les dons sont volontaires et ne donnent droit à aucune contrepartie."] },
-  { t: "9. Modification des CGU", p: ["Les présentes CGU peuvent être modifiées à tout moment. La version applicable est celle en ligne au moment de l'utilisation."] },
-  { t: "10. Droit applicable", p: ["Les présentes CGU sont régies par le droit béninois. Tout litige relève de la compétence des juridictions de Porto-Novo, après tentative de résolution amiable.", "Contact : via brief.stafprint.com ou roadmap.stafprint.com/submit."] },
+  {
+    t: "7. Usage acceptable",
+    p: [
+      "L'utilisateur s'engage à ne pas détourner le service, perturber son fonctionnement, ni l'utiliser à des fins illicites ou pour produire des contenus contrefaisants."
+    ]
+  },
+  {
+    t: "8. Liens externes et soutien",
+    p: [
+      `Le service contient des liens vers des FedaPay (https://me.fedapay.com) pour les dons. ${SITE.name} n'est pas responsable de leur contenu. Les dons sont volontaires et ne donnent droit à aucune contrepartie.`
+    ]
+  },
+  {
+    t: "9. Modification des CGU",
+    p: [
+      "Les présentes CGU peuvent être modifiées à tout moment. La version applicable est celle en ligne au moment de l'utilisation."
+    ]
+  },
+  {
+    t: "10. Droit applicable",
+    p: ["Les présentes CGU sont régies par le droit béninois. Tout litige relève de la compétence des juridictions de Porto-Novo, après tentative de résolution amiable.", "Contact : via brief.stafprint.com ou roadmap.stafprint.com/submit."]
+  },
 ];
 
 function CguPage() {
