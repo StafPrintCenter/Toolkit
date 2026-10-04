@@ -20,8 +20,7 @@ export function ToolkitShell({ tool, children }: { tool?: ToolItem; children: Re
             to="/"
             className="inline-flex items-center gap-1.5 text-sm text-muted-foreground transition-colors hover:text-primary"
           >
-            <ArrowLeft className="size-4" />
-            <span>Tous les outils</span>
+            <ArrowLeft className="size-4" /> Tous les outils
           </Link>
 
           <motion.div
