@@ -5,10 +5,12 @@ import { getTool } from "@/data/toolsRegistry";
 import { Slider } from "@/components/ui/slider";
 import { Button } from "@/components/ui/button";
 import { demoImage, rgbPixelToCmyk } from "@/lib/imageTools";
+import { downloadCanvasesZip } from "@/lib/zip";
+import { Download } from "lucide-react";
 import { SITE } from "@/data/site";
 
 const PAGE_TITLE = `Contrôle et séparation des plaques offset CMJN | ${SITE.tool} | ${SITE.name}`;
-const PAGE_DESC = `ffichez séparément les plaques Cyan, Magenta, Jaune et Noir, simulez la superposition et le défaut de repérage, et repérez surcharge d'encre et noirs riches.`;
+const PAGE_DESC = `Fichez séparément les plaques Cyan, Magenta, Jaune et Noir, simulez la superposition et le défaut de repérage, et repérez surcharge d'encre et noirs riches.`;
 
 const tool = getTool("/cmyk-plates")!;
 
@@ -153,6 +155,10 @@ function Page() {
             <canvas ref={comp} className="w-full rounded-xl border border-border" />
           </Panel>
           <Panel title="Plaques séparées">
+            <Button className="mb-4" onClick={() => downloadCanvasesZip([...PLATES.map((p, j) => ({ name: `spc-plaque-${j + 1}-${p.label.toLowerCase()}.png`, canvas: plateRefs.current[j] ?? null })), { name: "spc-superposition.png", canvas: comp.current }], "spc-plaques-cmjn.zip")}>
+              <Download className="size-4" /> Télécharger les plaques (ZIP)
+            </Button>
+
             <div className="grid gap-4 sm:grid-cols-2">
               {PLATES.map((p, j) => (
                 <div key={p.label} className="space-y-1.5">
