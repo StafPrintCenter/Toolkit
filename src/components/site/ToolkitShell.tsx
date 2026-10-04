@@ -22,6 +22,7 @@ export function ToolkitShell({ tool, children }: { tool?: ToolItem; children: Re
           >
             <ArrowLeft className="size-4" /> Tous les outils
           </Link>
+          <ToolSwitcher current={tool.slug} />
 
           <motion.div
             initial={{ opacity: 0, y: 12 }}
