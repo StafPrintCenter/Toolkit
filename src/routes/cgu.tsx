@@ -83,7 +83,8 @@ const SECTIONS: { t: string; p: string[] }[] = [
   },
   {
     t: "10. Droit applicable",
-    p: ["Les présentes CGU sont régies par le droit béninois. Tout litige relève de la compétence des juridictions de Porto-Novo, après tentative de résolution amiable.", "Contact : via brief.stafprint.com ou roadmap.stafprint.com/submit."]
+    p: [
+      `Les présentes CGU sont régies par le droit béninois. Tout litige relève de la compétence des juridictions de Porto-Novo, après tentative de résolution amiable.", "Contact : ${SITE.email}.`]
   },
 ];
 
