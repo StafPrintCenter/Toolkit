@@ -13,11 +13,15 @@ import { Route as IndexRouteImport } from './routes/index'
 import { Route as SitemapDotxmlRouteImport } from './routes/sitemap[.]xml'
 import { Route as ToolBarcodeGeneratorRouteImport } from './routes/_tool/barcode-generator'
 import { Route as ToolBleedGeneratorRouteImport } from './routes/_tool/bleed-generator'
+import { Route as ToolCmykPlatesRouteImport } from './routes/_tool/cmyk-plates'
+import { Route as ToolDielineRouteImport } from './routes/_tool/dieline'
 import { Route as ToolDpiCalculatorRouteImport } from './routes/_tool/dpi-calculator'
 import { Route as ToolFoldSimulatorRouteImport } from './routes/_tool/fold-simulator'
+import { Route as ToolLegibilityRouteImport } from './routes/_tool/legibility'
 import { Route as ToolNestingCalcRouteImport } from './routes/_tool/nesting-calc'
 import { Route as ToolPdfToolsRouteImport } from './routes/_tool/pdf-tools'
 import { Route as ToolRgbToCmykRouteImport } from './routes/_tool/rgb-to-cmyk'
+import { Route as ToolScreenPrintRouteImport } from './routes/_tool/screen-print'
 import { Route as ToolSpineCalculatorRouteImport } from './routes/_tool/spine-calculator'
 import { Route as ToolSpotFinishRouteImport } from './routes/_tool/spot-finish'
 import { Route as ToolTacCheckerRouteImport } from './routes/_tool/tac-checker'
@@ -43,6 +47,16 @@ const ToolBleedGeneratorRoute = ToolBleedGeneratorRouteImport.update({
   path: '/bleed-generator',
   getParentRoute: () => rootRouteImport,
 } as any)
+const ToolCmykPlatesRoute = ToolCmykPlatesRouteImport.update({
+  id: '/_tool/cmyk-plates',
+  path: '/cmyk-plates',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ToolDielineRoute = ToolDielineRouteImport.update({
+  id: '/_tool/dieline',
+  path: '/dieline',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const ToolDpiCalculatorRoute = ToolDpiCalculatorRouteImport.update({
   id: '/_tool/dpi-calculator',
   path: '/dpi-calculator',
@@ -51,6 +65,11 @@ const ToolDpiCalculatorRoute = ToolDpiCalculatorRouteImport.update({
 const ToolFoldSimulatorRoute = ToolFoldSimulatorRouteImport.update({
   id: '/_tool/fold-simulator',
   path: '/fold-simulator',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ToolLegibilityRoute = ToolLegibilityRouteImport.update({
+  id: '/_tool/legibility',
+  path: '/legibility',
   getParentRoute: () => rootRouteImport,
 } as any)
 const ToolNestingCalcRoute = ToolNestingCalcRouteImport.update({
@@ -66,6 +85,11 @@ const ToolPdfToolsRoute = ToolPdfToolsRouteImport.update({
 const ToolRgbToCmykRoute = ToolRgbToCmykRouteImport.update({
   id: '/_tool/rgb-to-cmyk',
   path: '/rgb-to-cmyk',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ToolScreenPrintRoute = ToolScreenPrintRouteImport.update({
+  id: '/_tool/screen-print',
+  path: '/screen-print',
   getParentRoute: () => rootRouteImport,
 } as any)
 const ToolSpineCalculatorRoute = ToolSpineCalculatorRouteImport.update({
@@ -94,11 +118,15 @@ export interface FileRoutesByFullPath {
   '/sitemap.xml': typeof SitemapDotxmlRoute
   '/barcode-generator': typeof ToolBarcodeGeneratorRoute
   '/bleed-generator': typeof ToolBleedGeneratorRoute
+  '/cmyk-plates': typeof ToolCmykPlatesRoute
+  '/dieline': typeof ToolDielineRoute
   '/dpi-calculator': typeof ToolDpiCalculatorRoute
   '/fold-simulator': typeof ToolFoldSimulatorRoute
+  '/legibility': typeof ToolLegibilityRoute
   '/nesting-calc': typeof ToolNestingCalcRoute
   '/pdf-tools': typeof ToolPdfToolsRoute
   '/rgb-to-cmyk': typeof ToolRgbToCmykRoute
+  '/screen-print': typeof ToolScreenPrintRoute
   '/spine-calculator': typeof ToolSpineCalculatorRoute
   '/spot-finish': typeof ToolSpotFinishRoute
   '/tac-checker': typeof ToolTacCheckerRoute
@@ -109,11 +137,15 @@ export interface FileRoutesByTo {
   '/sitemap.xml': typeof SitemapDotxmlRoute
   '/barcode-generator': typeof ToolBarcodeGeneratorRoute
   '/bleed-generator': typeof ToolBleedGeneratorRoute
+  '/cmyk-plates': typeof ToolCmykPlatesRoute
+  '/dieline': typeof ToolDielineRoute
   '/dpi-calculator': typeof ToolDpiCalculatorRoute
   '/fold-simulator': typeof ToolFoldSimulatorRoute
+  '/legibility': typeof ToolLegibilityRoute
   '/nesting-calc': typeof ToolNestingCalcRoute
   '/pdf-tools': typeof ToolPdfToolsRoute
   '/rgb-to-cmyk': typeof ToolRgbToCmykRoute
+  '/screen-print': typeof ToolScreenPrintRoute
   '/spine-calculator': typeof ToolSpineCalculatorRoute
   '/spot-finish': typeof ToolSpotFinishRoute
   '/tac-checker': typeof ToolTacCheckerRoute
@@ -125,11 +157,15 @@ export interface FileRoutesById {
   '/sitemap.xml': typeof SitemapDotxmlRoute
   '/_tool/barcode-generator': typeof ToolBarcodeGeneratorRoute
   '/_tool/bleed-generator': typeof ToolBleedGeneratorRoute
+  '/_tool/cmyk-plates': typeof ToolCmykPlatesRoute
+  '/_tool/dieline': typeof ToolDielineRoute
   '/_tool/dpi-calculator': typeof ToolDpiCalculatorRoute
   '/_tool/fold-simulator': typeof ToolFoldSimulatorRoute
+  '/_tool/legibility': typeof ToolLegibilityRoute
   '/_tool/nesting-calc': typeof ToolNestingCalcRoute
   '/_tool/pdf-tools': typeof ToolPdfToolsRoute
   '/_tool/rgb-to-cmyk': typeof ToolRgbToCmykRoute
+  '/_tool/screen-print': typeof ToolScreenPrintRoute
   '/_tool/spine-calculator': typeof ToolSpineCalculatorRoute
   '/_tool/spot-finish': typeof ToolSpotFinishRoute
   '/_tool/tac-checker': typeof ToolTacCheckerRoute
@@ -142,11 +178,15 @@ export interface FileRouteTypes {
     | '/sitemap.xml'
     | '/barcode-generator'
     | '/bleed-generator'
+    | '/cmyk-plates'
+    | '/dieline'
     | '/dpi-calculator'
     | '/fold-simulator'
+    | '/legibility'
     | '/nesting-calc'
     | '/pdf-tools'
     | '/rgb-to-cmyk'
+    | '/screen-print'
     | '/spine-calculator'
     | '/spot-finish'
     | '/tac-checker'
@@ -157,11 +197,15 @@ export interface FileRouteTypes {
     | '/sitemap.xml'
     | '/barcode-generator'
     | '/bleed-generator'
+    | '/cmyk-plates'
+    | '/dieline'
     | '/dpi-calculator'
     | '/fold-simulator'
+    | '/legibility'
     | '/nesting-calc'
     | '/pdf-tools'
     | '/rgb-to-cmyk'
+    | '/screen-print'
     | '/spine-calculator'
     | '/spot-finish'
     | '/tac-checker'
@@ -172,11 +216,15 @@ export interface FileRouteTypes {
     | '/sitemap.xml'
     | '/_tool/barcode-generator'
     | '/_tool/bleed-generator'
+    | '/_tool/cmyk-plates'
+    | '/_tool/dieline'
     | '/_tool/dpi-calculator'
     | '/_tool/fold-simulator'
+    | '/_tool/legibility'
     | '/_tool/nesting-calc'
     | '/_tool/pdf-tools'
     | '/_tool/rgb-to-cmyk'
+    | '/_tool/screen-print'
     | '/_tool/spine-calculator'
     | '/_tool/spot-finish'
     | '/_tool/tac-checker'
@@ -188,11 +236,15 @@ export interface RootRouteChildren {
   SitemapDotxmlRoute: typeof SitemapDotxmlRoute
   ToolBarcodeGeneratorRoute: typeof ToolBarcodeGeneratorRoute
   ToolBleedGeneratorRoute: typeof ToolBleedGeneratorRoute
+  ToolCmykPlatesRoute: typeof ToolCmykPlatesRoute
+  ToolDielineRoute: typeof ToolDielineRoute
   ToolDpiCalculatorRoute: typeof ToolDpiCalculatorRoute
   ToolFoldSimulatorRoute: typeof ToolFoldSimulatorRoute
+  ToolLegibilityRoute: typeof ToolLegibilityRoute
   ToolNestingCalcRoute: typeof ToolNestingCalcRoute
   ToolPdfToolsRoute: typeof ToolPdfToolsRoute
   ToolRgbToCmykRoute: typeof ToolRgbToCmykRoute
+  ToolScreenPrintRoute: typeof ToolScreenPrintRoute
   ToolSpineCalculatorRoute: typeof ToolSpineCalculatorRoute
   ToolSpotFinishRoute: typeof ToolSpotFinishRoute
   ToolTacCheckerRoute: typeof ToolTacCheckerRoute
@@ -229,6 +281,20 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof ToolBleedGeneratorRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/_tool/cmyk-plates': {
+      id: '/_tool/cmyk-plates'
+      path: '/cmyk-plates'
+      fullPath: '/cmyk-plates'
+      preLoaderRoute: typeof ToolCmykPlatesRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/_tool/dieline': {
+      id: '/_tool/dieline'
+      path: '/dieline'
+      fullPath: '/dieline'
+      preLoaderRoute: typeof ToolDielineRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/_tool/dpi-calculator': {
       id: '/_tool/dpi-calculator'
       path: '/dpi-calculator'
@@ -241,6 +307,13 @@ declare module '@tanstack/react-router' {
       path: '/fold-simulator'
       fullPath: '/fold-simulator'
       preLoaderRoute: typeof ToolFoldSimulatorRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/_tool/legibility': {
+      id: '/_tool/legibility'
+      path: '/legibility'
+      fullPath: '/legibility'
+      preLoaderRoute: typeof ToolLegibilityRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/_tool/nesting-calc': {
@@ -262,6 +335,13 @@ declare module '@tanstack/react-router' {
       path: '/rgb-to-cmyk'
       fullPath: '/rgb-to-cmyk'
       preLoaderRoute: typeof ToolRgbToCmykRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/_tool/screen-print': {
+      id: '/_tool/screen-print'
+      path: '/screen-print'
+      fullPath: '/screen-print'
+      preLoaderRoute: typeof ToolScreenPrintRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/_tool/spine-calculator': {
@@ -300,11 +380,15 @@ const rootRouteChildren: RootRouteChildren = {
   SitemapDotxmlRoute: SitemapDotxmlRoute,
   ToolBarcodeGeneratorRoute: ToolBarcodeGeneratorRoute,
   ToolBleedGeneratorRoute: ToolBleedGeneratorRoute,
+  ToolCmykPlatesRoute: ToolCmykPlatesRoute,
+  ToolDielineRoute: ToolDielineRoute,
   ToolDpiCalculatorRoute: ToolDpiCalculatorRoute,
   ToolFoldSimulatorRoute: ToolFoldSimulatorRoute,
+  ToolLegibilityRoute: ToolLegibilityRoute,
   ToolNestingCalcRoute: ToolNestingCalcRoute,
   ToolPdfToolsRoute: ToolPdfToolsRoute,
   ToolRgbToCmykRoute: ToolRgbToCmykRoute,
+  ToolScreenPrintRoute: ToolScreenPrintRoute,
   ToolSpineCalculatorRoute: ToolSpineCalculatorRoute,
   ToolSpotFinishRoute: ToolSpotFinishRoute,
   ToolTacCheckerRoute: ToolTacCheckerRoute,
