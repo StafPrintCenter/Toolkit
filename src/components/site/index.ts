@@ -6,4 +6,5 @@ export { ThemeToggle } from "./ThemeToggle";
 export { SpcMobLogo, SpcDeskLogo } from "./SpcLogo";
 export { CtaBanner } from "./CtaBanner";
 export { ImagePicker } from "./ImagePicker";
+export { ToolSwitcher } from "./ToolSwitcher";
 export * from "./Layout";
