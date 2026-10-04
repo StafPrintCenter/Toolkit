@@ -1,6 +1,6 @@
 import { Link } from "@tanstack/react-router";
 import { motion } from "framer-motion";
-import { ToolkitHeader, ToolkitFooter, CtaBanner, CookieConsent } from ".";
+import { ToolkitHeader, ToolSwitcher, ToolkitFooter, CtaBanner, CookieConsent } from ".";
 import { ArrowLeft } from "lucide-react";
 import type { ReactNode } from "react";
 import { CATEGORIES, type ToolItem } from "@/data/toolsRegistry";
