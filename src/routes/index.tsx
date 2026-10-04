@@ -17,7 +17,7 @@ export const Route = createFileRoute("/")({
       { property: "og:description", content: PAGE_DESC },
     ],
   }),
-  component: Dashboard,
+  component: HomePage,
 });
 
 const FILTERS: Array<{ key: ToolCategory | "all"; label: string }> = [
