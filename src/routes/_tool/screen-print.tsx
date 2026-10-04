@@ -7,6 +7,7 @@ import { Slider } from "@/components/ui/slider";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { demoImage, downloadCanvas, rgbPixelToCmyk } from "@/lib/imageTools";
+import { downloadCanvasesZip } from "@/lib/zip";
 import { SITE } from "@/data/site";
 
 const PAGE_TITLE = `Séparateur de typons pour sérigraphie (trame demi-teinte) | ${SITE.tool} | ${SITE.name}`;
@@ -161,6 +162,10 @@ function Page() {
             <canvas ref={composite} className="w-full rounded-xl border border-border" />
           </Panel>
           <Panel title="Films d'insolation (noir opaque)">
+            <Button className="mb-4" onClick={() => downloadCanvasesZip(plates.map((p, i) => ({ name: `spc-typon-${i + 1}-${p.label.toLowerCase().replace(/\s/g, "-")}.png`, canvas: refs.current[i] ?? null })), `spc-typons-${mode}.zip`)}>
+              <Download className="size-4" /> Télécharger tous les films (ZIP)
+            </Button>
+
             <div className="grid gap-4 sm:grid-cols-2">
               {plates.map((p, i) => (
                 <div key={p.label} className="space-y-2">
