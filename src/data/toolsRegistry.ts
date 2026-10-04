@@ -137,6 +137,66 @@ export const TOOLS: ToolItem[] = [
     badge: "Zero-Server",
     ctaText: "PDF conforme ? Déposez-le sur votre brief",
   },
+  {
+    id: "t11",
+    slug: "/spot-finish",
+    title: "Studio Vernis Sélectif & Dorure",
+    shortDescription:
+      "Prévisualisez vernis UV, dorure or ou argent et exportez le masque technique noir 100 %.",
+    category: "prepression",
+    icon: "Sparkles",
+    badge: "Nouveau",
+    ctaText: "Finition premium ? Lancez votre brief",
+    ctaTargetUrl: "https://brief.stafprint.com",
+  },
+  {
+    id: "t12",
+    slug: "/legibility",
+    title: "Lisibilité à Distance & en Mouvement",
+    shortDescription:
+      "Vérifiez qu'une enseigne, une bâche ou un covering véhicule reste lisible selon la distance et la vitesse.",
+    category: "format",
+    icon: "Eye",
+    badge: "Nouveau",
+    ctaText: "Enseigne ou covering ? Demandez un devis",
+    ctaTargetUrl: "https://brief.stafprint.com",
+  },
+  {
+    id: "t13",
+    slug: "/dieline",
+    title: "Tracés de Découpe Packaging",
+    shortDescription:
+      "Générez le patron d'une boîte : coupe, rainage, export SVG et pliage en 3D.",
+    category: "print",
+    icon: "Package",
+    badge: "3D",
+    ctaText: "Packaging prêt ? Lancez la production",
+    ctaTargetUrl: "https://brief.stafprint.com",
+  },
+  {
+    id: "t14",
+    slug: "/screen-print",
+    title: "Typons Sérigraphie",
+    shortDescription:
+      "Tramez votre image en demi-teintes, séparez les couleurs et exportez les films d'insolation.",
+    category: "format",
+    icon: "Brush",
+    badge: "Nouveau",
+    ctaText: "Films prêts ? Confiez-nous la sérigraphie",
+    ctaTargetUrl: "https://brief.stafprint.com",
+  },
+  {
+    id: "t15",
+    slug: "/cmyk-plates",
+    title: "Contrôle des Plaques Offset CMJN",
+    shortDescription:
+      "Affichez chaque plaque C, M, J, N, simulez le repérage et repérez surcharge d'encre et noirs riches.",
+    category: "prepression",
+    icon: "SwatchBook",
+    badge: "Nouveau",
+    ctaText: "Doute sur vos plaques ? Consultez la doc technique",
+    ctaTargetUrl: "https://docs.stafprint.com",
+  },
 ];
 
 export const getTool = (slug: string) => TOOLS.find((t) => t.slug === slug);
