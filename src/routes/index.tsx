@@ -28,7 +28,7 @@ const FILTERS: Array<{ key: ToolCategory | "all"; label: string }> = [
   { key: "pdf", label: `${CATEGORIES.pdf.emoji} PDF` },
 ];
 
-function Dashboard() {
+function HomePage() {
   const [query, setQuery] = useState("");
   const [filter, setFilter] = useState<ToolCategory | "all">("all");
 
