@@ -5,7 +5,7 @@ import { ArrowLeft } from "lucide-react";
 import type { ReactNode } from "react";
 import { CATEGORIES, type ToolItem } from "@/data/toolsRegistry";
 
-export function ToolkitShell({ tool, children }: { tool?: ToolItem; children: ReactNode }) {
+export function ToolkitShell({ tool, children }: { tool?: ToolItem; children?: ReactNode }) {
   const cat = tool ? CATEGORIES[tool.category] : null;
 
   return (
