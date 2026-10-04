@@ -10,6 +10,7 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as CguRouteImport } from './routes/cgu'
 import { Route as SitemapDotxmlRouteImport } from './routes/sitemap[.]xml'
 import { Route as ToolBarcodeGeneratorRouteImport } from './routes/_tool/barcode-generator'
 import { Route as ToolBleedGeneratorRouteImport } from './routes/_tool/bleed-generator'
@@ -30,6 +31,11 @@ import { Route as ToolTextileGuideRouteImport } from './routes/_tool/textile-gui
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const CguRoute = CguRouteImport.update({
+  id: '/cgu',
+  path: '/cgu',
   getParentRoute: () => rootRouteImport,
 } as any)
 const SitemapDotxmlRoute = SitemapDotxmlRouteImport.update({
@@ -115,6 +121,7 @@ const ToolTextileGuideRoute = ToolTextileGuideRouteImport.update({
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/cgu': typeof CguRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
   '/barcode-generator': typeof ToolBarcodeGeneratorRoute
   '/bleed-generator': typeof ToolBleedGeneratorRoute
@@ -134,6 +141,7 @@ export interface FileRoutesByFullPath {
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/cgu': typeof CguRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
   '/barcode-generator': typeof ToolBarcodeGeneratorRoute
   '/bleed-generator': typeof ToolBleedGeneratorRoute
@@ -154,6 +162,7 @@ export interface FileRoutesByTo {
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/cgu': typeof CguRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
   '/_tool/barcode-generator': typeof ToolBarcodeGeneratorRoute
   '/_tool/bleed-generator': typeof ToolBleedGeneratorRoute
@@ -175,6 +184,7 @@ export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
   fullPaths:
     | '/'
+    | '/cgu'
     | '/sitemap.xml'
     | '/barcode-generator'
     | '/bleed-generator'
@@ -194,6 +204,7 @@ export interface FileRouteTypes {
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
+    | '/cgu'
     | '/sitemap.xml'
     | '/barcode-generator'
     | '/bleed-generator'
@@ -213,6 +224,7 @@ export interface FileRouteTypes {
   id:
     | '__root__'
     | '/'
+    | '/cgu'
     | '/sitemap.xml'
     | '/_tool/barcode-generator'
     | '/_tool/bleed-generator'
@@ -233,6 +245,7 @@ export interface FileRouteTypes {
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  CguRoute: typeof CguRoute
   SitemapDotxmlRoute: typeof SitemapDotxmlRoute
   ToolBarcodeGeneratorRoute: typeof ToolBarcodeGeneratorRoute
   ToolBleedGeneratorRoute: typeof ToolBleedGeneratorRoute
@@ -258,6 +271,13 @@ declare module '@tanstack/react-router' {
       path: '/'
       fullPath: '/'
       preLoaderRoute: typeof IndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/cgu': {
+      id: '/cgu'
+      path: '/cgu'
+      fullPath: '/cgu'
+      preLoaderRoute: typeof CguRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/sitemap.xml': {
@@ -377,6 +397,7 @@ declare module '@tanstack/react-router' {
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  CguRoute: CguRoute,
   SitemapDotxmlRoute: SitemapDotxmlRoute,
   ToolBarcodeGeneratorRoute: ToolBarcodeGeneratorRoute,
   ToolBleedGeneratorRoute: ToolBleedGeneratorRoute,
