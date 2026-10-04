@@ -39,7 +39,7 @@ export function ToolkitFooter() {
               to="/cgu"
               className="underline underline-offset-4 transition-colors hover:text-primary"
             >
-              Conditions générales d'utilisation
+              Conditions Générales d'Utilisation
             </Link>
 
             <span className="text-muted-foreground/50">·</span>
