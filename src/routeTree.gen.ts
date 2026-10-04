@@ -19,6 +19,7 @@ import { Route as ToolNestingCalcRouteImport } from './routes/_tool/nesting-calc
 import { Route as ToolPdfToolsRouteImport } from './routes/_tool/pdf-tools'
 import { Route as ToolRgbToCmykRouteImport } from './routes/_tool/rgb-to-cmyk'
 import { Route as ToolSpineCalculatorRouteImport } from './routes/_tool/spine-calculator'
+import { Route as ToolSpotFinishRouteImport } from './routes/_tool/spot-finish'
 import { Route as ToolTacCheckerRouteImport } from './routes/_tool/tac-checker'
 import { Route as ToolTextileGuideRouteImport } from './routes/_tool/textile-guide'
 
@@ -72,6 +73,11 @@ const ToolSpineCalculatorRoute = ToolSpineCalculatorRouteImport.update({
   path: '/spine-calculator',
   getParentRoute: () => rootRouteImport,
 } as any)
+const ToolSpotFinishRoute = ToolSpotFinishRouteImport.update({
+  id: '/_tool/spot-finish',
+  path: '/spot-finish',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const ToolTacCheckerRoute = ToolTacCheckerRouteImport.update({
   id: '/_tool/tac-checker',
   path: '/tac-checker',
@@ -94,6 +100,7 @@ export interface FileRoutesByFullPath {
   '/pdf-tools': typeof ToolPdfToolsRoute
   '/rgb-to-cmyk': typeof ToolRgbToCmykRoute
   '/spine-calculator': typeof ToolSpineCalculatorRoute
+  '/spot-finish': typeof ToolSpotFinishRoute
   '/tac-checker': typeof ToolTacCheckerRoute
   '/textile-guide': typeof ToolTextileGuideRoute
 }
@@ -108,6 +115,7 @@ export interface FileRoutesByTo {
   '/pdf-tools': typeof ToolPdfToolsRoute
   '/rgb-to-cmyk': typeof ToolRgbToCmykRoute
   '/spine-calculator': typeof ToolSpineCalculatorRoute
+  '/spot-finish': typeof ToolSpotFinishRoute
   '/tac-checker': typeof ToolTacCheckerRoute
   '/textile-guide': typeof ToolTextileGuideRoute
 }
@@ -123,6 +131,7 @@ export interface FileRoutesById {
   '/_tool/pdf-tools': typeof ToolPdfToolsRoute
   '/_tool/rgb-to-cmyk': typeof ToolRgbToCmykRoute
   '/_tool/spine-calculator': typeof ToolSpineCalculatorRoute
+  '/_tool/spot-finish': typeof ToolSpotFinishRoute
   '/_tool/tac-checker': typeof ToolTacCheckerRoute
   '/_tool/textile-guide': typeof ToolTextileGuideRoute
 }
@@ -139,6 +148,7 @@ export interface FileRouteTypes {
     | '/pdf-tools'
     | '/rgb-to-cmyk'
     | '/spine-calculator'
+    | '/spot-finish'
     | '/tac-checker'
     | '/textile-guide'
   fileRoutesByTo: FileRoutesByTo
@@ -153,6 +163,7 @@ export interface FileRouteTypes {
     | '/pdf-tools'
     | '/rgb-to-cmyk'
     | '/spine-calculator'
+    | '/spot-finish'
     | '/tac-checker'
     | '/textile-guide'
   id:
@@ -167,6 +178,7 @@ export interface FileRouteTypes {
     | '/_tool/pdf-tools'
     | '/_tool/rgb-to-cmyk'
     | '/_tool/spine-calculator'
+    | '/_tool/spot-finish'
     | '/_tool/tac-checker'
     | '/_tool/textile-guide'
   fileRoutesById: FileRoutesById
@@ -182,6 +194,7 @@ export interface RootRouteChildren {
   ToolPdfToolsRoute: typeof ToolPdfToolsRoute
   ToolRgbToCmykRoute: typeof ToolRgbToCmykRoute
   ToolSpineCalculatorRoute: typeof ToolSpineCalculatorRoute
+  ToolSpotFinishRoute: typeof ToolSpotFinishRoute
   ToolTacCheckerRoute: typeof ToolTacCheckerRoute
   ToolTextileGuideRoute: typeof ToolTextileGuideRoute
 }
@@ -258,6 +271,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof ToolSpineCalculatorRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/_tool/spot-finish': {
+      id: '/_tool/spot-finish'
+      path: '/spot-finish'
+      fullPath: '/spot-finish'
+      preLoaderRoute: typeof ToolSpotFinishRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/_tool/tac-checker': {
       id: '/_tool/tac-checker'
       path: '/tac-checker'
@@ -286,6 +306,7 @@ const rootRouteChildren: RootRouteChildren = {
   ToolPdfToolsRoute: ToolPdfToolsRoute,
   ToolRgbToCmykRoute: ToolRgbToCmykRoute,
   ToolSpineCalculatorRoute: ToolSpineCalculatorRoute,
+  ToolSpotFinishRoute: ToolSpotFinishRoute,
   ToolTacCheckerRoute: ToolTacCheckerRoute,
   ToolTextileGuideRoute: ToolTextileGuideRoute,
 }
