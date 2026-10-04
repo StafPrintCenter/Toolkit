@@ -42,9 +42,27 @@ const SECTIONS: { t: string; p: string[] }[] = [
       "Des préférences techniques (par exemple le thème clair ou sombre) sont enregistrées localement sur votre appareil. Des statistiques de fréquentation anonymessont collectées pour améliorer le service."
     ]
   },
-  { t: "4. Nature des résultats", p: ["Les outils fournissent des simulations et des aides à la décision (conversions CMJN, diagnostics DPI, TAC, tracés de découpe, typons, séparations…). Les rendus à l'écran ne remplacent ni une épreuve contractuelle, ni un contrôle prépresse professionnel.", "Il appartient à l'utilisateur de vérifier ses fichiers avant toute impression. Pour une production, l'équipe STAF PRINT CENTER réalise un contrôle via brief.stafprint.com."] },
-  { t: "5. Responsabilité", p: ["STAF PRINT CENTER met en œuvre les moyens raisonnables pour assurer l'exactitude des outils, sans garantie de résultat. Sa responsabilité ne saurait être engagée pour tout dommage direct ou indirect résultant de l'utilisation des outils, d'erreurs de calcul, d'une indisponibilité du service ou d'une impression réalisée par un tiers.", "L'utilisateur est seul responsable des contenus qu'il importe et garantit disposer des droits nécessaires sur ceux-ci."] },
-  { t: "6. Propriété intellectuelle", p: ["La marque, le logo, les textes, les illustrations et le code du service sont la propriété de STAF PRINT CENTER. Toute reproduction non autorisée est interdite.", "Les fichiers exportés à partir de vos propres visuels (gabarits, masques, films, QR codes…) restent votre propriété et peuvent être librement utilisés."] },
+  {
+    t: "4. Nature des résultats",
+    p: [
+      "Les outils fournissent des simulations et des aides à la décision (conversions CMJN, diagnostics DPI, TAC, tracés de découpe, typons, séparations…). Les rendus à l'écran ne remplacent ni une épreuve contractuelle, ni un contrôle prépresse professionnel.",
+      `Il appartient à l'utilisateur de vérifier ses fichiers avant toute impression. Pour une production, l'équipe ${SITE.name} réalise un contrôle via ${stripProtocol(SITE_LINK.briefUrl)}.`
+    ]
+  },
+  {
+    t: "5. Responsabilité",
+    p: [
+      `${SITE.name} met en œuvre les moyens raisonnables pour assurer l'exactitude des outils, sans garantie de résultat. Sa responsabilité ne saurait être engagée pour tout dommage direct ou indirect résultant de l'utilisation des outils, d'erreurs de calcul, d'une indisponibilité du service ou d'une impression réalisée par un tiers.`,
+      "L'utilisateur est seul responsable des contenus qu'il importe et garantit disposer des droits nécessaires sur ceux-ci."
+    ]
+  },
+  {
+    t: "6. Propriété intellectuelle",
+    p: [
+      `La marque, le logo, les textes, les illustrations et le code du service sont la propriété de ${SITE.name}. Toute reproduction non autorisée est interdite.`
+      , "Les fichiers exportés à partir de vos propres visuels (gabarits, masques, films, QR codes…) restent votre propriété et peuvent être librement utilisés."
+    ]
+  },
   { t: "7. Usage acceptable", p: ["L'utilisateur s'engage à ne pas détourner le service, perturber son fonctionnement, ni l'utiliser à des fins illicites ou pour produire des contenus contrefaisants."] },
   { t: "8. Liens externes et soutien", p: ["Le service contient des liens vers des sites tiers (FedaPay pour les dons, roadmap, documentation). STAF PRINT CENTER n'est pas responsable de leur contenu. Les dons sont volontaires et ne donnent droit à aucune contrepartie."] },
   { t: "9. Modification des CGU", p: ["Les présentes CGU peuvent être modifiées à tout moment. La version applicable est celle en ligne au moment de l'utilisation."] },
