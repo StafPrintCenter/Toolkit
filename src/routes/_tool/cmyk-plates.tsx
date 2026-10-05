@@ -54,7 +54,9 @@ function Page() {
     for (let i = 0; i < n; i++) {
       // GCR léger : on transfère une partie du gris commun vers le noir
       const [c, m, y, k] = rgbPixelToCmyk(data[i * 4]!, data[i * 4 + 1]!, data[i * 4 + 2]!);
-      const vals = [c * 0.95 + k * 0.6 * (1 - c), m * 0.92 + k * 0.5 * (1 - m), y * 0.92 + k * 0.5 * (1 - y), k];
+      // Séparation soustractive pure, sans mélange entre plaques.
+      // Les traces < 4 % (bruit de compression JPG) sont ramenées à 0.
+      const vals = [c, m, y, k].map((v) => (v < 0.04 ? 0 : v));
       for (let j = 0; j < 4; j++) { ch[j]![i] = Math.min(1, vals[j]!); sums[j]! += ch[j]![i]!; }
     }
     return { w, h, ch, coverage: sums.map((s) => (s / n) * 100) };
