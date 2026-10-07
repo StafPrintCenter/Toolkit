@@ -6,7 +6,6 @@ import { getTool } from "@/data/toolsRegistry";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import { SITE } from "@/data/site";
-import { useIsMobile } from "@/hooks/use-mobile";
 
 const PAGE_TITLE = `Imposition livret piqûre à cheval : ordre des pages et PDF imposé | ${SITE.tool} | ${SITE.name}`;
 const PAGE_DESC = `Calculez le montage d'un livret agrafé (P8/P1, P2/P7…) et imposez votre PDF en planches recto-verso avec chasse, gouttière et repères, sans serveur.`;
