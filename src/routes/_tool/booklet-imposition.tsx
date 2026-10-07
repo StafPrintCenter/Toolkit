@@ -13,13 +13,14 @@ const PAGE_DESC = `Calculez le montage d'un livret agrafé (P8/P1, P2/P7…) et 
 const tool = getTool("/booklet-imposition")!;
 
 export const Route = createFileRoute("/_tool/booklet-imposition")({
-  staticData: { sitemap: true },
-  head: () =>
-    toolMeta(
-      "Imposition livret piqûre à cheval : ordre des pages et PDF imposé | SPC Toolkit",
-      "Calculez le montage d'un livret agrafé (P8/P1, P2/P7…) et imposez votre PDF en planches recto-verso avec chasse, gouttière et repères, sans serveur.",
-      "/booklet-imposition",
-    ),
+  head: () => ({
+    meta: [
+      { title: PAGE_TITLE },
+      { name: "description", content: PAGE_DESC },
+      { property: "og:title", content: PAGE_TITLE },
+      { property: "og:description", content: PAGE_DESC },
+    ],
+  }),
   component: Page,
 });
 
