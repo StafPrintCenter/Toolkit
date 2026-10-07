@@ -255,7 +255,7 @@ function Page() {
     `rounded-lg border px-3 py-1.5 text-sm ${on ? "border-primary bg-accent/60 font-medium" : "border-border hover:border-primary/50"}`;
 
   return (
-    <ToolShell tool={tool}>
+    <ToolkitShell tool={tool}>
       <div className="grid gap-6 lg:grid-cols-[400px_1fr]">
         <div className="space-y-6">
           <Panel title="Document">
