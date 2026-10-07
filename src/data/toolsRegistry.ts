@@ -191,8 +191,7 @@ export const TOOLS: ToolItem[] = [
     id: "t16",
     slug: "/booklet-imposition",
     title: "Imposition Livret & Piqûre à cheval",
-    shortDescription:
-      "Calculez l'ordre des pages d'un livret agrafé et imposez votre PDF en planches recto-verso prêtes pour l'atelier.",
+    shortDescription: "Calculez l'ordre des pages d'un livret agrafé et imposez votre PDF en planches recto-verso prêtes pour l'atelier.",
     category: "prepression",
     icon: "BookOpenText",
     badge: "PDF & Atelier",
