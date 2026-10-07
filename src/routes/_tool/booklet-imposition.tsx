@@ -1,8 +1,7 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { useMemo, useState } from "react";
 import { AlertTriangle, Download, FileText, Loader2, Upload, X } from "lucide-react";
-import { toolMeta } from "@/lib/seo";
-import { Field, Panel, Stat, ToolShell } from "@/components/spc/Layout";
+import { ToolkitShell, Field, Panel, Stat } from "@/components/site";
 import { getTool } from "@/data/toolsRegistry";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
