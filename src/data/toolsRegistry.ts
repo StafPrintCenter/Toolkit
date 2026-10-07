@@ -187,6 +187,17 @@ export const TOOLS: ToolItem[] = [
     badge: "Nouveau",
     ctaText: "Doute sur vos plaques ? Consultez la doc technique",
   },
+  {
+    id: "t16",
+    slug: "/booklet-imposition",
+    title: "Imposition Livret & Piqûre à cheval",
+    shortDescription:
+      "Calculez l'ordre des pages d'un livret agrafé et imposez votre PDF en planches recto-verso prêtes pour l'atelier.",
+    category: "prepression",
+    icon: "BookOpenText",
+    badge: "PDF & Atelier",
+    ctaText: "Livret imposé ? Lancez la production",
+  },
 ];
 
 export const getTool = (slug: string) => TOOLS.find((t) => t.slug === slug);
