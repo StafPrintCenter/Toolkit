@@ -14,6 +14,7 @@ import { Route as CguRouteImport } from './routes/cgu'
 import { Route as SitemapDotxmlRouteImport } from './routes/sitemap[.]xml'
 import { Route as ToolBarcodeGeneratorRouteImport } from './routes/_tool/barcode-generator'
 import { Route as ToolBleedGeneratorRouteImport } from './routes/_tool/bleed-generator'
+import { Route as ToolBookletImpositionRouteImport } from './routes/_tool/booklet-imposition'
 import { Route as ToolCmykPlatesRouteImport } from './routes/_tool/cmyk-plates'
 import { Route as ToolDielineRouteImport } from './routes/_tool/dieline'
 import { Route as ToolDpiCalculatorRouteImport } from './routes/_tool/dpi-calculator'
@@ -51,6 +52,11 @@ const ToolBarcodeGeneratorRoute = ToolBarcodeGeneratorRouteImport.update({
 const ToolBleedGeneratorRoute = ToolBleedGeneratorRouteImport.update({
   id: '/_tool/bleed-generator',
   path: '/bleed-generator',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ToolBookletImpositionRoute = ToolBookletImpositionRouteImport.update({
+  id: '/_tool/booklet-imposition',
+  path: '/booklet-imposition',
   getParentRoute: () => rootRouteImport,
 } as any)
 const ToolCmykPlatesRoute = ToolCmykPlatesRouteImport.update({
@@ -125,6 +131,7 @@ export interface FileRoutesByFullPath {
   '/sitemap.xml': typeof SitemapDotxmlRoute
   '/barcode-generator': typeof ToolBarcodeGeneratorRoute
   '/bleed-generator': typeof ToolBleedGeneratorRoute
+  '/booklet-imposition': typeof ToolBookletImpositionRoute
   '/cmyk-plates': typeof ToolCmykPlatesRoute
   '/dieline': typeof ToolDielineRoute
   '/dpi-calculator': typeof ToolDpiCalculatorRoute
@@ -145,6 +152,7 @@ export interface FileRoutesByTo {
   '/sitemap.xml': typeof SitemapDotxmlRoute
   '/barcode-generator': typeof ToolBarcodeGeneratorRoute
   '/bleed-generator': typeof ToolBleedGeneratorRoute
+  '/booklet-imposition': typeof ToolBookletImpositionRoute
   '/cmyk-plates': typeof ToolCmykPlatesRoute
   '/dieline': typeof ToolDielineRoute
   '/dpi-calculator': typeof ToolDpiCalculatorRoute
@@ -166,6 +174,7 @@ export interface FileRoutesById {
   '/sitemap.xml': typeof SitemapDotxmlRoute
   '/_tool/barcode-generator': typeof ToolBarcodeGeneratorRoute
   '/_tool/bleed-generator': typeof ToolBleedGeneratorRoute
+  '/_tool/booklet-imposition': typeof ToolBookletImpositionRoute
   '/_tool/cmyk-plates': typeof ToolCmykPlatesRoute
   '/_tool/dieline': typeof ToolDielineRoute
   '/_tool/dpi-calculator': typeof ToolDpiCalculatorRoute
@@ -188,6 +197,7 @@ export interface FileRouteTypes {
     | '/sitemap.xml'
     | '/barcode-generator'
     | '/bleed-generator'
+    | '/booklet-imposition'
     | '/cmyk-plates'
     | '/dieline'
     | '/dpi-calculator'
@@ -208,6 +218,7 @@ export interface FileRouteTypes {
     | '/sitemap.xml'
     | '/barcode-generator'
     | '/bleed-generator'
+    | '/booklet-imposition'
     | '/cmyk-plates'
     | '/dieline'
     | '/dpi-calculator'
@@ -228,6 +239,7 @@ export interface FileRouteTypes {
     | '/sitemap.xml'
     | '/_tool/barcode-generator'
     | '/_tool/bleed-generator'
+    | '/_tool/booklet-imposition'
     | '/_tool/cmyk-plates'
     | '/_tool/dieline'
     | '/_tool/dpi-calculator'
@@ -249,6 +261,7 @@ export interface RootRouteChildren {
   SitemapDotxmlRoute: typeof SitemapDotxmlRoute
   ToolBarcodeGeneratorRoute: typeof ToolBarcodeGeneratorRoute
   ToolBleedGeneratorRoute: typeof ToolBleedGeneratorRoute
+  ToolBookletImpositionRoute: typeof ToolBookletImpositionRoute
   ToolCmykPlatesRoute: typeof ToolCmykPlatesRoute
   ToolDielineRoute: typeof ToolDielineRoute
   ToolDpiCalculatorRoute: typeof ToolDpiCalculatorRoute
@@ -299,6 +312,13 @@ declare module '@tanstack/react-router' {
       path: '/bleed-generator'
       fullPath: '/bleed-generator'
       preLoaderRoute: typeof ToolBleedGeneratorRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/_tool/booklet-imposition': {
+      id: '/_tool/booklet-imposition'
+      path: '/booklet-imposition'
+      fullPath: '/booklet-imposition'
+      preLoaderRoute: typeof ToolBookletImpositionRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/_tool/cmyk-plates': {
@@ -401,6 +421,7 @@ const rootRouteChildren: RootRouteChildren = {
   SitemapDotxmlRoute: SitemapDotxmlRoute,
   ToolBarcodeGeneratorRoute: ToolBarcodeGeneratorRoute,
   ToolBleedGeneratorRoute: ToolBleedGeneratorRoute,
+  ToolBookletImpositionRoute: ToolBookletImpositionRoute,
   ToolCmykPlatesRoute: ToolCmykPlatesRoute,
   ToolDielineRoute: ToolDielineRoute,
   ToolDpiCalculatorRoute: ToolDpiCalculatorRoute,
