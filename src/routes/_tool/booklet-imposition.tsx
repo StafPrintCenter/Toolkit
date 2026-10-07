@@ -129,12 +129,12 @@ function Page() {
 
   const consigne = () => {
     const lines = [
-      "STAF PRINT CENTER — Consigne atelier : Imposition livret piqûre à cheval",
+      "STAF PRINT CENTER - Consigne atelier : Imposition livret piqûre à cheval",
       "=".repeat(70),
       `Document : ${file?.name ?? "simulation"}`,
-      `Pages d'origine : ${count} — Pages imposées : ${N} (${blanks} page(s) blanche(s) ajoutée(s) en fin)`,
-      `Feuilles : ${sheets.length} — Format page : ${fmtName} — Planche : ${Math.round(plate.w)} × ${Math.round(plate.h)} mm`,
-      `Reliure : ${binding === "long" ? "bord long (classique)" : "bord court (à l'italienne)"} — Gouttière : ${gutter} mm`,
+      `Pages d'origine : ${count} - Pages imposées : ${N} (${blanks} page(s) blanche(s) ajoutée(s) en fin)`,
+      `Feuilles : ${sheets.length} - Format page : ${fmtName} - Planche : ${Math.round(plate.w)} × ${Math.round(plate.h)} mm`,
+      `Reliure : ${binding === "long" ? "bord long (classique)" : "bord court (à l'italienne)"} - Gouttière : ${gutter} mm`,
       `Chasse : ${creepOn ? `${paper.label}, ${paper.t} mm/feuille, total ${totalCreep.toFixed(2)} mm` : "non appliquée"}`,
       `Impression : ${duplex ? "recto-verso continu (duplex)" : "deux passes (rectos puis versos)"}`,
       binding === "long" ? "Retournement : bord long" : "Retournement : bord court",
