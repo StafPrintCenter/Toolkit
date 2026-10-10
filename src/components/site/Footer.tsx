@@ -45,7 +45,7 @@ export function ToolkitFooter() {
             <span className="text-muted-foreground/50">·</span>
 
             <a
-              href={`${SITE_LINK.docsUrl}/docs/tools/guide-complet`}
+              href={`${SITE_LINK.docsUrl}/docs/tools/index`}
               target="_blank"
               rel="noopener noreferrer"
               className="underline underline-offset-4 transition-colors hover:text-primary"
